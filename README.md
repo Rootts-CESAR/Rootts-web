@@ -21,7 +21,7 @@ Back-End:
 <br>
 <ul> 
   <li>SQLite</li>
-  <li>Django</li>
+  <li>Flask</li>
 </ul>
 
 Front-End:
