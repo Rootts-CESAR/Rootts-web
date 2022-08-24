@@ -14,9 +14,8 @@ Equipe:
 <br>
 <h2> No que consiste o nosso projeto? </h2>
   
-<p>Nosso projeto consiste em um site que irá armazenar os dados obtidos através do nosso projeto físico.</p>
+<p>Nosso projeto consiste em um site com design adaptável que irá armazenar os dados obtidos através do nosso projeto físico.</p>
 <p>Iremos utilizar as seguintes tecnologias:</p>
-
 
 Back-End:
 <br>
@@ -31,6 +30,3 @@ Front-End:
   <li>Linguagem: Javascript</li>
   <li>Framework: ReactJS</li>
 </ul>
-  
-  
-  
