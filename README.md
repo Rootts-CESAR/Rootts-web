@@ -27,6 +27,5 @@ Back-End:
 Front-End:
 <br>
 <ul> 
-  <li>Linguagem: Javascript</li>
-  <li>Framework: ReactJS</li>
+  <li>ReactJS</li>
 </ul>
