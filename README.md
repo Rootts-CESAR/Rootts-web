@@ -1,4 +1,4 @@
-<h1>Roots web project</h1>
+<h1>Roots: notificador de risco de deslizamento</h1>
 
 <h2>Equipe:</h2>
 
