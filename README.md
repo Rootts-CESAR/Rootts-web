@@ -10,7 +10,7 @@
 <li><a href = "https://www.linkedin.com/in/davi-aleixo-548b55b8/" target = "_blank">Davi Aleixo Carvalho</a></li> (Backend);
 <li><a href = "https://www.linkedin.com/in/lucas-rocha-603683246/" target = "_blank">Lucas Duarte Freitas Rocha</a></li> (Mobile);
 </ul>
-<h2> O que é O projeto? </h2>
+<h2> O que é o projeto? </h2>
   
 <p>Um site que opera como notificador de risco de deslizamento, baseado num banco de dados que deve ser alimentando tanto por um artefato pluviométrico como informações relevantes ao cálculo de risco de deslizamento de encostas.</p>
 
