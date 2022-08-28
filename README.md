@@ -15,7 +15,7 @@
 <p>Um site que opera como notificador de risco de deslizamento, baseado num banco de dados que deve ser alimentando tanto por um artefato pluviométrico como informações relevantes ao cálculo de risco de deslizamento de encostas.</p>
 
 <h2> Como o projeto funciona? </h2>
-<p>Devido às restrições da disciplina, iremos utilizar um banco de dados local via SQLite. Os dados dentro deste banco devem ser lidos e interpretados pela aplicação avaliando o risco de deslizamento em um dado local, enviando notificações caso necessário.</p>
+<p>Devido às restrições da disciplina, iremos utilizar um banco de dados local via SQLite. Os dados dentro deste banco devem ser lidos e interpretados pela aplicação avaliando o risco de deslizamento em um dado local, enviando notificações caso necessário. O artefato pluviométrico deve conferir entrada automática de valores referentes ao volume de chuva. Já as informações relevantes ao cálculo de risco devem ser inseridas no sistema manualmente ao catalogar uma determinada encosta.</p>
 
 <h2> Como o projeto é útil? </h2>
 <p>De um lado, a digitalização da captação e organização de dados referente a encostas em risco de deslizamento apresenta uma melhoria em relação ao método atual de armazeno e manejo de dados, ainda feito no papel pela Defesa Civil. Do outro, o artefato pluviométrico apresenta uma alternativa precisa para a avaliação de risco de uma encosta em tempo real.</p>
