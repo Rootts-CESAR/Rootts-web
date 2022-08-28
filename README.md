@@ -46,7 +46,7 @@ Frontend:
 </ul>
 <h2> What is the project? </h2>
   
-<p>A website that operates as a landslide risk notifier, relying on a database that must be able to be feed by a pluviometric artefact and by information pertaining to the calculation of landslide risk. *In this first iteration and for the purposes of the Foundations of Software Engineering class, we will be utilizing a local database that works with manual input of data.*</p>
+<p>A website that operates as a landslide risk notifier, relying on a database that must be able to be feed by a pluviometric artefact and by information pertaining to the calculation of landslide risk. *In this first iteration and for the purposes of the Foundations of Software Engineering class, we will be utilizing a local database that works only with manual input of data.*</p>
 
 <h2> How does the project work? </h2>
 <p>We will use a local database via SQLite. The data within this database must be read and interpreted by the application, assessing the risk of landslides in a given location, sending notifications if necessary. The pluviometric artifact must provide automatic entry of values referring to the volume of rain. The information relevant to the risk calculation must be manually entered into the system when cataloging a particular slope.</p>
