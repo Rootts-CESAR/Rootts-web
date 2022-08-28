@@ -12,10 +12,14 @@ Equipe:
   
 </ul>
 <br>
-<h2> No que consiste o nosso projeto? </h2>
+<h2> O que o projeto faz? </h2>
   
-<p>Nosso projeto consiste em um site com design adaptável que irá armazenar os dados obtidos através do nosso projeto físico.</p>
-<p>Iremos utilizar as seguintes tecnologias:</p>
+<p>Um site que opera como notificador de risco de deslizamento.</p>
+
+<h2> Como o projeto funciona? </h2>
+<p>Para os propósitos da disciplina, iremos utilizar um banco de dados local via SQLite. Os dados dentro deste banco devem ser lidos e interpretados pela aplicação avaliando o risco de deslizamento em um dado local, enviando notificações caso necessário.</p>
+
+<h2>Tecnologias utilizadas:</h2>
 
 Back-End:
 <br>
