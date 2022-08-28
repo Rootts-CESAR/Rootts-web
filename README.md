@@ -1,4 +1,4 @@
-<h1>Roots: notificador de risco de deslizamento (PTBR - ENG)</h1>
+<h1>Roots: notificador de risco de deslizamento (PTBR)</h1>
 
 <h2>Equipe:</h2>
 
@@ -33,7 +33,7 @@ Frontend:
   <li>ReactJS</li>
 </ul>
 
-<h1>English Version</h1>
+<h1>Roots: notificador de risco de deslizamento (ENG)</h1>
 <h2>Team:</h2>
 
 <ul>
