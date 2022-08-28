@@ -48,10 +48,10 @@ Frontend:
   
 <p>A website that operates as a landslide risk notifier, relying on a database that must be feed by a pluviometric artefact and information pertaining to the calculation of landslide risk.</p>
 
-<h2> Como o projeto funciona? </h2>
-<p>Due to discipline restrictions, we will use a local database via SQLite. The data within this database must be read and interpreted by the application, assessing the risk of landslides in a given location, sending notifications if necessary. The pluviometric artifact must provide automatic entry of values referring to the volume of rain. The information relevant to the risk calculation must be manually entered into the system when cataloging a particular slope.</p>
+<h2> How does the project work? </h2>
+<p>Due to class restrictions, we will use a local database via SQLite. The data within this database must be read and interpreted by the application, assessing the risk of landslides in a given location, sending notifications if necessary. The pluviometric artifact must provide automatic entry of values referring to the volume of rain. The information relevant to the risk calculation must be manually entered into the system when cataloging a particular slope.</p>
 
-<h2> Como o projeto é útil? </h2>
+<h2> How is the project useful? </h2>
 <p>On the one hand, the digitization of the capture and organization of data referring to slopes at risk of landslides presents an improvement in relation to the current method of storing and managing data, still done on paper by the Civil Defense. On the other hand, the pluviometric artifact presents an accurate alternative for the risk assessment of a slope in real time.</p>
 
 <h2>Tools utilized:</h2>
