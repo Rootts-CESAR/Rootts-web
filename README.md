@@ -1,6 +1,6 @@
 <h1>Roots web project</h1>
 
-Equipe:
+<h2>Equipe:</h2>
 
 <ul>
 <li><a href = "https://www.linkedin.com/in/lucas-rocha-603683246/" target = "_blank">Lucas Duarte Freitas Rocha</a></li>
