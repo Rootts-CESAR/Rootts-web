@@ -19,14 +19,14 @@
 
 <h2>Tecnologias utilizadas:</h2>
 
-Back-End:
+Backend:
 <br>
 <ul> 
   <li>SQLite</li>
   <li>Flask</li>
 </ul>
 
-Front-End:
+Frontend:
 <br>
 <ul> 
   <li>ReactJS</li>
