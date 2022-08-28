@@ -32,7 +32,7 @@ Frontend:
 <ul> 
   <li>ReactJS</li>
 </ul>
-
+<br>
 <h1>Rootts: landslide risk notifier (ENG)</h1>
 <h2>Team:</h2>
 
