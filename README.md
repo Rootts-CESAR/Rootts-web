@@ -9,9 +9,7 @@ Equipe:
 <li><a href = "https://www.linkedin.com/in/matheus-lazzarotto/" target = "_blank">Matheus Vilaverde Lazzarotto</a></li>
 <li><a href = "https://www.linkedin.com/in/luis-adolfo-araujo-703a721aa/" target = "_blank">Luis Adolfo Alves De Araújo Neto</a></li>
 <li><a href = "https://www.linkedin.com/in/davi-aleixo-548b55b8/" target = "_blank">Davi Aleixo Carvalho</a></li>
-  
 </ul>
-<br>
 <h2> O que o projeto faz? </h2>
   
 <p>Um site que opera como notificador de risco de deslizamento.</p>
