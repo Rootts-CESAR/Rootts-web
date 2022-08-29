@@ -24,13 +24,13 @@
 
 Backend:
 <ul> 
-  <li>SQLite</li>
-  <li>Flask</li>
+  <li><img src="https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white"/></li>
+  <li><img src="https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white"/></li>
 </ul>
 
 Frontend:
 <ul> 
-  <li>ReactJS</li>
+  <li><img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB"/></li>
 </ul>
 <br>
 <h1>Rootts: landslide risk notifier (ENG)</h1>
@@ -58,11 +58,11 @@ Frontend:
 
 Backend:
 <ul> 
-  <li>SQLite</li>
-  <li>Flask</li>
+  <li><img src="https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white"/></li>
+  <li><img src="https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white"/></li>
 </ul>
 
 Frontend:
 <ul> 
-  <li>ReactJS</li>
+  <li><img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB"/></li>
 </ul>
