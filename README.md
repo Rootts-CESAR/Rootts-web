@@ -24,13 +24,13 @@
 
 Backend:
 <ul> 
-  <a href= https://www.sqlite.org/docs.html><img src="https://img.shields.io/badge/sqlite-%2307405e.svg?style=flat-square&logo=sqlite&logoColor=white"/></a><br>
-  <a href= https://flask.palletsprojects.com/en/2.2.x/><img src="https://img.shields.io/badge/flask-%23000.svg?style=flat-square&logo=flask&logoColor=white"/></a>
+  <a href= https://www.sqlite.org/docs.html><img src="https://img.shields.io/badge/SQLite-%2307405e.svg?style=flat-square&logo=sqlite&logoColor=white"/></a><br>
+  <a href= https://flask.palletsprojects.com/en/2.2.x/><img src="https://img.shields.io/badge/Flask-%23000.svg?style=flat-square&logo=flask&logoColor=white"/></a>
 </ul>
 
 Frontend:
 <ul> 
-  <a href= https://reactjs.org/docs/getting-started.html><img src="https://img.shields.io/badge/react-%2320232a.svg?style=flat-square&logo=react&logoColor=%2361DAFB"/></a>
+  <a href= https://reactjs.org/docs/getting-started.html><img src="https://img.shields.io/badge/ReactJS-%2320232a.svg?style=flat-square&logo=react&logoColor=%2361DAFB"/></a>
 </ul>
 <br>
 <h1>Rootts: landslide risk notifier (ENG)</h1>
