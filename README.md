@@ -12,10 +12,10 @@
 </ul>
 <h2> O que é o projeto? </h2>
   
-<p>Um site que opera como notificador de risco de deslizamento, baseado num banco de dados que deve ser capaz de ser alimentado tanto por um artefato pluviométrico como informações relevantes ao cálculo de risco de deslizamento de encostas. *Nesta primeira iteração e para os propósitos da disciplina de Fundamentos de Desenvolvimento de Software, iremos nos restringir a usar um banco de dados que funciona apenas com entrada manual de dados.*</p>
+<p>Um site que opera como notificador de risco de deslizamento, baseado num banco de dados que deve ser capaz de ser alimentado tanto por um artefato pluviométrico como informações relevantes ao cálculo de risco de deslizamento de encostas. *Nesta primeira iteração e para os propósitos da disciplina de Fundamentos de Desenvolvimento de Software, iremos nos restringir a usar um banco de dados que funciona apenas com entrada manual de dados, sem o uso do pluviometro.*</p>
 
 <h2> Como o projeto funciona? </h2>
-<p>Iremos utilizar um banco de dados local via SQLite. Os dados dentro deste banco devem ser lidos e interpretados pela aplicação avaliando o risco de deslizamento em um dado local, enviando notificações caso necessário. O artefato pluviométrico deve conferir entrada automática de valores referentes ao volume de chuva. Já as informações relevantes ao cálculo de risco devem ser inseridas no sistema manualmente ao catalogar uma determinada encosta.</p>
+<p>Iremos utilizar um banco de dados local via SQLite. Os dados dentro deste banco devem ser lidos e interpretados pela aplicação avaliando o risco de deslizamento em um dado local, enviando notificações caso necessário. O artefato pluviométrico deve conferir entrada automática de valores referentes ao volume de chuva (lembrando que o pluviometro ainda não será incorporado nesse estágio do projeto). Já as informações relevantes ao cálculo de risco devem ser inseridas no sistema manualmente ao catalogar uma determinada encosta.</p>
 
 <h2> Por que o projeto é útil? </h2>
 <p>De um lado, a digitalização da captação e organização de dados referente a encostas em risco de deslizamento apresenta uma melhoria em relação ao método atual de armazeno e manejo de dados, ainda feito no papel pela Defesa Civil. Do outro, o artefato pluviométrico apresenta uma alternativa precisa para a avaliação de risco de uma encosta em tempo real.</p>
@@ -46,10 +46,10 @@ Frontend:
 </ul>
 <h2> What is the project? </h2>
   
-<p>A website that operates as a landslide risk notifier, relying on a database that must be able to be feed by a pluviometric artefact and by information pertaining to the calculation of landslide risk. *In this first iteration and for the purposes of the Foundations of Software Engineering class, we will be utilizing a local database that works only with manual input of data.*</p>
+<p>A website that operates as a landslide risk notifier, relying on a database that must be able to be feed by a pluviometric artefact and by information pertaining to the calculation of landslide risk. *In this first iteration and for the purposes of the Foundations of Software Engineering class, we will be utilizing a local database that works only with manual input of data, without the use of the pluviometric artefact.*</p>
 
 <h2> How does the project work? </h2>
-<p>We will use a local database via SQLite. The data within this database must be read and interpreted by the application, assessing the risk of landslides in a given location, sending notifications if necessary. The pluviometric artifact must provide automatic entry of values referring to the volume of rain. The information relevant to the risk calculation must be manually entered into the system when cataloging a particular slope.</p>
+<p>We will use a local database via SQLite. The data within this database must be read and interpreted by the application, assessing the risk of landslides in a given location, sending notifications if necessary. The pluviometric artifact must provide automatic entry of values referring to the volume of rain (as it was said, the pluviometric artefact will not be integrated into this iterarion of the project). The information relevant to the risk calculation must be manually entered into the system when cataloging a particular slope.</p>
 
 <h2> How is the project useful? </h2>
 <p>On the one hand, the digitization of the capture and organization of data referring to slopes at risk of landslides presents an improvement in relation to the current method of storing and managing data, still done on paper by the Civil Defense. On the other hand, the pluviometric artifact presents an accurate alternative for the risk assessment of a slope in real time.</p>
