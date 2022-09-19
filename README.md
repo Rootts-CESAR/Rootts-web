@@ -33,11 +33,6 @@ Frontend:
   <a href= https://reactjs.org/docs/getting-started.html><img src="https://img.shields.io/badge/ReactJS-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB"/></a>
 </ul>
 
-<h2>Bibliografia:</h2>
-
-<p>CODECIR, "Avaliação das Ações de Prevenção de Deslizamento de Encostas (AADPE)", 2012. 
-  Disponível em: https://www.tce.pe.gov.br/internet/docs/anop/2543/microsoft-word-relat-auditoria-codecir-pcr-proc-1002037-8-consolidado.pdf</p>
-
 <br>
 <h1>Rootts: landslide risk notifier (ENG)</h1>
 <h2>Team:</h2>
@@ -72,3 +67,8 @@ Frontend:
 <ul> 
   <a href= https://reactjs.org/docs/getting-started.html><img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB"/></a>
 </ul>
+
+<h2>Referências/References</h2>
+
+<p>CODECIR, "Avaliação das Ações de Prevenção de Deslizamento de Encostas (AADPE)", 2012. 
+  Disponível em: https://www.tce.pe.gov.br/internet/docs/anop/2543/microsoft-word-relat-auditoria-codecir-pcr-proc-1002037-8-consolidado.pdf</p>
