@@ -18,7 +18,7 @@
 <p>Iremos utilizar um banco de dados local via SQLite. Os dados dentro deste banco devem ser lidos e interpretados pela aplicação avaliando o risco de deslizamento em um dado local, enviando notificações caso necessário. O artefato pluviométrico deve conferir entrada automática de valores referentes ao volume de chuva (lembrando que o pluviometro ainda não será incorporado nesta iteração do projeto). Já as informações relevantes ao cálculo de risco devem ser inseridas no sistema manualmente ao catalogar uma determinada encosta.</p>
 
 <h2> Por que o projeto é útil? </h2>
-<p>De um lado, a digitalização da captação e organização de dados referente a encostas em risco de deslizamento apresenta uma melhoria em relação ao método atual de armazeno e manejo de dados, ainda feito no papel pela Defesa Civil. Do outro, o artefato pluviométrico apresenta uma alternativa precisa para a avaliação de risco de uma encosta em tempo real.</p>
+<p>De um lado, a digitalização da captação e organização de dados referente a encostas em risco de deslizamento apresenta uma melhoria em relação ao método atual de armazeno e manejo de dados, ainda feito no papel pela Defesa Civil <li>(Relatório da Codecir, 2012)</li>. Do outro, o artefato pluviométrico apresenta uma alternativa precisa para a avaliação de risco de uma encosta em tempo real.</p>
 
 <h2>Ferramentas utilizadas:</h2>
 
@@ -52,7 +52,7 @@ Frontend:
 <p>We will use a local database via SQLite. The data within this database must be read and interpreted by the application, assessing the risk of landslides in a given location, sending notifications if necessary. The pluviometric artifact must provide automatic entry of values referring to the volume of rain (as it was said, the pluviometric artefact will not be integrated into this iterarion of the project). The information relevant to the risk calculation must be manually entered into the system when cataloging a particular slope.</p>
 
 <h2> How is the project useful? </h2>
-<p>On the one hand, the digitization of the capture and organization of data referring to slopes at risk of landslides presents an improvement in relation to the current method of storing and managing data, still done on paper by the Civil Defense. On the other hand, the pluviometric artifact presents an accurate alternative for the risk assessment of a slope in real time.</p>
+<p>On the one hand, the digitization of the capture and organization of data referring to slopes at risk of landslides presents an improvement in relation to the current method of storing and managing data, still done on paper by the Civil Defense <li><a href = "https://drive.google.com/file/d/1MY0z6xjyzHyuaiQhxYT7tMwARNZjJwRs/view?usp=sharing" target = "(Codecir's audit, 2012, pp.45)"</li>. On the other hand, the pluviometric artifact presents an accurate alternative for the risk assessment of a slope in real time.</p>
 
 <h2>Tools utilized:</h2>
 
