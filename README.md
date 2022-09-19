@@ -18,7 +18,7 @@
 <p>Iremos utilizar um banco de dados local via SQLite. Os dados dentro deste banco devem ser lidos e interpretados pela aplicação avaliando o risco de deslizamento em um dado local, enviando notificações caso necessário. O artefato pluviométrico deve conferir entrada automática de valores referentes ao volume de chuva (lembrando que o pluviometro ainda não será incorporado nesta iteração do projeto). Já as informações relevantes ao cálculo de risco devem ser inseridas no sistema manualmente ao catalogar uma determinada encosta.</p>
 
 <h2> Por que o projeto é útil? </h2>
-<p>De um lado, a digitalização da captação e organização de dados referente a encostas em risco de deslizamento apresenta uma melhoria em relação ao método atual de armazeno e manejo de dados, ainda feito no papel pela Defesa Civil<li><a href = "https://www.tce.pe.gov.br/internet/docs/anop/2543/microsoft-word-relat-auditoria-codecir-pcr-proc-1002037-8-consolidado.pdf" target = "blank">(CODECIR (2012), pp. 45)></a></li>. Do outro, o artefato pluviométrico apresenta uma alternativa precisa para a avaliação de risco de uma encosta em tempo real.</p>
+<p>De um lado, a digitalização da captação e organização de dados referente a encostas em risco de deslizamento apresenta uma melhoria em relação ao método atual de armazeno e manejo de dados, ainda feito no papel pela Defesa Civil<li><a href = "https://www.tce.pe.gov.br/internet/docs/anop/2543/microsoft-word-relat-auditoria-codecir-pcr-proc-1002037-8-consolidado.pdf" target = "">(CODECIR (2012), pp. 45)</a></li>. Do outro, o artefato pluviométrico apresenta uma alternativa precisa para a avaliação de risco de uma encosta em tempo real.</p>
 
 <h2>Ferramentas utilizadas:</h2>
 
