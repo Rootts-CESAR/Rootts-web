@@ -1,0 +1,12 @@
+Aqui está a lista de comando que iremos utilizar:
+
+Criar ambiente virtual:
+
+python -m venv .(nome) --> criar ambiente virtual
+.\diretorio\Scripts\Activate.ps1
+
+Instalar as bibliotecas necessárias:
+
+pip install -r requirements.txt
+
+rodar aplicação: python app.py
