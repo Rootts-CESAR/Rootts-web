@@ -5,11 +5,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% bootstrap_css %}
-    <title>CRUD CBV</title>
+    <title>Rootts</title>
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #15171B;
+        }
+
+        #logo {
+            color: #4FDB0D;
+            font-size: 1.5rem;
+            margin-left: 5rem;
+            transition: ease 0.5s;
+        }
+
+        #logo:hover {
+            font-size: 1.5rem;
+            margin-left: 5.5rem;
+            transition: ease 0.5s;
+            brightness: 1.3;
+        }
+
+        .content {
+            padding-top: 3rem;
+            max-width: 1360px;
+            margin: 0 auto;
+        }
+
+
+    </style>
 </head>
 <body>
-    <div class="container">
-        {% block content %}{% endblock %}
+    <nav class="navbar navbar-dark" style="padding: 1rem; background-color: #111113; margin-bottom: 1rem;">
+        <a class="navbar-brand" href="{% url 'index' %}" id="logo">Rootts</a>
+        <ul class="nav" style="margin-right: 5rem">
+            <h5 class="text-light">Ola engenheiro(a)</h5>
+        </ul>
+    </nav>
+    <div class="content">
+        {% block content %}
+        {% endblock %}
     </div>
 {% bootstrap_javascript jquery='full'%}
 </body>

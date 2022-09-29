@@ -3,7 +3,7 @@
 {% block content  %}
     <form method="post">
         {% csrf_token %}
-        <p>Tem certeza que deseja deletar o produto "{{ object }}"?</p>
+        <h2 class="text-light" style="padding-bottom: 3rem">Tem certeza que deseja deletar a encosta "{{ object }}"?</h2>
         {% buttons %}
             <button type="submit" class="btn btn-danger">Confirmar</button>
             <button type="button" class="btn btn-warning">
