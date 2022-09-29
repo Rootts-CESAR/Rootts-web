@@ -20,3 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('roottsApp.urls')),
 ]
+
+admin.AdminSite.site_header = 'Banco de Encosta'
+admin.AdminSite.site_title = 'Rotts'
+admin.AdminSite.index_title = 'Sistema de Cadastro de Encostas'

@@ -4,9 +4,9 @@ from .views import IndexView, EncostaView, CreateEncostaView, UpdateEncostaView,
 
 
 urlpatterns = [
-    path('', IndexView.as_view(), name='index'),
-    path('crud/', EncostaView.as_view(), name='crud'),
-    path('add/', CreateEncostaView.as_view(), name='add_encosta'),
-    path('<int:pk>/update/', UpdateEncostaView.as_view(), name='upd_encosta'),
-    path('<int:pk>/delete/', DeleteEncostaView.as_view(), name='del_encosta'),
+    path('', IndexView, name='index'),
+    path('crud/', EncostaView, name='crud'),
+    path('create/', CreateEncostaView, name='add_encosta'),
+    path('update/<int:pk>/', UpdateEncostaView, name='upd_encosta'),
+    path('delete/<int:pk>/', DeleteEncostaView, name='del_encosta'),
 ]

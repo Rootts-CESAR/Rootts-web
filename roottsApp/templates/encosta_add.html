@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load crispy_forms_tags %}
+{% block content %}
+<form action="" method="post" autocomplete="off" class="text-light">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <button type="button" class="btn btn-warning">
+            <a href="{% url 'crud' %}">Cancelar</a>
+        </button>
+    {% endbuttons %}
+</form>    
+
+{% endblock %}

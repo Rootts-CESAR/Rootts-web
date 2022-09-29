@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: django-adminlte2
+Version: 0.4.3
+Summary: Admin LTE templates, admin theme, and template tags for Django
+Home-page: https://github.com/adamcharnock/django-adminlte2
+Author: Adam Charnock
+Author-email: adam@adamcharnock.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: django
+
+UNKNOWN
+
+

@@ -1,0 +1,3 @@
+django_adminlte
+django_adminlte_theme
+example_project

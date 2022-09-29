@@ -1,43 +1,38 @@
-from django.shortcuts import render
-
-# Create your views here
-from django.views.generic import ListView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.urls import reverse_lazy
-
+from django.shortcuts import render, redirect
+from .forms import EncostaForm, EncostaFormUpdate
 
 from .models import Encosta
 
 
-class IndexView(ListView):
-    model = Encosta
-    template_name = 'index.html'
-    context_object_name = 'Encostas'
+def IndexView(request):
+  return render(request, 'index.html')
+
+def EncostaView(request):
+  encostas = Encosta.objects.all()
+  return render(request, 'crud.html', {'encostas': encostas})
 
 
-class EncostaView(ListView):
-    models = Encosta
-    template_name = 'crud.html'
-    queryset = Encosta.objects.all()
-    context_object_name = 'encostas'
+# create view
+def CreateEncostaView(request):
+  form = EncostaForm(request.POST or None)
+  if form.is_valid():
+    form.save()
+    return redirect('crud')
+  return render(request, 'encosta_add.html', {'form': form})
+
+def UpdateEncostaView(request, pk):
+  encosta = Encosta.objects.get(id=pk)
+  form = EncostaFormUpdate(request.POST or None, instance=encosta)
+  if form.is_valid():
+    form.save()
+    return redirect('crud')
+  return render(request, 'encosta_upd.html', {'form': form, 'encosta': encosta})
 
 
-class CreateEncostaView(CreateView):
-    model = Encosta
-    template_name = 'encosta_form.html'
-    fields = ['nome', 'descricao', 'local']
-    success_url = reverse_lazy('crud')
-
-
-class UpdateEncostaView(UpdateView):
-    model = Encosta
-    template_name = 'encosta_form.html'
-    fields = ['nome', 'descricao']
-    success_url = reverse_lazy('crud')
-
-
-class DeleteEncostaView(DeleteView):
-    model = Encosta
-    template_name = 'encosta_del.html'
-    success_url = reverse_lazy('crud')
-
+# delete view
+def DeleteEncostaView(request, pk):
+  encosta = Encosta.objects.get(id=pk)
+  if request.method == 'POST':
+    encosta.delete()
+    return redirect('crud')
+  return render(request, 'encosta_del.html', {'encosta': encosta})
