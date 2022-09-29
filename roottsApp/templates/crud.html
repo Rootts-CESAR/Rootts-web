@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block content %}
+
+    <div class="row  text-light" style="margin-bottom: 1.5rem; background-color: #FFF display: flex; align-items: center; justify-content: space-between">
+        <h3>
+            Gerenciamento de Encostas
+        </h3>
+        <a href="{% url 'add_encosta' %}" class="btn btn-outline-success">Adicionar encosta</a>
+    </div>
+
+
+    <div class="row text-light" >
+        <table class="table table-striped table-dark">
+          <thead>
+            <tr>
+                <th scope="col">Numero</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Local</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Ação</th>
+            </tr>
+          </thead>
+                {% for encosta in encostas %}
+                    <tr>
+                        <td>{{ encosta.id }}</td>
+                        <td>{{ encosta.nome }}</td>
+                        <td>{{ encosta.local }}</td>
+                        <td>{{ encosta.descricao }}</td>
+                        <td>
+                            <a class="btn-sm btn-warning" href="{% url 'upd_encosta' encosta.pk %}">Editar</a>
+                            <a class="btn-sm btn-danger" href="{% url 'del_encosta' encosta.pk %}">Excluir</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+        </table>
+
+    </div>
+{% endblock %}
