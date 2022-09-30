@@ -1,71 +1,110 @@
 {% load bootstrap4 %}
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     {% bootstrap_css %}
     <title>Rootts</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            background-color: #15171B;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #15171b;
+      }
 
-        #logo {
-            color: #4FDB0D;
-            font-size: 1.5rem;
-            margin-left: 5rem;
-            transition: ease 0.5s;
-        }
+      #logo {
+        color: #4fdb0d;
+        font-size: 1.5rem;
+        margin-left: 5rem;
+        transition: ease 0.5s;
+      }
 
-        #logo:hover {
-            font-size: 1.5rem;
-            margin-left: 5.5rem;
-            transition: ease 0.5s;
-        }
-
-
+      #logo:hover {
+        font-size: 1.5rem;
+        margin-left: 5.5rem;
+        transition: ease 0.5s;
+      }
     </style>
-</head>
-<body>
-    <nav class="navbar navbar-dark" style="padding: 1rem; background-color: #111113">
-        <a class="navbar-brand" href="{% url 'index' %}" id="logo">Rootts</a>
-        <ul class="nav" style="margin-right: 5rem">
-            <li class="nav-item">
-                <button class="btn btn-outline-light" type="button" data-toggle="modal" data-target="#modalLogin" style="margin-right: 1rem">Login</button>
-            </li>
-            <li class="nav-item">
-                <button class="btn btn-outline-light" type="button" data-toggle="modal" data-target="#modalCadastro">Cadastro</button>
-            </li>
-        </ul>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-dark"
+      style="padding: 1rem; background-color: #111113"
+    >
+      <a class="navbar-brand" href="{% url 'index' %}" id="logo">Rootts</a>
+      <ul class="nav" style="margin-right: 5rem">
+        <li class="nav-item">
+          <button
+            class="btn btn-outline-light"
+            type="button"
+            data-toggle="modal"
+            data-target="#modalLogin"
+            style="margin-right: 1rem"
+          >
+            Login
+          </button>
+        </li>
+        <li class="nav-item">
+          <button
+            class="btn btn-outline-light"
+            type="button"
+            data-toggle="modal"
+            data-target="#modalCadastro"
+          >
+            Cadastro
+          </button>
+        </li>
+      </ul>
     </nav>
 
-    <div class="container" style="display: flex; margin-top: 10rem; padding-left: 5rem; padding-right: 5rem; justify-content: space-between; align-items: center;">
-        <div class="left text-light font-weight-bold" style="max-width: 300px">
-            <h1>Localizar</h1>
-            <h1 class="text-primary">Previnir</h1>
-            <h1>Ajudar</h1>
-            <span class="text-secondary">A Rootts, sempre estará tentando buscar soluções para ajudar as pessoas que estão em situação de risco.</span>
-        </div>
-        <div class="right">
-            <div class="content">
-                <h1 class="text-light">O que você deseja fazer?</h1>
-                <div class="row" style="margin-top: 2rem">
-                    <div class="col">
-                        <a class="btn btn-outline-danger text-light" style="width: 100%">Contatar Emergencia</a>
-                    </div>
-                    <div class="col">
-                        <a class="btn btn-outline-danger text-light" style="width: 100%">Reportar um problema</a>
-                    </div>
-                </div>
+    <div
+      class="container"
+      style="
+        display: flex;
+        margin-top: 10rem;
+        padding-left: 5rem;
+        padding-right: 5rem;
+        justify-content: space-between;
+        align-items: center;
+      "
+    >
+      <div class="left text-light font-weight-bold" style="max-width: 300px">
+        <h1>Localizar</h1>
+        <h1 class="text-primary">Previnir</h1>
+        <h1>Ajudar</h1>
+        <span class="text-secondary"
+          >A Rootts, sempre estará tentando buscar soluções para ajudar as
+          pessoas que estão em situação de risco.</span
+        >
+      </div>
+      <div class="right">
+        <div class="content">
+          <h1 class="text-light">O que você deseja fazer?</h1>
+          <div class="row" style="margin-top: 2rem">
+            <div class="col">
+              <a class="btn btn-outline-danger text-light" style="width: 100%"
+                >Contatar Emergencia</a
+              >
             </div>
+            <div class="col">
+              <a
+                href="{% url 'DenunciaForm' %}"
+                class="btn btn-outline-danger text-light"
+                style="width: 100%"
+                >Reportar um problema</a
+              >
+            </div>
+          </div>
         </div>
-    </div>[
-{% bootstrap_javascript jquery='full'%}
-</body>
+      </div>
+    </div>
+    [ {% bootstrap_javascript jquery='full'%}
+  </body>
 </html>

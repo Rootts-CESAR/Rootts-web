@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import EncostaForm, EncostaFormUpdate, denunciaForm
-
+from django.contrib import messages
 from .models import Encosta
 
 
@@ -48,5 +48,10 @@ def DenunciaFormView(request):
     if form.is_valid():
       formulario = form.save()
       form = denunciaForm()
+      messages.success(request, 'Seu reporte foi feito com sucesso')
       
+      return render(request, 'denuncia_formulario.html', {'form': denunciaForm(request.GET)})
+    else:
+      messages.error(request, 'Invalid form submission.')
+      messages.error(request, form.errors)
     return render(request,"denuncia_formulario.html",context ={'form': form})
