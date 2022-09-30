@@ -37,7 +37,7 @@
         <a class="navbar-brand" href="{% url 'index' %}" id="logo">Rootts</a>
         <ul class="nav" style="margin-right: 5rem">
             <li class="nav-item">
-                <button class="btn btn-outline-light" type="button" data-toggle="modal" data-target="#modalLogin" style="margin-right: 1rem">Login</button>
+                <a href="{% url 'login' %}"><button class="btn btn-outline-light" type="button" data-toggle="modal" data-target="#modalLogin" style="margin-right: 1rem">Login</button></a>
             </li>
             <li class="nav-item">
                 <button class="btn btn-outline-light" type="button" data-toggle="modal" data-target="#modalCadastro">Cadastro</button>
@@ -48,7 +48,7 @@
     <div class="container" style="display: flex; margin-top: 10rem; padding-left: 5rem; padding-right: 5rem; justify-content: space-between; align-items: center;">
         <div class="left text-light font-weight-bold" style="max-width: 300px">
             <h1>Localizar</h1>
-            <h1 class="text-primary">Previnir</h1>
+            <h1 class="text-primary">Prevenir</h1>
             <h1>Ajudar</h1>
             <span class="text-secondary">A Rootts, sempre estará tentando buscar soluções para ajudar as pessoas que estão em situação de risco.</span>
         </div>
@@ -60,7 +60,7 @@
                         <a class="btn btn-outline-danger text-light" style="width: 100%">Contatar Emergencia</a>
                     </div>
                     <div class="col">
-                        <a class="btn btn-outline-danger text-light" style="width: 100%">Reportar um problema</a>
+                        <a href="{% url 'DenunciaForm' %}" class="btn btn-outline-danger text-light" style="width: 100%">Reportar um problema</a>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,52 @@
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% bootstrap_css %}
+    <title>Rootts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #15171B;
+        }
+
+        #logo {
+            color: #4FDB0D;
+            font-size: 1.5rem;
+            margin-left: 5rem;
+            transition: ease 0.5s;
+        }
+
+        #logo:hover {
+            font-size: 1.5rem;
+            margin-left: 5.5rem;
+            transition: ease 0.5s;
+            brightness: 1.3;
+        }
+
+        .content {
+            padding-top: 3rem;
+            max-width: 1360px;
+            margin: 0 auto;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h2>Entrar</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Entrar</button>
+    </form>
+    <p class="text-center">Não tem uma conta? <a>Criar uma conta</a>.</p>
+{% bootstrap_javascript jquery='full'%}
+</body>
+</html>
