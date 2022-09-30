@@ -2,7 +2,7 @@ from cProfile import label
 from django import forms
 
 from .models import Encosta
-from .models import Usuario
+from .models import Formulario_denuncia
 
 # only for create
 class EncostaForm(forms.ModelForm):
@@ -24,7 +24,7 @@ class EncostaForm(forms.ModelForm):
 # only for update
 class EncostaFormUpdate(forms.ModelForm):
     class Meta:
-        model = Encosta
+        Model = Encosta
         fields = ('nome', 'local')
         labels = {
             'nome': 'Nome',
@@ -37,6 +37,12 @@ class EncostaFormUpdate(forms.ModelForm):
         self.fields['local'].widget.attrs.update({'class': 'form-control'})
   
 class denunciaForm(forms.ModelForm):
-    class meta:
-        model = Usuario
+    class Meta:
+        model = Formulario_denuncia
         fields = "__all__"
+        widgets = {
+            'data': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'type':'date'})
+
+        }
+      
+    

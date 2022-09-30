@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
-from .forms import EncostaForm, EncostaFormUpdate
+from .forms import EncostaForm, EncostaFormUpdate, denunciaForm
 
 from .models import Encosta
+
 
 
 def IndexView(request):
@@ -38,5 +39,14 @@ def DeleteEncostaView(request, pk):
   return render(request, 'encosta_del.html', {'encosta': encosta})
 
 def DenunciaFormView(request):
-  return render(request,"denuncia_formulario.html")
+  if request.method == 'GET':
+    form = denunciaForm()
+    return render(request,"denuncia_formulario.html",context ={'form': form})
+  else:
+    form = denunciaForm(request.POST)
 
+    if form.is_valid():
+      formulario = form.save()
+      form = denunciaForm()
+      
+    return render(request,"denuncia_formulario.html",context ={'form': form})
