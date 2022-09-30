@@ -2,6 +2,7 @@ from cProfile import label
 from django import forms
 
 from .models import Encosta
+from .models import Usuario
 
 # only for create
 class EncostaForm(forms.ModelForm):
@@ -35,3 +36,7 @@ class EncostaFormUpdate(forms.ModelForm):
         self.fields['nome'].widget.attrs.update({'class': 'form-control'})
         self.fields['local'].widget.attrs.update({'class': 'form-control'})
   
+class denunciaForm(forms.ModelForm):
+    class meta:
+        model = Usuario
+        fields = "__all__"

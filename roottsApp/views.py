@@ -36,3 +36,7 @@ def DeleteEncostaView(request, pk):
     encosta.delete()
     return redirect('crud')
   return render(request, 'encosta_del.html', {'encosta': encosta})
+
+def DenunciaFormView(request):
+  return render(request,"denuncia_formulario.html")
+
