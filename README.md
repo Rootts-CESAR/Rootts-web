@@ -1,4 +1,4 @@
-<h1>Rootts: notificador de risco de deslizamento (PTBR)</h1>
+<h1>(PTBR) Rootts: notificador de risco de deslizamento</h1>
 
 <h2>Equipe:</h2>
 
@@ -35,7 +35,7 @@ Frontend:
 </ul>
 
 <br>
-<h1>Rootts: landslide risk notifier (ENG)</h1>
+<h1>(ENG) Rootts: landslide risk notifier</h1>
 <h2>Team:</h2>
 
 <ul>
