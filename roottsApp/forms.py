@@ -14,7 +14,6 @@ class EncostaForm(forms.ModelForm):
             'longitude',
             'declividade',
             'numeroConstrucoes',
-            'numeroCasas',
             'coeficienteUmidade',
             'proximidadeRedeViarias',
             'proximidadeCorposLiquidos',
@@ -25,11 +24,11 @@ class EncostaForm(forms.ModelForm):
             'latitude': 'Latitude',
             'longitude': 'Longitude',
             'declividade': 'Declividade',
-            'numeroConstrucoes': 'Numero de Construções',
+            'numeroConstrucoes': 'Numero de Construções por m²',
             'numeroCasas': 'Numero de Casas',
             'coeficienteUmidade': 'Coeficiente de Umidade',
-            'proximidadeRedeViarias': 'Proximidade de Redes Viarias',
-            'proximidadeCorposLiquidos': 'Proximidade de Corpos Liquidos',
+            'proximidadeRedeViarias': 'Proximidade de Redes Viarias por m²',
+            'proximidadeCorposLiquidos': 'Proximidade de Corpos Liquidos por m²',
         }
     
     def __init__(self, *args, **kwargs):
@@ -40,7 +39,6 @@ class EncostaForm(forms.ModelForm):
         self.fields['longitude'].widget.attrs.update({'class': 'form-control'})
         self.fields['declividade'].widget.attrs.update({'class': 'form-control'})
         self.fields['numeroConstrucoes'].widget.attrs.update({'class': 'form-control'})
-        self.fields['numeroCasas'].widget.attrs.update({'class': 'form-control'})
         self.fields['coeficienteUmidade'].widget.attrs.update({'class': 'form-control'})
         self.fields['proximidadeRedeViarias'].widget.attrs.update({'class': 'form-control'})
         self.fields['proximidadeCorposLiquidos'].widget.attrs.update({'class': 'form-control'})
@@ -52,25 +50,23 @@ class EncostaFormUpdate(forms.ModelForm):
         fields = (
             'declividade',
             'numeroConstrucoes',
-            'numeroCasas',
             'coeficienteUmidade',
             'proximidadeRedeViarias',
             'proximidadeCorposLiquidos',
         )
         labels = {
             'declividade': 'Declividade',
-            'numeroConstrucoes': 'Numero de Construções',
+            'numeroConstrucoes': 'Numero de Construções por m²',
             'numeroCasas': 'Numero de Casas',
             'coeficienteUmidade': 'Coeficiente de Umidade',
-            'proximidadeRedeViarias': 'Proximidade de Redes Viarias',
-            'proximidadeCorposLiquidos': 'Proximidade de Corpos Liquidos',
+            'proximidadeRedeViarias': 'Proximidade de Redes Viarias por m²',
+            'proximidadeCorposLiquidos': 'Proximidade de Corpos Liquidos por m²',
         }
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['declividade'].widget.attrs.update({'class': 'form-control'})
         self.fields['numeroConstrucoes'].widget.attrs.update({'class': 'form-control'})
-        self.fields['numeroCasas'].widget.attrs.update({'class': 'form-control'})
         self.fields['coeficienteUmidade'].widget.attrs.update({'class': 'form-control'})
         self.fields['proximidadeRedeViarias'].widget.attrs.update({'class': 'form-control'})
         self.fields['proximidadeCorposLiquidos'].widget.attrs.update({'class': 'form-control'})
@@ -86,6 +82,6 @@ class denunciaForm(forms.ModelForm):
             'nome': forms.TextInput(attrs={'class': 'nome','placeholder':'Digite seu nome'}),
             'titulo': forms.TextInput(attrs={'class': 'titulo','placeholder':'Informe o Assunto'})
         }
-        
+
       
     

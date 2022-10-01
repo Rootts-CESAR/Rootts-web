@@ -29,6 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'rootts.herokuapp.com',
+    '127.0.0.1',
 ]
 
 
@@ -38,8 +39,7 @@ INSTALLED_APPS = [
     'roottsApp',
     'bootstrap4',
     'crispy_forms',
-    'django_adminlte',
-    'django_adminlte_theme',
+    'django_adminlte3',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

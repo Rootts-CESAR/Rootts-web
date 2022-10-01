@@ -12,6 +12,27 @@
 body{
     background-color:#15171B ;
 }
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #15171b;
+      }
+
+      #logo {
+        color: #4fdb0d;
+        font-size: 1.5rem;
+        margin-left: 5rem;
+        transition: ease 0.5s;
+      }
+
+      #logo:hover {
+        font-size: 1.5rem;
+        margin-left: 5.5rem;
+        transition: ease 0.5s;
+      }
 #logintext{
   color:white;
   margin-top:-70px;
@@ -70,15 +91,21 @@ body{
 </head>
 
 <body>
-    <h1 id="logintext">Faça seu login<br>
-        na plataforma</h1>
+    <nav
+        class="navbar navbar-dark"
+        style="padding: 1rem; background-color: #111113; margin-bottom: 1rem"
+      >
+        <a class="navbar-brand" href="{% url 'index' %}" id="logo">Rootts</a>
+        <ul class="nav" style="margin-right: 5rem">
+          <h5 class="text-light" style="margin-top: 10px;">Olá, usuário</h5>
+        </ul>
+      </nav>
         
-        
-        <div class="container" id="slogan">
-            <div class="left text-light font-weight-bold" style="max-width: 300px">
+        <div class="container" id="slogan" style="padding-top: 70px; padding-left: 220px;">
+            <div class="left text-light font-weight-bold" style="max-width: 300px;" >
                 <img src="{% static "roottsapp/images/roottst.png" %}" alt="rootts" id="image" />
                 <h1>Localizar</h1>
-                <h1 class="text-primary">Prevenir</h1>
+                <h1 style="color: #4fdb0d;">Prevenir</h1>
                 <h1>Ajudar</h1>
             </div>
 

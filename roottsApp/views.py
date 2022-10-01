@@ -58,8 +58,10 @@ def DenunciaFormView(request):
       form = denunciaForm()
       messages.success(request, 'Seu reporte foi feito com sucesso')
       
-      return render(request, 'denuncia_formulario.html', {'form': denunciaForm(request.GET)})
+      return render(request, 'denuncia_formulario.html', {'form': form})
     else:
       messages.error(request, 'Invalid form submission.')
       messages.error(request, form.errors)
     return render(request,"denuncia_formulario.html",context ={'form': form})
+  
+
