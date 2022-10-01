@@ -25,12 +25,12 @@
 Backend:
 <ul> 
   <a href= https://www.sqlite.org/docs.html><img src="https://img.shields.io/badge/SQLite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white"/></a><br>
-  <a href= https://flask.palletsprojects.com/en/2.2.x/><img src="https://img.shields.io/badge/Flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white"/></a>
+  <a href= https://www.djangoproject.com/><img src="https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white"/></a>
 </ul>
 
 Frontend:
 <ul> 
-  <a href= https://reactjs.org/docs/getting-started.html><img src="https://img.shields.io/badge/ReactJS-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB"/></a>
+  <a href= https://getbootstrap.com/><img src="https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white"/></a>
 </ul>
 
 <br>
@@ -60,12 +60,12 @@ Frontend:
 Backend:
 <ul> 
   <a href= https://www.sqlite.org/docs.html><img src="https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white"/></a><br>
-  <a href= https://flask.palletsprojects.com/en/2.2.x/><img src="https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white"/></a>
+  <a href=[ https://flask.palletsprojects.com/en/2.2.x/](https://www.djangoproject.com/)><img src="https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white"/></a>
 </ul>
 
 Frontend:
 <ul> 
-  <a href= https://reactjs.org/docs/getting-started.html><img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB"/></a>
+  <a href= https://getbootstrap.com/><img src="https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white"/></a>
 </ul>
 
 <h2>Referências/References</h2>
