@@ -24,12 +24,8 @@ class EncostaForm(forms.ModelForm):
             'latitude': 'Latitude',
             'longitude': 'Longitude',
             'declividade': 'Declividade',
-<<<<<<< Updated upstream
             'numeroConstrucoes': 'Numero de Construções',
             'numeroCasas': 'Numero de Casas',
-=======
-            'numeroConstrucoes': 'Numero de Construções por m²',
->>>>>>> Stashed changes
             'coeficienteUmidade': 'Coeficiente de Umidade',
             'proximidadeRedeViarias': 'Proximidade de Redes Viarias',
             'proximidadeCorposLiquidos': 'Proximidade de Corpos Liquidos',
@@ -60,12 +56,8 @@ class EncostaFormUpdate(forms.ModelForm):
         )
         labels = {
             'declividade': 'Declividade',
-<<<<<<< Updated upstream
             'numeroConstrucoes': 'Numero de Construções',
             'numeroCasas': 'Numero de Casas',
-=======
-            'numeroConstrucoes': 'Numero de Construções por m²',
->>>>>>> Stashed changes
             'coeficienteUmidade': 'Coeficiente de Umidade',
             'proximidadeRedeViarias': 'Proximidade de Redes Viarias',
             'proximidadeCorposLiquidos': 'Proximidade de Corpos Liquidos',
