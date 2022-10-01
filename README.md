@@ -40,7 +40,7 @@ Frontend:
 </ul>
 
 <br>
-<h1>(ENG)<a href = "https://rootts.herokuapp.com" target = "_blank">Rootts: landslide risk notifier</h1>
+<h1>(ENG) <a href = "https://rootts.herokuapp.com" target = "_blank">Rootts: landslide risk notifier</h1>
 <h2>Team:</h2>
 
 <ul>
