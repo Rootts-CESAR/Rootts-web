@@ -1,4 +1,3 @@
-from cProfile import label
 from django import forms
 
 from .models import Encosta
@@ -8,34 +7,75 @@ from .models import Formulario_denuncia
 class EncostaForm(forms.ModelForm):
     class Meta:
         model = Encosta
-        fields = ('nome', 'descricao', 'local')
+        fields = (
+            'nome',
+            'local',
+            'latitude',
+            'longitude',
+            'declividade',
+            'numeroConstrucoes',
+            'numeroCasas',
+            'coeficienteUmidade',
+            'proximidadeRedeViarias',
+            'proximidadeCorposLiquidos',
+        )
         labels = {
             'nome': 'Nome',
-            'descricao': 'Descrição',
             'local': 'Local',
+            'latitude': 'Latitude',
+            'longitude': 'Longitude',
+            'declividade': 'Declividade',
+            'numeroConstrucoes': 'Numero de Construções',
+            'numeroCasas': 'Numero de Casas',
+            'coeficienteUmidade': 'Coeficiente de Umidade',
+            'proximidadeRedeViarias': 'Proximidade de Redes Viarias',
+            'proximidadeCorposLiquidos': 'Proximidade de Corpos Liquidos',
         }
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['nome'].widget.attrs.update({'class': 'form-control'})
-        self.fields['descricao'].widget.attrs.update({'class': 'form-control'})
         self.fields['local'].widget.attrs.update({'class': 'form-control'})
+        self.fields['latitude'].widget.attrs.update({'class': 'form-control'})
+        self.fields['longitude'].widget.attrs.update({'class': 'form-control'})
+        self.fields['declividade'].widget.attrs.update({'class': 'form-control'})
+        self.fields['numeroConstrucoes'].widget.attrs.update({'class': 'form-control'})
+        self.fields['numeroCasas'].widget.attrs.update({'class': 'form-control'})
+        self.fields['coeficienteUmidade'].widget.attrs.update({'class': 'form-control'})
+        self.fields['proximidadeRedeViarias'].widget.attrs.update({'class': 'form-control'})
+        self.fields['proximidadeCorposLiquidos'].widget.attrs.update({'class': 'form-control'})
 
 # only for update
 class EncostaFormUpdate(forms.ModelForm):
     class Meta:
-        Model = Encosta
-        fields = ('nome', 'local')
+        model = Encosta
+        fields = (
+            'declividade',
+            'numeroConstrucoes',
+            'numeroCasas',
+            'coeficienteUmidade',
+            'proximidadeRedeViarias',
+            'proximidadeCorposLiquidos',
+        )
         labels = {
-            'nome': 'Nome',
-            'local': 'Local',
+            'declividade': 'Declividade',
+            'numeroConstrucoes': 'Numero de Construções',
+            'numeroCasas': 'Numero de Casas',
+            'coeficienteUmidade': 'Coeficiente de Umidade',
+            'proximidadeRedeViarias': 'Proximidade de Redes Viarias',
+            'proximidadeCorposLiquidos': 'Proximidade de Corpos Liquidos',
         }
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['nome'].widget.attrs.update({'class': 'form-control'})
-        self.fields['local'].widget.attrs.update({'class': 'form-control'})
-  
+        self.fields['declividade'].widget.attrs.update({'class': 'form-control'})
+        self.fields['numeroConstrucoes'].widget.attrs.update({'class': 'form-control'})
+        self.fields['numeroCasas'].widget.attrs.update({'class': 'form-control'})
+        self.fields['coeficienteUmidade'].widget.attrs.update({'class': 'form-control'})
+        self.fields['proximidadeRedeViarias'].widget.attrs.update({'class': 'form-control'})
+        self.fields['proximidadeCorposLiquidos'].widget.attrs.update({'class': 'form-control'})
+
+
 class denunciaForm(forms.ModelForm):
     class Meta:
         model = Formulario_denuncia
