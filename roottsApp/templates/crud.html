@@ -17,7 +17,7 @@
                 <th scope="col">Numero</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Local</th>
-                <th scope="col">Descrição</th>
+                <th scope="col">Informações</th>
                 <th scope="col">Ação</th>
             </tr>
           </thead>
@@ -26,7 +26,9 @@
                         <td>{{ encosta.id }}</td>
                         <td>{{ encosta.nome }}</td>
                         <td>{{ encosta.local }}</td>
-                        <td>{{ encosta.descricao }}</td>
+                        <td>
+                            <a class="btn-sm btn-success" href="{% url 'view_encosta' encosta.pk %}">Visualizar</a>
+                        </td>
                         <td>
                             <a class="btn-sm btn-warning" href="{% url 'upd_encosta' encosta.pk %}">Editar</a>
                             <a class="btn-sm btn-danger" href="{% url 'del_encosta' encosta.pk %}">Excluir</a>

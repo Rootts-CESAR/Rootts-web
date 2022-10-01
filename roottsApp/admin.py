@@ -5,4 +5,4 @@ from .models import Encosta
 
 @admin.register(Encosta)
 class EncostaAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'descricao', 'local')
+    list_display = ('nome', 'local')

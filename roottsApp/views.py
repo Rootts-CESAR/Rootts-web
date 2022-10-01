@@ -38,6 +38,14 @@ def DeleteEncostaView(request, pk):
     return redirect('crud')
   return render(request, 'encosta_del.html', {'encosta': encosta})
 
+
+# Visualizar encosta selecionada
+def EncostaSelecionadaView(request, pk):
+  encosta = Encosta.objects.get(id=pk)
+  return render(request, 'encosta_selecionada.html', {'encosta': encosta})
+
+
+
 def DenunciaFormView(request):
   if request.method == 'GET':
     form = denunciaForm()
