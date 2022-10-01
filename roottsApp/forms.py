@@ -25,11 +25,11 @@ class EncostaForm(forms.ModelForm):
             'latitude': 'Latitude',
             'longitude': 'Longitude',
             'declividade': 'Declividade',
-            'numeroConstrucoes': 'Numero de Construções',
+            'numeroConstrucoes': 'Numero de Construções por m²',
             'numeroCasas': 'Numero de Casas',
             'coeficienteUmidade': 'Coeficiente de Umidade',
-            'proximidadeRedeViarias': 'Proximidade de Redes Viarias',
-            'proximidadeCorposLiquidos': 'Proximidade de Corpos Liquidos',
+            'proximidadeRedeViarias': 'Proximidade de Redes Viarias por m²',
+            'proximidadeCorposLiquidos': 'Proximidade de Corpos Liquidos por m²',
         }
     
     def __init__(self, *args, **kwargs):
@@ -59,11 +59,11 @@ class EncostaFormUpdate(forms.ModelForm):
         )
         labels = {
             'declividade': 'Declividade',
-            'numeroConstrucoes': 'Numero de Construções',
+            'numeroConstrucoes': 'Numero de Construções por m²',
             'numeroCasas': 'Numero de Casas',
             'coeficienteUmidade': 'Coeficiente de Umidade',
-            'proximidadeRedeViarias': 'Proximidade de Redes Viarias',
-            'proximidadeCorposLiquidos': 'Proximidade de Corpos Liquidos',
+            'proximidadeRedeViarias': 'Proximidade de Redes Viarias por m²',
+            'proximidadeCorposLiquidos': 'Proximidade de Corpos Liquidos por m²',
         }
     
     def __init__(self, *args, **kwargs):
