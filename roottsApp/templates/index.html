@@ -1,35 +1,36 @@
 {% load bootstrap4 %}
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     {% bootstrap_css %}
     <title>Rootts</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            background-color: #15171B;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #15171b;
+      }
 
-        #logo {
-            color: #4FDB0D;
-            font-size: 1.5rem;
-            margin-left: 5rem;
-            transition: ease 0.5s;
-        }
+      #logo {
+        color: #4fdb0d;
+        font-size: 1.5rem;
+        margin-left: 5rem;
+        transition: ease 0.5s;
+      }
 
-        #logo:hover {
-            font-size: 1.5rem;
-            margin-left: 5.5rem;
-            transition: ease 0.5s;
-        }
-
-
+      #logo:hover {
+        font-size: 1.5rem;
+        margin-left: 5.5rem;
+        transition: ease 0.5s;
+      }
     </style>
 </head>
 <body>
@@ -71,8 +72,18 @@
                     </div>
                 </div>
             </div>
+            <div class="col">
+              <a
+                href="{% url 'DenunciaForm' %}"
+                class="btn btn-outline-danger text-light"
+                style="width: 100%"
+                >Reportar um problema</a
+              >
+            </div>
+          </div>
         </div>
-    </div>[
-{% bootstrap_javascript jquery='full'%}
-</body>
+      </div>
+    </div>
+    [ {% bootstrap_javascript jquery='full'%}
+  </body>
 </html>

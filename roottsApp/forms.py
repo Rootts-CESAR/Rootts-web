@@ -81,8 +81,11 @@ class denunciaForm(forms.ModelForm):
         model = Formulario_denuncia
         fields = "__all__"
         widgets = {
-            'data': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'type':'date'})
-
+            'data': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'type':'date'}),
+            'descricao': forms.Textarea(attrs={'class': 'descricao','placeholder':'Faça uma breve descrição do que está acontecendo.'}),
+            'nome': forms.TextInput(attrs={'class': 'nome','placeholder':'Digite seu nome'}),
+            'titulo': forms.TextInput(attrs={'class': 'titulo','placeholder':'Informe o Assunto'})
         }
+        
       
     
