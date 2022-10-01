@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import IndexView, EncostaView, CreateEncostaView, UpdateEncostaView, DeleteEncostaView, DenunciaFormView, EncostaSelecionadaView, ContatoView
+from .views import IndexView, EncostaView, CreateEncostaView, UpdateEncostaView, DeleteEncostaView, DenunciaFormView, EncostaSelecionadaView
 
 
 urlpatterns = [
@@ -11,5 +11,4 @@ urlpatterns = [
     path('delete/<int:pk>/', DeleteEncostaView, name='del_encosta'),
     path('encosta/<int:pk>/', EncostaSelecionadaView, name='view_encosta'),
     path('denuncia_formulario/',DenunciaFormView, name='DenunciaForm'),
-    path('contato/', ContatoView, name='contato')
 ]

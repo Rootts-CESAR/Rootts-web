@@ -59,5 +59,4 @@ def DenunciaFormView(request):
       
     return render(request,"denuncia_formulario.html",context ={'form': form})
   
-def ContatoView(request):
-  return render(request,"contato.html")
+

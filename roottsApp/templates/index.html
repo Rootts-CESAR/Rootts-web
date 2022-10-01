@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    
     {% bootstrap_css %}
     <title>Rootts</title>
     <style>
@@ -33,6 +35,10 @@
     </style>
 </head>
 <body>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+
     <nav class="navbar navbar-dark" style="padding: 1rem; background-color: #111113">
         <a class="navbar-brand" href="{% url 'index' %}" id="logo">Rootts</a>
         <ul class="nav" style="margin-right: 5rem">
@@ -44,7 +50,31 @@
             </li>
         </ul>
     </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content"style="background-color: #111113;text-align: center;">
+                            
+                                <h1 style="text-align: center;color:aliceblue;">Contatos Importantes</h1>
+                            
+                            <div class="modal-body">
+                                <h1 style="text-align: center;font-size:25px;color:white;">Contato da Defesa civil</h1>
+                                <p style="text-align: center;color:white;">(xx)xxxxx-xxxx</p>
+                                <h1 style="text-align: center;font-size:25px;color:white;">Corpo de Bombeiros</h1>
+                                <p style="text-align: center;color:white;">193</p>
+                            </div>
+                            
+                                <button class="btn btn-danger" data-dismiss="modal" style="max-width:150px;margin-left:328px;margin-bottom:20px;">Fechar</button>
+                            
+                        </div>
+                    </div>
+                </div>
 
+            </div>
+        </div>
+    </div>
     <div class="container" style="display: flex; margin-top: 10rem; padding-left: 5rem; padding-right: 5rem; justify-content: space-between; align-items: center;">
         <div class="left text-light font-weight-bold" style="max-width: 300px">
             <h1>Localizar</h1>
@@ -57,13 +87,10 @@
                 <h1 class="text-light">O que você deseja fazer?</h1>
                 <div class="row" style="margin-top: 2rem">
                     <div class="col">
-                        <button type="button" class="btn btn-outline-danger text-light" style="width: 100%">
-                            <a href="{% url 'contato'%}"style="color:white;">Contatar Emergencia</a>
+                        <a href="#" data-toggle="modal" data-target="#myModal"class="btn btn-outline-danger text-light" style="width: 100%">Contatar Emergencia</a>
                     </div>
                     <div class="col">
-                        <button type="button"class="btn btn-outline-danger text-light" style="width: 100%;">
-                            <a href="{% url 'Denuncia_Form' %}"style="color:white;">Reportar um problema</a>
-                        </button>
+                        <a class="btn btn-outline-danger text-light" style="width: 100%;">Reportar um problema</a>
                     </div>
                 </div>
             </div>
