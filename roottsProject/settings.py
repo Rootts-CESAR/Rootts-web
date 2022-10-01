@@ -29,6 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'rootts.herokuapp.com',
+    '127.0.0.1',
 ]
 
 
