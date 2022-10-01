@@ -18,7 +18,7 @@ class Encosta(models.Model):
 
 class Formulario_denuncia(models.Model):
     nome = models.CharField(max_length = 50)
-    data = models.DateField(blank = True)
+    data = models.DateField()
     titulo = models.CharField(max_length = 50)
     descricao = models.TextField(max_length=500)
 
