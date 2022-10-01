@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views 
 from django.urls import path, include
 
-from .views import IndexView, EncostaView, CreateEncostaView, UpdateEncostaView, DeleteEncostaView,DenunciaFormView
+from .views import IndexView, EncostaView, CreateEncostaView, UpdateEncostaView, DeleteEncostaView, DenunciaFormView, EncostaSelecionadaView
 
 
 urlpatterns = [
@@ -13,5 +13,6 @@ urlpatterns = [
     path('create/', CreateEncostaView, name='add_encosta'),
     path('update/<int:pk>/', UpdateEncostaView, name='upd_encosta'),
     path('delete/<int:pk>/', DeleteEncostaView, name='del_encosta'),
+    path('encosta/<int:pk>/', EncostaSelecionadaView, name='view_encosta'),
     path('denuncia_formulario/',DenunciaFormView, name='DenunciaForm'),
 ]

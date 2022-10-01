@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block content %}
+
+    <div class="row  text-light" style="margin-bottom: 1.5rem; background-color: #FFF display: flex; align-items: center; justify-content: space-between">
+        <h3>
+          {{ encosta.nome }} - {{ encosta.local }}
+        </h3>
+        <a href="{% url 'crud' %}" class="btn btn-outline-success">Voltar</a>
+    </div>
+
+
+    <div class="table-responsive-xl table-dark">
+      <table class="table text-light">
+        <thead>
+          <tr>
+            <th scope="col">Latitude</th>
+            <th scope="col">Longitude</th>
+            <th scope="col">Declividade</th>
+            <th scope="col">Construções</th>
+            <th scope="col">Casas</th>
+            <th scope="col">Coef. Umidade</th>
+            <th scope="col">Redes Viarias</th>
+            <th scope="col">Corpos Liquidos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ encosta.latitude }}</td>
+            <td>{{ encosta.longitude }}</td>
+            <td>{{ encosta.declividade }}</td>
+            <td>{{ encosta.numeroConstrucoes }}</td>
+            <td>{{ encosta.numeroCasas }}</td>
+            <td>{{ encosta.coeficienteUmidade }}</td>
+            <td>{{ encosta.proximidadeRedeViarias }}</td>
+            <td>{{ encosta.proximidadeCorposLiquidos }}</td>
+          </tr>
+
+      </table>
+    </div>
+
+    </div>
+{% endblock %}
