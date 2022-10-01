@@ -57,10 +57,13 @@
                 <h1 class="text-light">O que você deseja fazer?</h1>
                 <div class="row" style="margin-top: 2rem">
                     <div class="col">
-                        <a class="btn btn-outline-danger text-light" style="width: 100%">Contatar Emergencia</a>
+                        <button type="button" class="btn btn-outline-danger text-light" style="width: 100%">
+                            <a href="{% url 'contato'%}"style="color:white;">Contatar Emergencia</a>
                     </div>
                     <div class="col">
-                        <a class="btn btn-outline-danger text-light" style="width: 100%">Reportar um problema</a>
+                        <button type="button"class="btn btn-outline-danger text-light" style="width: 100%;">
+                            <a href="{% url 'Denuncia_Form' %}"style="color:white;">Reportar um problema</a>
+                        </button>
                     </div>
                 </div>
             </div>
