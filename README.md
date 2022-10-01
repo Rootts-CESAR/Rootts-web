@@ -1,4 +1,4 @@
-<h1>(PTBR) <li><a href = "https://rootts.herokuapp.com" target = >Rootts: notificador de risco de deslizamento</a></li></h1>
+<h1>(PTBR) <li><a href = "https://rootts.herokuapp.com" target = Rootts: notificador de risco de deslizamento</a></li></h1>
 
 <h2>Equipe:</h2>
 
