@@ -19,3 +19,4 @@ urlpatterns = [
     path('user_register/', User_register.as_view() ,name='user_register'),
     path('engineer_register/', Engineer_register.as_view() ,name='engineer_register')
 ]
+handler404 = "roottsApp.views.error_404_view"
