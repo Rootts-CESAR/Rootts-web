@@ -79,10 +79,10 @@ class denunciaForm(forms.ModelForm):
         model = Formulario_denuncia
         fields = "__all__"
         widgets = {
-            'data': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'type':'date'}),
-            'descricao': forms.Textarea(attrs={'class': 'descricao','placeholder':'Faça uma breve descrição do que está acontecendo.'}),
-            'nome': forms.TextInput(attrs={'class': 'nome','placeholder':'Digite seu nome'}),
-            'titulo': forms.TextInput(attrs={'class': 'titulo','placeholder':'Informe o Assunto'})
+            'data': forms.DateInput(format=('%m/%d/%Y'), attrs={'type': 'date', 'min': '1970-01-01', 'max': '2050-12-31', 'class': 'form-control', 'required': True}),
+            'descricao': forms.Textarea(attrs={'class': 'descricao','placeholder':'Faça uma breve descrição do que está acontecendo.', 'required': True, 'minlength': '10', 'maxlength': '500'}),
+            'nome': forms.TextInput(attrs={'class': 'form-control', 'onkeypress': 'return event.charCode >= 65 && event.charCode <= 122 || event.charCode == 32', 'placeholder': 'Digite seu nome', 'required': True}),
+            'titulo': forms.TextInput(attrs={'class': 'titulo','placeholder':'Informe o Assunto', 'required': True, 'minlength': '10', 'maxlength': '120'}),
         }
         labels = {
             'descricao':'Descrição'
