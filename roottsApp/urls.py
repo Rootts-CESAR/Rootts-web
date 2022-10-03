@@ -6,7 +6,7 @@ from .views import Engineer_register, IndexView, EncostaView, CreateEncostaView,
 
 
 urlpatterns = [
-    # path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('', IndexView, name='index'),
     path('crud/', EncostaView, name='crud'),
@@ -20,3 +20,4 @@ urlpatterns = [
     path('engineer_register/', Engineer_register.as_view() ,name='engineer_register')
 ]
 handler404 = "roottsApp.views.error_404_view"
+handler404 = "roottsApp.views.error_401_view"
