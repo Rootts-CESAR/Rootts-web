@@ -2,8 +2,7 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views 
 from django.urls import path, include
 
-from .views import Engineer_register, IndexView, EncostaView, CreateEncostaView, UpdateEncostaView, DeleteEncostaView, DenunciaFormView, EncostaSelecionadaView, User_register, register
-
+from .views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -15,6 +14,7 @@ urlpatterns = [
     path('delete/<int:pk>/', DeleteEncostaView, name='del_encosta'),
     path('encosta/<int:pk>/', EncostaSelecionadaView, name='view_encosta'),
     path('denuncia_formulario/',DenunciaFormView, name='DenunciaForm'),
+    path('login/', login_view, name='login'),
     path('register/', register ,name='register'),
     path('user_register/', User_register.as_view() ,name='user_register'),
     path('engineer_register/', Engineer_register.as_view() ,name='engineer_register')

@@ -84,9 +84,14 @@ class denunciaForm(forms.ModelForm):
             'nome': forms.TextInput(attrs={'class': 'nome','placeholder':'Digite seu nome'}),
             'titulo': forms.TextInput(attrs={'class': 'titulo','placeholder':'Informe o Assunto'})
         }
+        labels = {
+            'descricao':'Descrição'
+        }
 
       
 class Regular_user_registration_form(UserCreationForm):
+    username = forms.CharField(max_length=150)
+    email = forms.EmailField()
     first_name = forms.CharField(required=True)
     last_name = forms.CharField(required=True)
     phone_number = forms.IntegerField(required=True)
@@ -101,6 +106,8 @@ class Regular_user_registration_form(UserCreationForm):
     @transaction.atomic
     def save_data(self):
         user = super().save(commit=False)
+        regular_user.username = self.cleaned_data.get("username")
+        regular_user.email = self.cleaned_data.get("email")
         regular_user.first_name = self.cleaned_data.get("first_name")
         regular_user.last_name = self.cleaned_data.get("last_name")
         regular_user.phone_number = self.cleaned_data.get("phone_number")
@@ -114,6 +121,8 @@ class Regular_user_registration_form(UserCreationForm):
         return Regular_user
         
 class Engineer_registration_form(UserCreationForm):
+    username = forms.CharField(max_length=150)
+    email = forms.EmailField()
     first_name = forms.CharField(required=True)
     last_name = forms.CharField(required=True)
     phone_number = forms.IntegerField(required=True)
@@ -125,6 +134,8 @@ class Engineer_registration_form(UserCreationForm):
     @transaction.atomic
     def save_data(self):
         user = super().save(commit=False)
+        Engineer.username = self.cleaned_data.get("username")
+        Engineer.email = self.cleaned_data.get("email")
         Engineer.first_name = self.cleaned_data.get("first_name")
         Engineer.last_name = self.cleaned_data.get("last_name")
         Engineer.phone_number = self.cleaned_data.get("phone_number")
