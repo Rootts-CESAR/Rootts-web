@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
+
+import roottsApp
 from .forms import EncostaForm, EncostaFormUpdate, denunciaForm
 from django.contrib import messages
 from .models import Encosta
-
-
 
 def IndexView(request):
   return render(request, 'index.html')
@@ -65,3 +65,10 @@ def DenunciaFormView(request):
     return render(request,"denuncia_formulario.html",context ={'form': form})
   
 
+# tratamento de erro
+
+def error_404_view(request, exception):
+  return render(request,'404.html', status = 404)
+
+def error_401_view(request, exception):
+  return render(request,'401.html', status = 401)

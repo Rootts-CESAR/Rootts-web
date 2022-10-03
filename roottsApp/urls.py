@@ -16,3 +16,4 @@ urlpatterns = [
     path('encosta/<int:pk>/', EncostaSelecionadaView, name='view_encosta'),
     path('denuncia_formulario/',DenunciaFormView, name='DenunciaForm'),
 ]
+handler404 = "roottsApp.views.error_404_view"
