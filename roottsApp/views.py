@@ -1,9 +1,8 @@
 from django.shortcuts import render, redirect
-
-import roottsApp
-from .forms import EncostaForm, EncostaFormUpdate, denunciaForm
+from .forms import EncostaForm, EncostaFormUpdate, denunciaForm, Regular_user_registration_form, Engineer_registration_form
 from django.contrib import messages
-from .models import Encosta
+from .models import Encosta, User, Regular_user, Engineer
+from django.views.generic import CreateView
 
 def IndexView(request):
   return render(request, 'index.html')
@@ -72,3 +71,16 @@ def error_404_view(request, exception):
 
 def error_401_view(request, exception):
   return render(request,'401.html', status = 401)
+
+def register(request):
+  return render(request, '../templates/register.html')
+
+class User_register(CreateView):
+  model = User
+  form_class = Regular_user_registration_form
+  template_name = "../templates/user_register.html"
+
+class Engineer_register(CreateView):
+  model = User
+  form_class = Engineer_registration_form
+  template_name = "../templates/engineer_register.html"

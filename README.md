@@ -1,4 +1,4 @@
-<h1>(PTBR) Rootts: notificador de risco de deslizamento</h1>
+<h1>(PTBR) <a href = "https://rootts.herokuapp.com" target = "_blank">Rootts: notificador de risco de deslizamento</a></h1>
 
 <h2>Equipe:</h2>
 
@@ -21,7 +21,7 @@
 
 <p>Sem fazer login, o usuário pode acessar perguntas frequentes (F.A.Q.), além dos contatos habituais da Defesa Civil e serviços adjacentes. Existem duas opções de login: login como civil e login como engenheiro.</p>
 
-<p>Como civil, o usuário pode enviar um relatório contendo informações de localização, a natureza da ocorrência e possivelmente fazer <i>upload</i> de imagens ou vídeos do incidente. Como engenheiro, o usuário pode conferir os relatórios enviados por civis em uma página que diferencia entre relatórios pendentes, aprovados e descartados. Além disso, o engenheiro pode gerenciar (criar, ler, atualizar e excluir) encostas e suas variáveis no banco de dados.</p>
+<p>Como civil, o usuário pode enviar um relatório contendo informações de localização, a natureza da ocorrência e possivelmente fazer <i>upload</i> de imagens ou vídeos do incidente. Como engenheiro, o usuário pode gerenciar (criar, ler, atualizar e excluir) encostas e suas variáveis no banco de dados.</p>
 
 <h2> Por que o projeto é útil? </h2>
 <p>De um lado, a digitalização da captação e organização de dados referente a encostas em risco de deslizamento apresenta uma melhoria em relação ao método atual de armazeno e manejo de dados, ainda feito no papel pela Defesa Civil (CODECIR (2012), pp. 45). Do outro, o artefato pluviométrico apresenta uma alternativa precisa para a avaliação de risco de uma encosta em tempo real.</p>
@@ -40,7 +40,7 @@ Frontend:
 </ul>
 
 <br>
-<h1>(ENG) Rootts: landslide risk notifier</h1>
+<h1>(ENG) <a href = "https://rootts.herokuapp.com" target = "_blank">Rootts: landslide risk notifier</h1>
 <h2>Team:</h2>
 
 <ul>
@@ -62,7 +62,7 @@ Frontend:
 
 <p>Without logging in, the user can acess frequently asked questions (F.A.Q.), in addition to the usual contacts for Civil Defense and adjacent services. There are two login options: login as civilian and login as engineer.</p>
 
-<p>As a civilian, the user can submit a report containing location information, the nature of the occurrence and possibly uploading images or videos of the incident. As an engineer, the user can check the reports sent by civilians on a page that differentiates between pending, approved, and discarded reports. Furthermore, the engineer can manage (create, read, update and delete) slopes in the database.</p>
+<p>As a civilian, the user can submit a report containing location information, the nature of the occurrence and possibly uploading images or videos of the incident. As an engineer, the user can manage (create, read, update and delete) slopes in the database.</p>
 
 
 <h2> How is the project useful? </h2>
