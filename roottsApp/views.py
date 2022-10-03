@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import logout, authenticate, login
 from .models import Encosta, User, Regular_user, Engineer
 from django.views.generic import CreateView
+from django.contrib.auth.decorators import login_required
 
 def IndexView(request):
   return render(request, 'index.html')
@@ -57,12 +58,12 @@ def DenunciaFormView(request):
     if form.is_valid():
       formulario = form.save()
       form = denunciaForm()
-      messages.success(request, 'Seu reporte foi feito com sucesso')
+      messages.success(request, 'Seu relatório foi feito com sucesso')
       
       return render(request, 'denuncia_formulario.html', {'form': form})
     else:
-      messages.error(request, 'Invalid form submission.')
-      messages.error(request, form.errors)
+      messages.error(request, 'Preencha o formulario corretamente')
+      # messages.error(request, form.errors)
     return render(request,"denuncia_formulario.html",context ={'form': form})
   
 
@@ -88,16 +89,20 @@ def register(request):
   return render(request, '../templates/register.html')
 
 def login_view(request):
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(request, username=username, password=password)
+    # redirect
+  if request.user.is_authenticated:
+    return redirect('index')
+  if request.method == 'POST':
+    email = request.POST.get('email')
+    password = request.POST.get('password')
+    user = authenticate(request, email=email, password=password)
     if user is not None:
-        login(request, user)
-        userType = User.is_engineer
-        return render(request, 'index', {'userType': userType})
+      login(request, user)
+      return redirect('index')
     else:
-        messages.error(request, 'Login inválido!')
-        return redirect('login')
+      messages.info(request, 'Email ou senha não estão corretos')
+  context = {}
+  return render(request, 'registration/login.html', context)
         
 @login_required
 def logout_view(request):
