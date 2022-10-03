@@ -34,11 +34,11 @@ De um lado, a digitalização da captação e organização de dados referente a
 
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 
-3. Clone o nosso [repositório](https://github.com/Rootts-CESAR/Rootts-web):
+3. Abra o terminal e clone o nosso [repositório](https://github.com/Rootts-CESAR/Rootts-web):
 ```
 git clone https://github.com/Rootts-CESAR/Rootts-web
 ```
-4. Instale os requerimentos via terminal:
+4. Em seguida, instale os requerimentos:
 ```
 python -m pip install -r requirements.txt
 ```
