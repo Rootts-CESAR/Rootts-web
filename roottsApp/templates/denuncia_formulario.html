@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{%load static%}
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
@@ -140,7 +141,9 @@
       class="navbar navbar-dark"
       style="padding: 1rem; background-color: #111113"
     >
-      <a class="navbar-brand" href="{% url 'index' %}" id="logo">Rootts</a>
+      <a class="navbar-brand" href="{% url 'index' %}" id="logo">
+        <img src="{% static "roottsapp/images/roottst.png" %}" alt="rootts" id="image" style="width:120px;" />
+      </a>
       <ul class="nav" style="margin-right: 5rem">
         <h5 class="text-light">Olá, usuário</h5>
       </ul>
@@ -164,7 +167,7 @@
             <label for="{{field.id_for_label}}">{{field.label}} :</label>
             {{field}} {% if field.help_text %}
             <p class="help-text">{{field.help_text}}</p>
-            {% endif %} {{field.errors}}
+            {% endif %} 
           </div>
           {% endfor %} {% comment %} Only Submit if is commited {% endcomment %}
           <div class="button-box">

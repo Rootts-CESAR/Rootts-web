@@ -39,7 +39,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
 
     <nav class="navbar navbar-dark" style="padding: 1rem; background-color: #111113">
-        <a class="navbar-brand" href="{% url 'index' %}" id="logo">Rootts</a>
+        <a class="navbar-brand" href="{% url 'index' %}" id="logo">
+            <img src="{% static "roottsapp/images/roottst.png" %}" alt="rootts" id="image" style="width:120px;" />
+        </a>
         <ul class="nav" style="margin-right: 5rem">
             <li class="nav-item">
                 <a href="{% url 'login' %}"><button class="btn btn-outline-light" type="button" data-toggle="modal" data-target="#modalLogin" style="margin-right: 1rem">Login</button></a>
@@ -93,13 +95,15 @@
             <h1 style="color: #4fdb0d;">Prevenir</h1>
             <h1>Ajudar</h1>
             
+            
         </div>
         <div>
-            <span class="text-secondary"style="font-size:20px;padding-left:px;">A Rootts é uma empresa incubada pela<br>CESAR School que pretende melhorar as<br> experiências de 
-
-                armazenamento de dados,
-                <br>monitoramento em tempo real e
-                notificação<br> ágil.</span>
+            <span class="text-secondary"style="font-size:17px;padding-left:px;">A Rootts é uma startup incubada pela CESAR School<br> que atualmente desenvolve soluções que<br>
+                 pretendem melhorar as experiências de: 
+                <br><br>
+                • captação e organização de dados referentes<br> ao cálculo de risco de deslizamentos de terra;<br><br>
+                • monitoramento em tempo real das encostas<br> através de artefatos pluviométricos; <br><br>
+                • notificação ágil para a população em risco.</span>
         </div>
         <div class="right">
             <div class="content">
