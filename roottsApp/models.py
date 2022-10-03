@@ -19,10 +19,10 @@ class Encosta(models.Model):
         return self.nome, self.local
 
 class Formulario_denuncia(models.Model):
-    nome = models.CharField(max_length = 20, blank = False, null = True)
-    data = models.DateField(blank = True, null = True)
-    titulo = models.CharField(max_length = 30,blank = True, null = True)
-    descricao = models.TextField(max_length=500,blank = True, null = True)
+    nome = models.CharField(max_length = 50)
+    data = models.DateField()
+    titulo = models.CharField(max_length = 50)
+    descricao = models.TextField(max_length=500)
 
 class User(AbstractUser):
     is_engineer = models.BooleanField(default=False)
