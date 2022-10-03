@@ -83,7 +83,7 @@ A website that operates as a landslide risk notifier, relying on a database that
 We will use a local database via SQLite. The database must keep relevant variables in the calculation of risk of landslides on slopes, sending notifications if the risk variable that varies between 1 (lowest risk) and 4 (highest risk) increases. The pluviometric artifact must provide automatic entry of values referring to the volume of rain (as it was said, the pluviometric artefact will not be integrated into this iterarion of the project). The information relevant to the risk calculation must be manually entered into the system when cataloging a particular slope.
 
 ## Present functionalities
-Without logging in, the user can acess frequently asked questions (F.A.Q.), in addition to the usual contacts for Civil Defense and adjacent services. There are two login options: login as civilian and login as engineer.
+Without logging in, the user can access frequently asked questions (F.A.Q.), in addition to the usual contacts for Civil Defense and adjacent services. There are two login options: login as civilian and login as engineer.
 
 As a civilian, the user can submit a report containing location information, the nature of the occurrence and possibly uploading images or videos of the incident. As an engineer, the user can manage (create, read, update and delete) slopes in the database.
 
