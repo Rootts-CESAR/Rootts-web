@@ -78,3 +78,6 @@ class Engineer_register(CreateView):
   model = User
   form_class = Engineer_registration_form
   template_name = "../templates/engineer_register.html"
+
+def logged(request):
+  return render(request, 'logged.html')
