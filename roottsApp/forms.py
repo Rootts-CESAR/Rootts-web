@@ -84,6 +84,9 @@ class denunciaForm(forms.ModelForm):
             'nome': forms.TextInput(attrs={'class': 'nome','placeholder':'Digite seu nome'}),
             'titulo': forms.TextInput(attrs={'class': 'titulo','placeholder':'Informe o Assunto'})
         }
+        labels = {
+            'descricao':'Descrição'
+        }
 
       
 class Regular_user_registration_form(UserCreationForm):

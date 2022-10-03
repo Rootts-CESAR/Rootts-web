@@ -57,7 +57,7 @@ def DenunciaFormView(request):
     if form.is_valid():
       formulario = form.save()
       form = denunciaForm()
-      messages.success(request, 'Seu reporte foi feito com sucesso')
+      messages.success(request, 'Seu relatório foi feito com sucesso')
       
       return render(request, 'denuncia_formulario.html', {'form': form})
     else:
