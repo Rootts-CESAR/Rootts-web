@@ -1,4 +1,4 @@
-<h1>(PTBR) Rootts: notificador de risco de deslizamento</h1>
+<h1>(PTBR) <a href = "https://rootts.herokuapp.com" target = "_blank">Rootts: notificador de risco de deslizamento</a></h1>
 
 <h2>Equipe:</h2>
 
@@ -40,7 +40,7 @@ Frontend:
 </ul>
 
 <br>
-<h1>(ENG) Rootts: landslide risk notifier</h1>
+<h1>(ENG) <a href = "https://rootts.herokuapp.com" target = "_blank">Rootts: landslide risk notifier</h1>
 <h2>Team:</h2>
 
 <ul>
