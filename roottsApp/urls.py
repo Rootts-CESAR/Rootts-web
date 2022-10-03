@@ -6,7 +6,7 @@ from .views import Engineer_register, IndexView, EncostaView, CreateEncostaView,
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('', IndexView, name='index'),
     path('crud/', EncostaView, name='crud'),
