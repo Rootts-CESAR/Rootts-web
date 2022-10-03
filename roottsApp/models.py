@@ -26,7 +26,6 @@ class Formulario_denuncia(models.Model):
 
 class User(AbstractUser):
     is_engineer = models.BooleanField(default=False)
-    is_regular_User = models.BooleanField(default=False)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     phone_number = models.IntegerField()

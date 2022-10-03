@@ -27,11 +27,11 @@
                         <td>{{ encosta.nome }}</td>
                         <td>{{ encosta.local }}</td>
                         <td>
-                            <a class="btn-sm btn-success" href="{% url 'view_encosta' encosta.pk %}">Visualizar</a>
+                            <a class="btn-sm btn-success" style="text-decoration:none;" href="{% url 'view_encosta' encosta.pk %}">Visualizar</a>
                         </td>
                         <td>
-                            <a class="btn-sm btn-warning" href="{% url 'upd_encosta' encosta.pk %}">Editar</a>
-                            <a class="btn-sm btn-danger" href="{% url 'del_encosta' encosta.pk %}">Excluir</a>
+                            <a class="btn-sm btn-warning" style="text-decoration:none;color:white;"; href="{% url 'upd_encosta' encosta.pk %}">Editar</a>
+                            <a class="btn-sm btn-danger" style="text-decoration:none;" href="{% url 'del_encosta' encosta.pk %}">Excluir</a>
                         </td>
                     </tr>
                 {% endfor %}
