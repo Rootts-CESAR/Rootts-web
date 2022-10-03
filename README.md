@@ -1,4 +1,4 @@
-# (PTBR) [Rootts: notificador de risco de deslizamento](https://rootts.herokuapp.com)
+# (PT-BR) [Rootts: notificador de risco de deslizamento](https://rootts.herokuapp.com)
 
 ## Equipe:
 
