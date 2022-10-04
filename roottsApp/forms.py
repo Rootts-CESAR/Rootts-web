@@ -2,8 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
 
-from .models import Encosta, Regular_user, User, Regular_user, Engineer
-from .models import Formulario_denuncia
+from .models import *
 
 # only for create
 class EncostaForm(forms.ModelForm):
