@@ -9,176 +9,29 @@
     <title>Registrar</title>
     {% bootstrap_css %}
     <style>
-        body{
-            background-color: #15171b;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #000000;
         }
-        .main-content{
-            height: 86vh;
-            width: 90vw;
-            margin-left: 70px;
-            margin-top:5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        #btncivil{     
-            justify-content: space-between;
-            width: 500px;
-            align-items: center;
-            display: flex;
-        }
-        .txtinf{  
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .txtinf h1{
-            color: white;
-            font-size: 28px;
-            padding-bottom: 20px;
-        }
-        #logo {
-        color: #4fdb0d;
-        font-size: 1.5rem;
-        margin-left: 5rem;
-        transition: ease 0.5s;
-        }
-        #logo:hover {
-        font-size: 1.5rem;
-        margin-left: 5.5rem;
-        transition: ease 0.5s;
-        }
-
-
     </style>
 </head>
 <body>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
-    <nav
-        class="navbar navbar-dark"
-        style="padding: 1rem; background-color: #111113;"
-      >
+    <nav class="navbar navbar-dark" style="padding: 1rem; background-color: #000000">
         <a class="navbar-brand" href="{% url 'index' %}" id="logo">
-          <img src="{% static "roottsapp/images/roottst.png" %}" alt="rootts" id="image" style="width:120px;" />
+            <img src="{% static "roottsapp/images/roottst.png" %}" alt="rootts" id="image" style="width:120px;" />
         </a>
-      </nav>
+    </nav>
 
-      <div class="container">
-        <div class="row">
-            <div class="col-md-5">
-                <div class="modal fade" id="civilRegister">
-                    <div class="modal-dialog modal-sm">
-                        <div class="modal-content"style="background-color: #272727;text-align: center;">
-                            
-                            
-                                    <div class="modal-body">
-                                        <form>
-                                            <div class="form-group">
-                                                <label style="color:white;padding:0">Primeiro nome</label>
-                                                <input type="text" class="form-control" id="first_name" aria-describedby="emailHelp" placeholder="Digite aqui..">
-                                              </div>
-                                            <div class="form-group">
-                                                <label style="color:white">Segundo nome</label>
-                                                <input type="text" class="form-control" id="last_name" placeholder="Digite aqui..">
-                                              </div>
-                                              <div class="form-group">
-                                                <label style="color:white">E-mail</label>
-                                                <input type="email" class="form-control" id="email" required placeholder="Digite aqui..">
-                                            </div>
-                                            <div class="form-group">
-                                                <label style="color:white">Senha</label>
-                                                <input type="password" class="form-control" id="password" required placeholder="Digite aqui..">
-                                            </div>
-                                            <div class="form-group">
-                                                <label style="color:white">Celular</label>
-                                                <input type="tel" class="form-control" id="phone_number" required placeholder="(xx) xxxxx-xxxx">
-                                            </div>
-                                            <div class="form-group">
-                                                <label style="color:white">CEP</label>
-                                                <input type="tel" class="form-control" id="cep" required placeholder="xx.xxx.xxx">
-                                            </div>
-                                            <div class="form-group">
-                                                <label style="color:white">Rua</label>
-                                                <input type="tel" class="form-control" id="street" required placeholder="Digite aqui..">
-                                            </div>
-                                            <div class="form-group">
-                                                <label style="color:white">N° da rua</label>
-                                                <input type="num" class="form-control" id="number" required placeholder="Digite aqui..">
-                                            </div>
-                                            <div class="form-group">
-                                                <label style="color:white">Bairro</label>
-                                                <input type="text" class="form-control" id="neighborhood" required placeholder="Digite aqui..">
-                                            </div>
-                                        </form>
-                                        
-                                    </div>
-                            
-                                <button class="btn btn-success" data-dismiss="modal" style="max-width:150px;margin-left: 70px;margin-bottom: 15px;">Registrar</button>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-5">
-                <div class="modal fade" id="enginnerRegister">
-                    <div class="modal-dialog modal-sm">
-                        <div class="modal-content"style="background-color: #272727;text-align: center;">
-                            
-                            
-                                    <div class="modal-body">
-                                        <form>
-                                            <div class="form-group">
-                                                <label style="color:white;padding:0">E-mail</label>
-                                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Digite seu e-mail">
-                                              </div>
-                                            <div class="form-group">
-                                                <label style="color:white">Senha</label>
-                                                <input type="password" class="form-control" id="password" placeholder="Insira sua senha">
-                                              </div>
-                                            <div class="form-group">
-                                                <label style="color:white">Celular</label>
-                                                <input type="tel" class="form-control" id="phone_number" required placeholder="(xx) xxxxx-xxxx">
-                                            </div>
-                                            <div class="form-group">
-                                                <label style="color:white">Primeiro nome</label>
-                                                <input type="text" class="form-control" id="first_name" required placeholder="Digite aqui..">
-                                            </div>
-                                            <div class="form-group">
-                                                <label style="color:white">Segundo nome</label>
-                                                <input type="text" class="form-control" id="last_name" required placeholder="Digite aqui..">
-                                            </div>
-                                            <div class="form-group">
-                                                <label style="color:white">CREA</label>
-                                                <input type="text" class="form-control" id="crea" placeholder="Insira o seu CREA">
-                                            </div>
-                                        </form>
-                                        
-                                    </div>
-                            
-                                <button class="btn btn-success" data-dismiss="modal" style="max-width:150px;margin-left: 70px;margin-bottom: 15px;">Registrar</button>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>  
     <div class="main-content">
-        <div class="txtinf">
-            <h1>Selecione a opção que se encaixa no seu registro</h1>
         <div id="btncivil">
-            <a href="#" data-toggle="modal" data-target="#civilRegister" class="btn btn-success text-light" style="width: 40%">Civil</a>
-            <a href="#" data-toggle="modal" data-target="#enginnerRegister" class="btn btn-success text-light" style="width: 40%">Engenheiro</a>
+            <a href="{% url 'user_register' %}" class="btn btn-success text-light" style="width: 10%">Civil</a>
+            <a href="{% url 'engineer_register' %}" class="btn btn-success text-light" style="width: 10%">Engenheiro</a>
         </div>
+        
+
     </div>
-    </div>
-    {% bootstrap_javascript jquery='full'%}
+
 </body>
 </html>

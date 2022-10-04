@@ -93,7 +93,6 @@ class Regular_user_registration_form(UserCreationForm):
     email = forms.EmailField()
     first_name = forms.CharField(required=True)
     last_name = forms.CharField(required=True)
-    phone_number = forms.IntegerField(required=True)
     cep = forms.IntegerField(required=True)
     street = forms.CharField(required=True)
     number = forms.IntegerField(required=True)
@@ -101,17 +100,18 @@ class Regular_user_registration_form(UserCreationForm):
 
     class Meta(UserCreationForm.Meta):
         model = User
+        fields = ('username', 'email', 'first_name', 'last_name', 'cep', 'street', 'number', 'neighborhood')
 
     @transaction.atomic
     def save_data(self):
         user = super().save(commit=False)
+        user.is_regular_user = True
         regular_user.username = self.cleaned_data.get("username")
-        regular_user.email = self.cleaned_data.get("email")
         regular_user.first_name = self.cleaned_data.get("first_name")
         regular_user.last_name = self.cleaned_data.get("last_name")
-        regular_user.phone_number = self.cleaned_data.get("phone_number")
         user.save()
         regular_user = Regular_user.objects.create(user=user)
+        regular_user.email = self.cleaned_data.get("email")
         regular_user.cep = self.cleaned_data.get("cep")
         regular_user.street = self.cleaned_data.get("street")
         regular_user.number = self.cleaned_data.get("number")
@@ -124,21 +124,21 @@ class Engineer_registration_form(UserCreationForm):
     email = forms.EmailField()
     first_name = forms.CharField(required=True)
     last_name = forms.CharField(required=True)
-    phone_number = forms.IntegerField(required=True)
     crea = forms.IntegerField(required=True) 
 
     class Meta(UserCreationForm.Meta):
         model = User
+        fields = ('username', 'email', 'first_name', 'last_name', 'crea')
 
     @transaction.atomic
     def save_data(self):
         user = super().save(commit=False)
+        user.is_engineer = True
         Engineer.username = self.cleaned_data.get("username")
-        Engineer.email = self.cleaned_data.get("email")
         Engineer.first_name = self.cleaned_data.get("first_name")
         Engineer.last_name = self.cleaned_data.get("last_name")
-        Engineer.phone_number = self.cleaned_data.get("phone_number")
         user.save()
+        Engineer.email = self.cleaned_data.get("email")
         Engineer = Engineer.objects.create(user=user)
         Engineer.crea = self.cleaned_data.get("crea")
         Engineer.save()
