@@ -28,11 +28,11 @@ De um lado, a digitalização da captação e organização de dados referente a
 ## Requerimentos
 1. Instale o Python.
 
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-
+    ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+  
 2. Instale o Git.
 
-![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+    ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 
 3. Abra o terminal e clone o nosso [repositório](https://github.com/Rootts-CESAR/Rootts-web):
 ```
@@ -94,11 +94,11 @@ On the one hand, the digitization of the capture and organization of data referr
 ## Requeriments
 1. Install Python.
 
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+    ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 
 2. Install Git.
 
-![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+    ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 
 3. Clone our [repository](https://github.com/Rootts-CESAR/Rootts-web):
 ```
