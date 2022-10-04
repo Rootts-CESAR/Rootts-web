@@ -76,14 +76,16 @@ def error_401_view(request, exception):
   return render(request,'401.html', status = 401)
 
 class User_register(CreateView):
-  model = User
+  model = Regular_user
   form_class = Regular_user_registration_form
   template_name = "../templates/user_register.html"
+  success_url = "/"
 
 class Engineer_register(CreateView):
-  model = User
+  model = Engineer
   form_class = Engineer_registration_form
   template_name = "../templates/engineer_register.html"
+  success_url = "/"
 
 def register(request):
   return render(request, '../templates/register.html')
