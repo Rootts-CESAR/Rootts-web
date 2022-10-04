@@ -101,6 +101,7 @@ class Regular_user_registration_form(UserCreationForm):
 
     class Meta(UserCreationForm.Meta):
         model = User
+        fields = ('username', 'email', 'first_name', 'last_name', 'cep', 'street', 'number', 'neighborhood')
 
     @transaction.atomic
     def save_data(self):
@@ -128,6 +129,7 @@ class Engineer_registration_form(UserCreationForm):
 
     class Meta(UserCreationForm.Meta):
         model = User
+        fields = ('username', 'email', 'first_name', 'last_name', 'crea')
 
     @transaction.atomic
     def save_data(self):

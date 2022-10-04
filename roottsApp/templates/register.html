@@ -9,31 +9,28 @@
     <title>Registrar</title>
     {% bootstrap_css %}
     <style>
-        body{
-            background-color: #15171b;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #000000;
         }
-        .main-content{
-            border: 4px solid red;
-            height: 86vh;
-            width: 90vw;
-            margin-left: 70px;
-            margin-top:45px;
-        }
-        #btncivil{
-            background-color: red;
-            margin-top: 280px;
-            
-            align-items: center;
-        }
-
-
     </style>
 </head>
 <body>
+    <nav class="navbar navbar-dark" style="padding: 1rem; background-color: #000000">
+        <a class="navbar-brand" href="{% url 'index' %}" id="logo">
+            <img src="{% static "roottsapp/images/roottst.png" %}" alt="rootts" id="image" style="width:120px;" />
+        </a>
+    </nav>
+
     <div class="main-content">
         <div id="btncivil">
-            <a href="{% url 'DenunciaForm' %}" class="btn btn-success text-light" style="width: 10%">Civil</a>
+            <a href="{% url 'user_register' %}" class="btn btn-success text-light" style="width: 10%">Civil</a>
+            <a href="{% url 'engineer_register' %}" class="btn btn-success text-light" style="width: 10%">Engenheiro</a>
         </div>
+        
+
     </div>
 
 </body>
