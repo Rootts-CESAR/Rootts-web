@@ -25,14 +25,13 @@ class Formulario_denuncia(models.Model):
     descricao = models.TextField(max_length=500)
 
 class User(AbstractUser):
+    email = models.EmailField(max_length=100)
     is_engineer = models.BooleanField(default=False)
-    is_regular_User = models.BooleanField(default=False)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    phone_number = models.IntegerField()
 
 class Regular_user(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key = True)
+    is_regular_user = models.BooleanField(default=True)
     cep = models.IntegerField()
     street = models.CharField(max_length=100)
     number = models.IntegerField()
@@ -40,4 +39,6 @@ class Regular_user(models.Model):
 
 class Engineer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key = True)
+    is_regular_user = models.BooleanField(default=False)
+    is_engineer = models.BooleanField(default=True)
     crea = models.IntegerField() 

@@ -1,5 +1,4 @@
 {% load bootstrap4 %}
-{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -36,21 +35,27 @@
             max-width: 1360px;
             margin: 0 auto;
         }
+        p{
+            color:white;
+        }
+        h1{
+            color:white;
+        }
 
 
     </style>
 </head>
 <body>
     <nav class="navbar navbar-dark" style="padding: 1rem; background-color: #111113; margin-bottom: 1rem;">
-        <a class="navbar-brand" href="{% url 'index' %}" id="logo">
-            <img src="{% static "roottsapp/images/roottst.png" %}" alt="rootts" id="image" style="width:120px;" />
-        </a>
+        <a class="navbar-brand" href="{% url 'index' %}" id="logo">Rootts</a>
         <ul class="nav" style="margin-right: 5rem">
             <h5 class="text-light">Ola engenheiro(a)</h5>
         </ul>
     </nav>
     <div class="content">
         {% block content %}
+        <h1>Error 401</h1>
+        <p>Voce nao tem autorizacao para estar aqui!</p>
         {% endblock %}
     </div>
 {% bootstrap_javascript jquery='full'%}

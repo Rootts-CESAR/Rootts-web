@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Register</title>
-</head>
-<body>
-    
-</body>
-</html>
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load crispy_forms_tags %}
+{% block content %}
+<form action="" method="post" autocomplete="off" class="text-light">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <button type="button" class="btn btn-warning">
+            <a style="color:white;text-decoration:none;"href="{% url 'crud' %}">Cancelar</a>
+        </button>
+    {% endbuttons %}
+</form>
+{% endblock %}

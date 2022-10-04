@@ -2,8 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
 
-from .models import Encosta, Regular_user, User, Regular_user, Engineer
-from .models import Formulario_denuncia
+from .models import *
 
 # only for create
 class EncostaForm(forms.ModelForm):
@@ -79,17 +78,21 @@ class denunciaForm(forms.ModelForm):
         model = Formulario_denuncia
         fields = "__all__"
         widgets = {
-            'data': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'type':'date'}),
-            'descricao': forms.Textarea(attrs={'class': 'descricao','placeholder':'Faça uma breve descrição do que está acontecendo.'}),
-            'nome': forms.TextInput(attrs={'class': 'nome','placeholder':'Digite seu nome'}),
-            'titulo': forms.TextInput(attrs={'class': 'titulo','placeholder':'Informe o Assunto'})
+            'data': forms.DateInput(format=('%m/%d/%Y'), attrs={'type': 'date', 'min': '1970-01-01', 'max': '2050-12-31', 'class': 'form-control', 'required': True}),
+            'descricao': forms.Textarea(attrs={'class': 'descricao','placeholder':'Faça uma breve descrição do que está acontecendo.', 'required': True, 'minlength': '10', 'maxlength': '500'}),
+            'nome': forms.TextInput(attrs={'class': 'form-control', 'onkeypress': 'return event.charCode >= 65 && event.charCode <= 122 || event.charCode == 32', 'placeholder': 'Digite seu nome', 'required': True}),
+            'titulo': forms.TextInput(attrs={'class': 'titulo','placeholder':'Informe o Assunto', 'required': True, 'minlength': '10', 'maxlength': '120'}),
+        }
+        labels = {
+            'descricao':'Descrição'
         }
 
       
 class Regular_user_registration_form(UserCreationForm):
+    username = forms.CharField(max_length=150)
+    email = forms.EmailField()
     first_name = forms.CharField(required=True)
     last_name = forms.CharField(required=True)
-    phone_number = forms.IntegerField(required=True)
     cep = forms.IntegerField(required=True)
     street = forms.CharField(required=True)
     number = forms.IntegerField(required=True)
@@ -97,15 +100,18 @@ class Regular_user_registration_form(UserCreationForm):
 
     class Meta(UserCreationForm.Meta):
         model = User
+        fields = ('username', 'email', 'first_name', 'last_name', 'cep', 'street', 'number', 'neighborhood')
 
     @transaction.atomic
     def save_data(self):
         user = super().save(commit=False)
+        user.is_regular_user = True
+        regular_user.username = self.cleaned_data.get("username")
         regular_user.first_name = self.cleaned_data.get("first_name")
         regular_user.last_name = self.cleaned_data.get("last_name")
-        regular_user.phone_number = self.cleaned_data.get("phone_number")
         user.save()
         regular_user = Regular_user.objects.create(user=user)
+        regular_user.email = self.cleaned_data.get("email")
         regular_user.cep = self.cleaned_data.get("cep")
         regular_user.street = self.cleaned_data.get("street")
         regular_user.number = self.cleaned_data.get("number")
@@ -114,21 +120,25 @@ class Regular_user_registration_form(UserCreationForm):
         return Regular_user
         
 class Engineer_registration_form(UserCreationForm):
+    username = forms.CharField(max_length=150)
+    email = forms.EmailField()
     first_name = forms.CharField(required=True)
     last_name = forms.CharField(required=True)
-    phone_number = forms.IntegerField(required=True)
     crea = forms.IntegerField(required=True) 
 
     class Meta(UserCreationForm.Meta):
         model = User
+        fields = ('username', 'email', 'first_name', 'last_name', 'crea')
 
     @transaction.atomic
     def save_data(self):
         user = super().save(commit=False)
+        user.is_engineer = True
+        Engineer.username = self.cleaned_data.get("username")
         Engineer.first_name = self.cleaned_data.get("first_name")
         Engineer.last_name = self.cleaned_data.get("last_name")
-        Engineer.phone_number = self.cleaned_data.get("phone_number")
         user.save()
+        Engineer.email = self.cleaned_data.get("email")
         Engineer = Engineer.objects.create(user=user)
         Engineer.crea = self.cleaned_data.get("crea")
         Engineer.save()
