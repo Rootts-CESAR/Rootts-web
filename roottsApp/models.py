@@ -28,15 +28,16 @@ class User(AbstractUser):
     is_engineer = models.BooleanField(default=False)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    phone_number = models.IntegerField()
 
 class Regular_user(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key = True)
+    # user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key = True)
+    engine = models.ForeignKey(User, unique=True, on_delete=models.CASCADE)
     cep = models.IntegerField()
     street = models.CharField(max_length=100)
     number = models.IntegerField()
     neighborhood = models.CharField(max_length=100)
 
 class Engineer(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key = True)
+    # user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key = True)
+    engine = models.ForeignKey(User, unique=True, on_delete=models.CASCADE)
     crea = models.IntegerField() 
