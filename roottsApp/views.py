@@ -1,9 +1,9 @@
 from audioop import reverse
 from django.shortcuts import HttpResponseRedirect, render, redirect
-from .forms import EncostaForm, EncostaFormUpdate, denunciaForm, Regular_user_registration_form, Engineer_registration_form
+from .forms import *
 from django.contrib import messages
 from django.contrib.auth import logout, authenticate, login
-from .models import Encosta, User, Regular_user, Engineer
+from .models import *
 from django.views.generic import CreateView
 from django.contrib.auth.decorators import login_required
 
@@ -76,16 +76,36 @@ def error_401_view(request, exception):
   return render(request,'401.html', status = 401)
 
 class User_register(CreateView):
-  model = Regular_user
-  form_class = Regular_user_registration_form
+  model = RegularUser
+  form_class = RegularUserCreationForm
   template_name = "../templates/user_register.html"
-  success_url = "/"
+
+  def get_context_data(self, **kwargs):
+    kwargs['user_type'] = 'regular_user'
+    return super().get_context_data(**kwargs)
+
+  def form_valid(self, form):
+    user = form.save()
+    login(self.request, user)
+    return redirect('index')
+
 
 class Engineer_register(CreateView):
-  model = Engineer
-  form_class = Engineer_registration_form
+  model = EngineerUser
+  form_class = EngineerUserCreationForm
   template_name = "../templates/engineer_register.html"
-  success_url = "/"
+
+  def get_context_data(self, **kwargs):
+    kwargs['user_type'] = 'engineer_user'
+    return super().get_context_data(**kwargs)
+
+  def form_valid(self, form):
+    user = form.save()
+    login(self.request, user)
+    return redirect('index')
+
+
+
 
 def register(request):
   return render(request, '../templates/register.html')
@@ -108,5 +128,8 @@ def login_view(request):
         
 @login_required
 def logout_view(request):
+  if request.user.is_authenticated:
     logout(request)
-    return HttpResponseRedirect(reverse('index'))
+    return redirect('index')
+
+
