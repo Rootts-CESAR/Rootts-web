@@ -6,13 +6,13 @@ from django.contrib.auth.models import AbstractUser
 class Encosta(models.Model):
     nome = models.CharField(max_length=15)
     local = models.CharField(max_length=40)
-    latitude = models.DecimalField(max_digits=9, decimal_places=6)
-    longitude = models.DecimalField(max_digits=9, decimal_places=6)
-    declividade = models.DecimalField(max_digits=9, decimal_places=6)
-    numeroConstrucoes = models.DecimalField(max_digits=9, decimal_places=6)
-    coeficienteUmidade = models.DecimalField(max_digits=5, decimal_places=3)
-    proximidadeRedeViarias = models.DecimalField(max_digits=9, decimal_places=6)
-    proximidadeCorposLiquidos = models.DecimalField(max_digits=9, decimal_places=6)
+    latitude = models.DecimalField(max_digits=15, decimal_places=10)
+    longitude = models.DecimalField(max_digits=15, decimal_places=10)
+    declividade = models.DecimalField(max_digits=15, decimal_places=10)
+    numeroConstrucoes = models.DecimalField(max_digits=15, decimal_places=10)
+    coeficienteUmidade = models.DecimalField(max_digits=15, decimal_places=10)
+    proximidadeRedeViarias = models.DecimalField(max_digits=15, decimal_places=10)
+    proximidadeCorposLiquidos = models.DecimalField(max_digits=15, decimal_places=10)
 
     def __str__(self):
         return self.nome, self.local
