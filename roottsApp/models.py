@@ -23,6 +23,8 @@ class Formulario_denuncia(models.Model):
     titulo = models.CharField(max_length = 50)
     descricao = models.TextField(max_length=500)
 
+    def __str__(self):
+        return self.nome
 
 class User(AbstractUser):
     is_engineer = models.BooleanField(default=False)

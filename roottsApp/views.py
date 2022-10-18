@@ -1,11 +1,13 @@
-from audioop import reverse
-from django.shortcuts import HttpResponseRedirect, render, redirect
-from .forms import *
+from django.views.generic import CreateView
+from django.shortcuts import render, redirect
+
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth import logout, authenticate, login
+
+from .forms import *
 from .models import *
-from django.views.generic import CreateView
-from django.contrib.auth.decorators import login_required
+
 
 def IndexView(request):
   return render(request, 'index.html')
@@ -105,27 +107,26 @@ class Engineer_register(CreateView):
     return redirect('index')
 
 
-
-
 def register(request):
   return render(request, '../templates/register.html')
 
+
+
 def login_view(request):
-    # redirect
-  if request.user.is_authenticated:
-    return redirect('index')
-  if request.method == 'POST':
-    email = request.POST.get('email')
-    password = request.POST.get('password')
-    user = authenticate(request, email=email, password=password)
-    if user is not None:
+  username = request.POST['username']
+  email = request.POST.get('email')
+  password = request.POST.get('password')
+  user = authenticate(request, username=username, email=email, password=password)
+  if user is not None:
+    if user.is_active:
       login(request, user)
       return redirect('index')
     else:
-      messages.info(request, 'Email ou senha não estão corretos')
-  context = {}
-  return render(request, 'registration/login.html', context)
-        
+      return render(request, '../templates/login.html', {'error_message': 'Sua conta foi desativada'})
+  else:
+    return render(request, '../templates/login.html', {'error_message': 'Login invalido'})
+
+
 @login_required
 def logout_view(request):
   if request.user.is_authenticated:
