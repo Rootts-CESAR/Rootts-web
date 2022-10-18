@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
 
+
 from .models import *
 
 # only for create
@@ -88,58 +89,62 @@ class denunciaForm(forms.ModelForm):
         }
 
       
-class Regular_user_registration_form(UserCreationForm):
-    username = forms.CharField(max_length=150)
-    email = forms.EmailField()
-    first_name = forms.CharField(required=True)
-    last_name = forms.CharField(required=True)
-    cep = forms.IntegerField(required=True)
-    street = forms.CharField(required=True)
-    number = forms.IntegerField(required=True)
-    neighborhood = forms.CharField(required=True)
+class RegularUserCreationForm(UserCreationForm):
+    email = forms.EmailField(label='Email', required=True)
+    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
+    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
 
-    class Meta(UserCreationForm.Meta):
+
+    class Meta:
         model = User
-        fields = ('username', 'email', 'first_name', 'last_name', 'cep', 'street', 'number', 'neighborhood')
+        fields = ('username', 'password1', 'password2')
 
+    def clean_password2(self):
+        # Check that the two password entries match
+        password1 = self.cleaned_data.get("password1")
+        password2 = self.cleaned_data.get("password2")
+        if password1 and password2 and password1 != password2:
+            raise forms.ValidationError("Senhas não conferem")
+        return password2
+    
     @transaction.atomic
-    def save_data(self):
+    def save(self):
         user = super().save(commit=False)
-        user.is_regular_user = True
-        regular_user.username = self.cleaned_data.get("username")
-        regular_user.first_name = self.cleaned_data.get("first_name")
-        regular_user.last_name = self.cleaned_data.get("last_name")
+        user.email = self.cleaned_data['email']
+        user.set_password(self.cleaned_data["password1"])
+        user.is_regularuser = True
         user.save()
-        regular_user = Regular_user.objects.create(user=user)
-        regular_user.email = self.cleaned_data.get("email")
-        regular_user.cep = self.cleaned_data.get("cep")
-        regular_user.street = self.cleaned_data.get("street")
-        regular_user.number = self.cleaned_data.get("number")
-        regular_user.neighborhood = self.cleaned_data.get("neighborhood")
-        regular_user.save()
-        return Regular_user
-        
-class Engineer_registration_form(UserCreationForm):
-    username = forms.CharField(max_length=150)
-    email = forms.EmailField()
-    first_name = forms.CharField(required=True)
-    last_name = forms.CharField(required=True)
-    crea = forms.IntegerField(required=True) 
+        regular = RegularUser.objects.create(user=user)
+        return user
+    
 
-    class Meta(UserCreationForm.Meta):
+class EngineerUserCreationForm(UserCreationForm):
+    email = forms.EmailField(label='Email', required=True)
+    crea = forms.CharField(label='CREA', required=True)
+    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
+    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
+
+
+    class Meta:
         model = User
-        fields = ('username', 'email', 'first_name', 'last_name', 'crea')
+        fields = ('username', 'email', 'crea', 'password1', 'password2')
 
+    def clean_password2(self):
+        # Check that the two password entries match
+        password1 = self.cleaned_data.get("password1")
+        password2 = self.cleaned_data.get("password2")
+        if password1 and password2 and password1 != password2:
+            raise forms.ValidationError("Senhas não conferem")
+        return password2
+    
     @transaction.atomic
-    def save_data(self):
+    def save(self):
         user = super().save(commit=False)
+        user.email = self.cleaned_data['email']
+        user.set_password(self.cleaned_data["password1"])
         user.is_engineer = True
-        Engineer.username = self.cleaned_data.get("username")
-        Engineer.first_name = self.cleaned_data.get("first_name")
-        Engineer.last_name = self.cleaned_data.get("last_name")
         user.save()
-        Engineer.email = self.cleaned_data.get("email")
-        Engineer = Engineer.objects.create(user=user)
-        Engineer.crea = self.cleaned_data.get("crea")
-        Engineer.save()
-        return Engineer
+        engineer = EngineerUser.objects.create(user=user)
+        engineer.crea = self.cleaned_data.get('crea')
+        engineer.save()
+        return user
