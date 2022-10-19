@@ -1,3 +1,4 @@
+from unittest.util import _MAX_LENGTH
 from django.db import models
 
 from django.contrib.auth.models import AbstractUser
@@ -19,6 +20,7 @@ class Encosta(models.Model):
 
 class Formulario_denuncia(models.Model):
     nome = models.CharField(max_length = 50)
+    endereco = models.TextField(max_length = 100)
     data = models.DateField()
     titulo = models.CharField(max_length = 50)
     descricao = models.TextField(max_length=500)
