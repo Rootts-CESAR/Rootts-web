@@ -1,5 +1,6 @@
 {% load bootstrap4 %}
 {% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -118,21 +119,16 @@ body{
 
     <div class="card" id="painel">
         <div class="card-body">
-            <form>
-            {% csrf_token %}
-                <div class="form-group">
-                  <label style="color:white;padding:0">E-mail</label>
-                  <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
-                </div>
-                <div class="form-group">
-                  <label style="color:white">Senha</label>
-                  <input type="password" id="pass" name="pass" placeholder="Insira sua senha" required>
-                  <button class="btn default" id="forgpass">Esqueci minha senha</button>
-                </div>
-                <button type="submit" class="btn btn-outline-success btn-block">Login</button>               
-              </form>
-              <p1 id = "textaccount">Não tem uma conta?</p1><a href='{url 'register'}'><button id="btnregister"class="btn default">Registre-se</button></a>
-        </div>
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                {% if form.errors %}
+                    <p class="text-danger">Usuario/senha incorretos.</p>
+                {% endif %}
+                <button type="submit" class="btn btn-success btn-block">Entrar</button>
+            <form/>
+          </div>
+
       </div>
     </div>
 {% bootstrap_javascript jquery='full'%}

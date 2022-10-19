@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Encosta,Formulario_denuncia, User, Regular_user, Engineer
+from .models import *
 
 
 @admin.register(Encosta)
@@ -11,6 +11,9 @@ class EncostaAdmin(admin.ModelAdmin):
 class FormAdmin(admin.ModelAdmin):
     list_display =('nome','data','titulo')
 
+
 admin.site.register(User)
-admin.site.register(Regular_user)
-admin.site.register(Engineer)
+
+admin.site.register(EngineerUser)
+
+admin.site.register(RegularUser)
