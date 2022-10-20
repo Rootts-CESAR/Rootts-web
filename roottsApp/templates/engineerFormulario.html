@@ -1,41 +1,149 @@
-{% extends 'base.html' %}
-{% load humanize %}
-{% block content %}
+{% load humanize %} {% load static %} {% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    {% bootstrap_css %}
+    <title>Rootts</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #15171b;
+        overflow-x: hidden;
+      }
 
-    <div class="row  text-light" style="margin-bottom: 1.5rem; background-color: #FFF display: flex; align-items: center; justify-content: space-between">
-        <h3>
-            Gerenciamento de Reports
-        </h3>
+      #logo {
+        color: #4fdb0d;
+        font-size: 1.5rem;
+        margin-left: 5rem;
+        transition: ease 0.5s;
+      }
+
+      #logo:hover {
+        font-size: 1.5rem;
+        margin-left: 5.5rem;
+        transition: ease 0.5s;
+        brightness: 1.3;
+      }
+      .box-container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 480px;
+        padding: 10px;
+        height: fit-content;
+        margin: 10px 10px 10px 0px;
+      }
+      .main-content {
+        padding-bottom: 5px;
+        display: flex;
+        align-items: center;
+      }
+      .main-content h2 {
+        font-size: 20px;
+      }
+      .main-content span {
+        font-weight: 400;
+      }
+      .visualizar {
+        border: 1px solid #4fdb0d;
+        border-radius: 5px;
+        color: white;
+        transition: all 300ms ease-in-out;
+      }
+      .excluir {
+        border: 1px solid red;
+        border-radius: 5px;
+        color: white;
+        transition: all 300ms ease-in-out;
+      }
+      .excluir:hover {
+        background-color: red;
+        color: white;
+      }
+      .visualizar:hover {
+        border-color: transparent;
+        background-color: green;
+        color: white;
+      }
+      .tudo {
+        width: 100vw;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  {% block content %}
+  <nav
+    class="navbar navbar-dark"
+    style="padding: 1rem; background-color: #111113; margin-bottom: 1rem"
+  >
+    <a class="navbar-brand" href="{% url 'index' %}" id="logo">
+      <img src="{% static "roottsapp/images/roottst.png" %}" alt="rootts"
+      id="image" style="width:120px;" />
+    </a>
+    <ul class="nav" style="margin-right: 5rem">
+      <h5 class="text-light">Ola engenheiro(a)</h5>
+    </ul>
+  </nav>
+  <div class="tudo">
+    <div class="text-light" style="margin-bottom: 1.5rem">
+      <h3 style="font-size: 30px">Gerenciamento de Reportes</h3>
     </div>
 
-
-    <div class="row text-light" >
-        <table class="table table-striped table-dark">
-          <thead>
-            <tr>
-                <th scope="col">Nome</th>
-                <th scope="col">Titulo</th>
-                <th scope="col">Data</th>
-                <th scope = "col">Endereco</th>
-
-                <th scope="col">Ação</th>
-            </tr>
-          </thead>
-                {% for form in forms %}
-                    <tr>
-                        <td>{{ form.nome }}</td>
-                        <td>{{ form.titulo }}</td>
-                        <td>{{ form.data }}</td>
-                        <td>{{ form.endereco }}</td>
-                       
-                        <td>
-                            <a class="btn-sm btn-success" style="text-decoration:none;" href="{% url 'view_descricao' form.pk %}">Visualizar</a>
-                            <a class="btn-sm btn-danger" style="text-decoration:none;" href="{% url 'del_reporte' form.pk %}">Excluir</a>
-                        </td>
-                       
-                    </tr>
-                {% endfor %}
-        </table>
-
+    <div
+      class="conteudo"
+      style="
+        display: flex;
+        width: 85vw;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+      "
+    >
+      {% for form in forms %}
+      <div class="box-container table-dark">
+        <div class="main-content">
+          <h2>Nome: <span>{{ form.nome }}</span></h2>
+        </div>
+        <div class="main-content">
+          <h2>Titulo: <span>{{ form.titulo }}</span></h2>
+        </div>
+        <div class="main-content">
+          <h2>Endereço: <span>{{ form.endereco }}</span></h2>
+        </div>
+        <div class="main-content">
+          <h2>Data: <span>{{ form.data }}</span></h2>
+        </div>
+        <div class="buttons">
+          <a
+            class="btn-sm visualizar"
+            style="text-decoration: none"
+            href="{% url 'view_descricao' form.pk %}"
+            >Visualizar</a
+          >
+          <a
+            class="btn-sm excluir"
+            style="text-decoration: none"
+            href="{% url 'del_reporte' form.pk %}"
+            >Descartar</a
+          >
+        </div>
+      </div>
+      {% endfor %}
     </div>
-{% endblock %}
+  </div>
+  {% endblock %}
+</html>
