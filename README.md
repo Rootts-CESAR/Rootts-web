@@ -3,7 +3,7 @@
 ## Equipe:
 
 * [Arthur Hendrich Alencar de Menezes](https://www.linkedin.com/in/arthur-hendrich-b30885153/) (Líder Frontend);
-* [Matheus Vilaverde Lazzarotto](https://www.linkedin.com/in/matheus-lazzarotto/) (Lider Backend);
+* [Matheus Vilaverde Lazzarotto](https://www.linkedin.com/in/matheus-lazzarotto/) (Líder Backend);
 * [Luis Adolfo Alves De Araújo Neto](https://www.linkedin.com/in/luis-adolfo-araujo-703a721aa/) (Backend);
 * [Rafael Martins Falk](https://www.linkedin.com/in/rafael-falk/) (Frontend);
 * [Samuel Isaac de Melo Magalhães](https://www.linkedin.com/in/isaacmagl/) (Frontend);
