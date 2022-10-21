@@ -1,9 +1,10 @@
 from django.test import TestCase
 from django.urls import reverse
 
+
 from ..forms import *
 
-# Create your tests here.
+
 
 class EncostaFormTest(TestCase):
     def setUp(self):
@@ -68,15 +69,21 @@ class EncostaFormUpdateTest(TestCase):
 
 
 class DenunciaFormTest(TestCase):
-    def setUp(self):
+    def setup(self):
+        self.user = User.objects.create_user(
+            username='user1',
+            password='12345'
+        )
+        self.user.save()
+        self.client.login(username='user1', password='12345')
         self.denuncia = Formulario_denuncia.objects.create(
             nome='DenunciaTeste',
             data='2019-05-01',
             titulo='Titulo1',
-            descricao='Descricao1')
+            descricao='Descricao1'
+        )
         self.denuncia.save()
-
-
+    
     def test_denuncia_form(self):
         data = {
             'nome': 'DenunciaTeste',
@@ -88,36 +95,57 @@ class DenunciaFormTest(TestCase):
         self.assertTrue(form.is_valid())
 
 
-class RegularUserCreationFormTest(TestCase):
+class EngiennerUseCreationFormTest(TestCase):
     def setUp(self):
-        self.user = User.objects.create_user(username='testuser', password='12345')
+        self.user = User.objects.create_user(
+            username='user1',
+            password='12345'
+        )
         self.user.save()
+        self.engenheiro = EngineerUser.objects.create(
+            user=self.user,
+            nome='Engenheiro1',
+            email='EngenheiroTeste@gmail.com',
+            crea='123123',
+        )
+        self.engenheiro.save()
 
-
-    def test_user_form(self):
+    def test_engenheiro_form(self):
         data = {
-            'username': 'TestRegularUser',
-            'password': '12345',
-            'password2': '12345'
+            'user': self.user,
+            'username': 'Engenheiro1',
+            'nome': 'Engenheiro1',
+            'email': 'Engenheiroteste@gmail.com',
+            'crea': '123123',
+            'password1': '123456Ab@',
+            'password2': '123456Ab@'
         }
-        form = RegularUserCreationForm(data=data)
-        self.assertTrue(form.is_regular_user())
+        form = EngineerUserCreationForm(data=data)
         self.assertTrue(form.is_valid())
 
 
-class EngineerUserCreationFormTest(TestCase):
+class RegularUserCreationFormTest(TestCase):
     def setUp(self):
-        self.user = User.objects.create_user(username='testuser', password='12345')
+        self.user = User.objects.create_user(
+            username='user1',
+            password='12345'
+        )
         self.user.save()
+        self.regularUser = RegularUser.objects.create(
+            user=self.user,
+            nome='UsuarioComuns',
+            email='regularUser@gmail.com',
+        )
+        self.regularUser.save()
 
-
-    def test_user_form(self):
+    def test_engenheiro_form(self):
         data = {
-            'username': 'TestEngineerUser',
-            'password': '12345',
-            'password2': '12345'
+            'user': self.user,
+            'username': 'UsuarioComum',
+            'nome': 'UsuarioComuns',
+            'email': 'regularUser@gmail.com',
+            'password1': '123456Ab@',
+            'password2': '123456Ab@'
         }
-
-        form = EngineerUserCreationForm(data=data)
-        self.assertTrue(form.is_engineer_user())
+        form = RegularUserCreationForm(data=data)
         self.assertTrue(form.is_valid())
