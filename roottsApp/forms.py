@@ -84,11 +84,15 @@ class denunciaForm(forms.ModelForm):
             'descricao': forms.Textarea(attrs={'class': 'descricao','placeholder':'Faça uma breve descrição do que está acontecendo.', 'required': True, 'minlength': '10', 'maxlength': '500'}),
             'nome': forms.TextInput(attrs={'class': 'form-control', 'onkeypress': 'return event.charCode >= 65 && event.charCode <= 122 || event.charCode == 32', 'placeholder': 'Digite seu nome', 'required': True}),
             'titulo': forms.TextInput(attrs={'class': 'titulo','placeholder':'Informe o Assunto', 'required': True, 'minlength': '10', 'maxlength': '120'}),
-        }
+            }
         labels = {
             'descricao':'Descrição'
-        }
-    
+            }
+
+    def __init__(self, *args, **kwargs):
+        super(denunciaForm, self).__init__(*args, **kwargs)
+        self.fields['statusApproved'].required = True
+
 
       
 class RegularUserCreationForm(UserCreationForm):

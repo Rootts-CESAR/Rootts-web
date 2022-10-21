@@ -24,6 +24,7 @@ class Formulario_denuncia(models.Model):
     data = models.DateField()
     titulo = models.CharField(max_length = 50)
     descricao = models.TextField(max_length=500)
+    statusApproved = models.BooleanField(default=False)
 
     def __str__(self):
         return self.nome
