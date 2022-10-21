@@ -28,7 +28,6 @@ class Formulario_denuncia(models.Model):
 
 class User(AbstractUser):
     is_engineer = models.BooleanField(default=False)
-    is_regularuser = models.BooleanField(default=False)
 
     def __str__(self):
         return self.username
