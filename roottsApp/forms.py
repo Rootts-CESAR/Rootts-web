@@ -112,7 +112,6 @@ class RegularUserCreationForm(UserCreationForm):
         user = super().save(commit=False)
         user.email = self.cleaned_data['email']
         user.set_password(self.cleaned_data["password1"])
-        user.is_regularuser = True
         user.save()
         regular = RegularUser.objects.create(user=user)
         return user
