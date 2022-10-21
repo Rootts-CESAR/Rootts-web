@@ -146,3 +146,7 @@ def logout_view(request):
     return redirect('index')
 
 
+def RiscoView(request):
+  encostas = Encosta.objects.all()
+  return render(request, 'risco_deslizamento.html', {'encostas': encostas})
+

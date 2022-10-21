@@ -19,6 +19,7 @@ class EncostaForm(forms.ModelForm):
             'coeficienteUmidade',
             'proximidadeRedeViarias',
             'proximidadeCorposLiquidos',
+            'prioridadeEncosta',
         )
         labels = {
             'nome': 'Nome',
@@ -31,6 +32,7 @@ class EncostaForm(forms.ModelForm):
             'coeficienteUmidade': 'Coeficiente de Umidade',
             'proximidadeRedeViarias': 'Proximidade de Redes Viarias por m²',
             'proximidadeCorposLiquidos': 'Proximidade de Corpos Liquidos por m²',
+            'prioridadeEncosta': 'Nível de Risco de Deslizamento',
         }
     
     def __init__(self, *args, **kwargs):
@@ -44,6 +46,7 @@ class EncostaForm(forms.ModelForm):
         self.fields['coeficienteUmidade'].widget.attrs.update({'class': 'form-control'})
         self.fields['proximidadeRedeViarias'].widget.attrs.update({'class': 'form-control'})
         self.fields['proximidadeCorposLiquidos'].widget.attrs.update({'class': 'form-control'})
+        self.fields['prioridadeEncosta'].widget.attrs.update({'class': 'form-control'})
 
 # only for update
 class EncostaFormUpdate(forms.ModelForm):
@@ -55,6 +58,7 @@ class EncostaFormUpdate(forms.ModelForm):
             'coeficienteUmidade',
             'proximidadeRedeViarias',
             'proximidadeCorposLiquidos',
+            'prioridadeEncosta',
         )
         labels = {
             'declividade': 'Declividade',
@@ -63,6 +67,7 @@ class EncostaFormUpdate(forms.ModelForm):
             'coeficienteUmidade': 'Coeficiente de Umidade',
             'proximidadeRedeViarias': 'Proximidade de Redes Viarias por m²',
             'proximidadeCorposLiquidos': 'Proximidade de Corpos Liquidos por m²',
+            'prioridadeEncosta': 'Nível de Risco de Deslizamento',
         }
     
     def __init__(self, *args, **kwargs):
@@ -72,6 +77,7 @@ class EncostaFormUpdate(forms.ModelForm):
         self.fields['coeficienteUmidade'].widget.attrs.update({'class': 'form-control'})
         self.fields['proximidadeRedeViarias'].widget.attrs.update({'class': 'form-control'})
         self.fields['proximidadeCorposLiquidos'].widget.attrs.update({'class': 'form-control'})
+        self.fields['prioridadeEncosta'].widget.attrs.update({'class': 'form-control'})
 
 
 class denunciaForm(forms.ModelForm):
