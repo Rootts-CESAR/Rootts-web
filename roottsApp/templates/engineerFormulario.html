@@ -39,12 +39,11 @@
         flex-direction: column;
         align-items: flex-start;
         width: 480px;
-        padding: 10px;
+        padding: 10px 10px 0px 10px;
         height: fit-content;
         margin: 10px 10px 10px 0px;
       }
       .main-content {
-        padding-bottom: 5px;
         display: flex;
         align-items: center;
       }
@@ -56,6 +55,12 @@
       }
       .visualizar {
         border: 1px solid #4fdb0d;
+        border-radius: 5px;
+        color: white;
+        transition: all 300ms ease-in-out;
+      }
+      .aprovar {
+        border: 1px solid darkcyan;
         border-radius: 5px;
         color: white;
         transition: all 300ms ease-in-out;
@@ -75,6 +80,11 @@
         background-color: green;
         color: white;
       }
+      .aprovar:hover {
+        border-color: transparent;
+        background-color: darkcyan;
+        color: white;
+      }
       .tudo {
         width: 100vw;
         height: fit-content;
@@ -82,6 +92,16 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+      }
+      .buttons {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+      .buttons h4 {
+        font-size: 14px;
+        margin-top: 10px;
       }
     </style>
   </head>
@@ -110,6 +130,7 @@
         width: 85vw;
         align-items: center;
         flex-direction: row;
+        justify-content: center;
         flex-wrap: wrap;
       "
     >
@@ -121,25 +142,25 @@
         <div class="main-content">
           <h2>Titulo: <span>{{ form.titulo }}</span></h2>
         </div>
-        <div class="main-content">
-          <h2>Endereço: <span>{{ form.endereco }}</span></h2>
-        </div>
-        <div class="main-content">
-          <h2>Data: <span>{{ form.data }}</span></h2>
-        </div>
         <div class="buttons">
-          <a
-            class="btn-sm visualizar"
-            style="text-decoration: none"
-            href="{% url 'view_descricao' form.pk %}"
-            >Visualizar</a
-          >
-          <a
-            class="btn-sm excluir"
-            style="text-decoration: none"
-            href="{% url 'del_reporte' form.pk %}"
-            >Descartar</a
-          >
+          <div>
+            <a
+              class="btn-sm visualizar"
+              style="text-decoration: none"
+              href="{% url 'view_descricao' form.pk %}"
+              >Visualizar</a
+            >
+            <a class="btn-sm aprovar" style="text-decoration: none" href="#"
+              >Aprovar</a
+            >
+            <a
+              class="btn-sm excluir"
+              style="text-decoration: none"
+              href="{% url 'del_reporte' form.pk %}"
+              >Descartar</a
+            >
+          </div>
+          <h4>{{form.data}}</h4>
         </div>
       </div>
       {% endfor %}
