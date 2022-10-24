@@ -10,10 +10,7 @@
     
     <title>Rootts</title>
 <style>
-body{
-    background-color:#15171B ;
-}
-* {
+      * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -34,7 +31,7 @@ body{
         margin-left: 5.5rem;
         transition: ease 0.5s;
       }
-#logintext{
+/* #logintext{
   color:white;
   margin-top:-70px;
   margin-left:770px;
@@ -61,7 +58,7 @@ body{
   font-size: 13px;
   cursor: pointer;
   display: inline-block;
-  color:green
+  color:green;
 }
 #textaccount{
   color:white;
@@ -82,8 +79,8 @@ body{
 .container{
   display: flex;
   align-items: center;
-  justify-content: 
-  space-around;
+  justify-content: space-around;
+  flex-wrap: wrap;
   height: 85vh;
 }
 .text{
@@ -92,6 +89,65 @@ body{
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+}
+.form-group {
+    position: relative;
+    padding: 15px 0px 0px 0px;
+    width: 300px;
+    max-width: 100%;
+    transition: all 300ms ease-in-out;
+}
+
+.form-group input {
+    border: none;
+    border-bottom: 1px solid white;
+    background-color: transparent;
+    transition: all 300ms ease-in-out;
+    color: white;
+    display: block;
+    font-size: 16px;
+    padding: 10px 0px;
+    width: 100%;
+}
+
+.form-group label {
+    color: white;
+    font-size: 16px;
+    font-weight: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transform: translateY(30px);
+    transition: all 300ms ease-in-out;
+}
+.form-group input:valid,
+.form-group input:focus {
+    border-bottom-color: green;
+    transition: all 300ms ease-in-out;
+    outline: none;
+}
+
+.form-group input:valid + label,
+.form-group input:focus + label {
+    color: green;
+    font-size: 14px;
+    transform: translateY(0);
+    transition: all 300ms ease-in-out;
+}
+.register-text{
+  display: flex;
+  padding-top: 10px;
+  text-align: center;
+  flex-wrap: wrap;
+}
+.register-text a{
+  text-decoration: none; 
+  color: greenyellow;
+  transition: all 300ms ease-in-out;
+}
+.register-text a:hover{
+  color: green;
 }
 </style>
 </head>
@@ -121,12 +177,22 @@ body{
         <div class="card-body">
             <form method="POST" action="{% url 'login' %}">
                 {% csrf_token %}
-                {% bootstrap_form form %}
+                <div class="form-group">
+                  <input type="text" name="username" id="username" required />
+                  <label>Nome</label>
+                </div>
+                <div class="form-group">
+                  <input type="password" name="password" id="password" required />
+                  <label>Senha</label>
+                </div>
                 {% if form.errors %}
                     <p class="text-danger">Usuario/senha incorretos.</p>
                 {% endif %}
-                <button type="submit" class="btn btn-success btn-block">Entrar</button>
-            <form/>
+                <button type="submit" class="btn btn-success btn-block" style="margin-top: 30px;">Entrar</button>
+                <div class="register-text">
+                <p style="color: white; font-size: 14px;">Ainda não possui uma conta? Registre-se agora como  <a href="{% url 'user_register' %}">Civil</a> ou <a href="{% url 'engineer_register' %}">Engenheiro</a>.</p>
+              </div>
+              </form>
           </div>
 
       </div>
