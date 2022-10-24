@@ -4,6 +4,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth import logout, authenticate, login
+from django.core.exceptions import PermissionDenied
+from django.contrib.auth.decorators import user_passes_test
 
 
 from .forms import *
@@ -13,12 +15,16 @@ from .models import *
 def IndexView(request):
   return render(request, 'index.html')
 
+
+@login_required(login_url='/login/')
+@user_passes_test(lambda u: u.is_engineer, login_url='/login/')
 def EncostaView(request):
   encostas = Encosta.objects.all()
   return render(request, 'crud.html', {'encostas': encostas})
 
 
-# create view
+@login_required(login_url='/login/')
+@user_passes_test(lambda u: u.is_engineer, login_url='/login/')
 def CreateEncostaView(request):
   form = EncostaForm(request.POST or None)
   if form.is_valid():
@@ -26,6 +32,9 @@ def CreateEncostaView(request):
     return redirect('crud')
   return render(request, 'encosta_add.html', {'form': form})
 
+
+@login_required(login_url='/login/')
+@user_passes_test(lambda u: u.is_engineer, login_url='/login/')
 def UpdateEncostaView(request, pk):
   encosta = Encosta.objects.get(id=pk)
   form = EncostaFormUpdate(request.POST or None, instance=encosta)
@@ -35,7 +44,8 @@ def UpdateEncostaView(request, pk):
   return render(request, 'encosta_upd.html', {'form': form, 'encosta': encosta})
 
 
-# delete view
+@login_required(login_url='/login/')
+@user_passes_test(lambda u: u.is_engineer, login_url='/login/')
 def DeleteEncostaView(request, pk):
   encosta = Encosta.objects.get(id=pk)
   if request.method == 'POST':
@@ -45,6 +55,8 @@ def DeleteEncostaView(request, pk):
 
 
 # Visualizar encosta selecionada
+@login_required(login_url='/login/')
+@user_passes_test(lambda u: u.is_engineer, login_url='/login/')
 def EncostaSelecionadaView(request, pk):
   encosta = Encosta.objects.get(id=pk)
   return render(request, 'encosta_selecionada.html', {'encosta': encosta})
@@ -150,3 +162,8 @@ def DeleteformView(request, pk):
     forms.delete()
     return redirect('EngenheiroForm')
   return render(request, 'form_del.html', {'forms': forms})
+
+
+def RiscoView(request):
+  encostas = Encosta.objects.all()
+  return render(request, 'risco_deslizamento.html', {'encostas': encostas})
