@@ -1,5 +1,7 @@
 from django.views.generic import CreateView
 from django.shortcuts import render, redirect
+from django.db import models
+from django_evolution.mutations import AddField
 
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -42,7 +44,6 @@ def UpdateEncostaView(request, pk):
     return redirect('crud')
   return render(request, 'encosta_upd.html', {'form': form, 'encosta': encosta})
 
-
 @login_required(login_url='/login/')
 @user_passes_test(lambda u: u.is_engineer, login_url='/login/')
 def DeleteEncostaView(request, pk):
@@ -52,7 +53,6 @@ def DeleteEncostaView(request, pk):
     return redirect('crud')
   return render(request, 'encosta_del.html', {'encosta': encosta})
 
-
 # Visualizar encosta selecionada
 @login_required(login_url='/login/')
 @user_passes_test(lambda u: u.is_engineer, login_url='/login/')
@@ -61,6 +61,35 @@ def EncostaSelecionadaView(request, pk):
   return render(request, 'encosta_selecionada.html', {'encosta': encosta})
 
 
+@login_required(login_url='/login/')
+@user_passes_test(lambda u: u.is_engineer, login_url='/login/')
+def newVariableView(request, pk):
+  encosta = Encosta.objects.get(id=pk)
+  if request.method == 'POST':
+    obj = request.POST
+    dataType = obj.get("datatype")
+    nome = obj.get('nome')
+    content = obj.get('content')
+    if dataType == 'Integer':
+      AddField('Encosta', nome, models.IntegerField, content)
+    elif dataType == 'Float':
+      AddField('Encosta', nome, models.FloatField, content)
+    else:
+      AddField('Encosta', nome, models.CharField, content)
+    return redirect('crud')
+  return render(request, 'create_variable_encosta.html', {'encosta': encosta})
+  
+# @login_required(login_url='/login/')
+# @user_passes_test(lambda u: u.is_engineer, login_url='/login/')
+# def addNewVariableToEncosta(request, pk):
+#   encosta = Encosta.objects.get(id=pk)
+#   form = EncostaFormUpdate(request.POST or None, instance=encosta)
+#   if form.is_valid():
+#     MUTATIONS = [
+#       AddField('', 'publish_date', models.DateTimeField, null=True),
+#     ]
+#     form.save()
+#     return redirect('crud')
 
 def DenunciaFormView(request):
   if request.method == 'GET':
@@ -144,5 +173,3 @@ def logout_view(request):
   if request.user.is_authenticated:
     logout(request)
     return redirect('index')
-
-

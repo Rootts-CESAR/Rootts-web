@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     {% load bootstrap4 %} {% bootstrap_css %}
     <style>
       * {
@@ -78,9 +77,9 @@
       .button-box button:hover {
         background-color: #3a9b0c;
       }
-      .descricao {
+      .content {
         outline: none;
-        height: 150px;
+        height: 50px;
         width: 450px;
         background-color: transparent;
         border: 1px solid white;
@@ -88,16 +87,8 @@
         padding-left: 5px;
         border-radius: 5px;
       }
+
       .nome {
-        background: none;
-        border: 1px solid white;
-        padding: 5px;
-        color: white;
-        outline: none;
-        border-radius: 5px;
-        width: 250px;
-      }
-      .titulo {
         background: none;
         border: 1px solid white;
         padding: 5px;
@@ -151,7 +142,7 @@
     {% if messages %} {% for message in messages %}
     <div class="message-box">
       <div class="alert {{ message.tags }} alert-dismissible alert-success">
-        <a href="{% url 'DenunciaForm' %}" class="close" data-dismiss="alert">
+        <a href="{% url 'newVariableView' %}" class="close" data-dismiss="alert">
         </a>
         <strong>{{message}}</strong>
       </div>
@@ -159,18 +150,27 @@
     {% endfor %} {% endif %}
     <div class="main-content">
       <div class="form-box">
-        <h1>Reportar Problema</h1>
-        <form action="." method="post">
-          {% csrf_token %} {% for field in form %}
+        <h1>Criar Nova Variável</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="types" style="padding-top: 10px; padding-bottom: 10px">Data Type:</label>
+            <select value="datatype" name="datatype">
+            <option value="Integer">Inteiro</option>
+            <option value="Float">Float</option>
+            <option value="String">String</option>
+            </select>
+
           <div class="form-group">
-            <label for="{{field.id_for_label}}">{{field.label}} :</label>
-            {{field}} {% if field.help_text %}
-            <p class="help-text">{{field.help_text}}</p>
-            {% endif %} 
+            <label for="id_nome">Nome:</label>
+            <input type="text" name="nome" class="nome" placeholder="Informe o nome da variável">  
           </div>
-          {% endfor %} {% comment %} Only Submit if is commited {% endcomment %}
-          <div class="button-box">
-            <button type="submit" value="enviar">Enviar Relatório</button>
+          
+          <div class="form-group">
+            <label for="id_content">Conteúdo:</label>
+            <input type="text" name="content" class="nome" placeholder="Informe o conteúdo da variável">  
+          </div>
+          <div class="button-box"">
+            <button type="submit" style="padding-bottom: 10px" value="enviar">Confirmar</button>
           </div>
         </form>
       </div>
