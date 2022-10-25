@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <title>Roots</title>
+    <title>Rootts</title>
     <style>
         * {
           margin: 0;
@@ -16,6 +16,8 @@
         }
         body {
           background-color: #15171b;
+          overflow-x: hidden;
+          
         }
   
         #logo {
@@ -30,10 +32,81 @@
           margin-left: 5.5rem;
           transition: ease 0.5s;
         }
+        #faq{
+            background-color: #1f2125;
+            padding-top: 50px;
+            height:500px;
+            width: 1490px;
+        }
+        .line{
+            border-top: 2px solid grey;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 50vh;
+            
+        }
+        .tudo{
+            width: 100vw;
+            height: 100vh;         
+        }
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+  background-color: #3e3f41;
+  color:white;
+  cursor: pointer;
+  padding: 18px;
+  width: 60vw;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  
+  
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  color: #4fdb0d;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0 18px;
+  background-color: #798181;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  color: white;
+  
+}
+.ac-content{
+    margin-bottom: 10px;
+}
+.accordion:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  float: right;
+  margin-left: 5px;
+  
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+.tudocolor{
+    width: 100vw;
+    height: 100vh;
+    
+    
+}
 
     </style>
 </head>
 <body>
+    
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
@@ -41,12 +114,13 @@
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     
-    <script>
+    <!-- <script>
         $(document).ready(function(){
             $("#startModal").modal('show');
         });
-    </script>
-    <script>
+    </script> -->
+
+    {% comment %} <script>
         var x=document.getElementById("demo");
         function getLocation()
           {
@@ -62,9 +136,9 @@
           position.coords.latitude;
           position.coords.longitude; 
           }
-        </script>
+        </script> {% endcomment %}
 
-    <div class="container">
+    {% comment %} <div class="container">
         <div class="row">
             <div class="col-md-1">
                 <div class="modal fade" id="startModal">
@@ -74,13 +148,13 @@
                                 <h1 style="text-align: center;color:aliceblue;font-size: 20px;">Deseja ativar sua localização?</h1>
                                     <div class="modal-body">
                                     </div>
-                                <button  class="btn btn-success" data-dismiss="modal" onclick="getLocation()" style="max-width:100px;margin-left:100px;margin-bottom:20px;">Sim</button>
+                                <button  class="btn btn-success" data-bs-dismiss="modal" onclick="getLocation()" style="max-width:100px;margin-left:100px;margin-bottom:20px;">Sim</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> {% endcomment %}
     
 {% if user.is_authenticated %}
     {% if user.is_engineer %}
@@ -98,9 +172,7 @@
             <div class="left text-light font-weight-bold" style="max-width: 300px">
                 <h1>Localizar</h1>
                 <h1 style="color: #4fdb0d;">Prevenir</h1>
-                <h1>Ajudar</h1>
-                static\roottsapp\images\6377392-mapa-mundi-em-fundo-preto-mapa-mundi-modelo-com-continentes-norte-e-america-do-sul-europa-e-asia-africa-e-australia-vetor.jpg
-                
+                <h1>Ajudar</h1>                
             </div>
             <div>
                 <span class="text-secondary"style="font-size:17px;padding-left:px;">A Rootts é uma startup incubada pela CESAR School<br> que atualmente desenvolve soluções que<br>
@@ -118,6 +190,7 @@
                     <div class="row" style="margin-top: 2rem">
                         <div class="col">
                             <a href="{% url 'crud' %}" class="btn btn-outline-danger text-light" style="width: 200px">Crud</a>
+                            <a href="{% url 'EngenheiroForm' %}" class="btn btn-outline-danger text-light" style="width: 200px">Reportes</a>
                         </div>
                     </div>
                 </div>
@@ -126,6 +199,7 @@
         </div>
         </div>
     {% else %}
+
         <nav class="navbar navbar-dark" style="padding: 1rem; background-color: #111113">
             <a class="navbar-brand" href="{% url 'index' %}" id="logo">
                 <img src="{% static "roottsapp/images/roottst.png" %}" alt="rootts" id="image" style="width:120px;" />
@@ -195,10 +269,9 @@
                     <h1 class="text-light">O que você deseja fazer?</h1>
                     <div class="row" style="margin-top: 2rem">
                         <div class="col">
-                            <a href="#" data-toggle="modal" data-target="#myModal"class="btn btn-outline-danger text-light" style="width: 100%">Contatar Emergencia</a>
-                        </div>
+                            <a href="#" data-toggle="modal" data-target="#myModal"class="btn btn-outline-danger text-light" style="width: 100%">Contatar Emergencia</a>                        </div>
                         <div class="col">
-                            <a href="{% url 'DenunciaForm' %}" class="btn btn-outline-danger text-light" style="width: 100%">Reportar um problema</a>
+                            <a href="{% url 'DenunciaForm' %}" class="btn btn-danger" style="width: 100%">Reportar um problema</a>
                         </div>
                     </div>
                 </div>
@@ -209,44 +282,20 @@
     {% endif %}
 
 {% else %}
-    <nav class="navbar navbar-dark" style="padding: 1rem; background-color: #111113">
+<div class="tudo">
+    <div class="tudocolor">
+    <nav class="navbar navbar-dark" style="padding: 1rem; background-color:transparent">
         <a class="navbar-brand" href="{% url 'index' %}" id="logo">
             <img src="{% static "roottsapp/images/roottst.png" %}" alt="rootts" id="image" style="width:120px;" />
         </a>
         <ul class="nav" style="margin-right: 5rem">
+            
             <li class="nav-item">
-                <a ><button class="btn btn-outline-light" type="button" href="#" data-toggle="modal" data-target="#faqModal"style="margin-right: 1rem">FAQ</button></a>
-            </li>
-            <li class="nav-item">
-                <a href="{% url 'login' %}"><button class="btn btn-outline-light" type="button" data-toggle="modal" data-target="#modalLogin" style="margin-right: 1rem">Login</button></a>
-            </li>
-            <li class="nav-item">
-                <a href="{% url 'register' %}"><button class="btn btn-outline-light" type="button" data-toggle="modal" data-target="#modalCadastro">Cadastro</button></a>
+                <a href="{% url 'login' %}"><button class="btn btn-outline-light" type="button" data-toggle="modal" data-target="#modalLogin" style="margin-right: 1rem">Entrar</button></a>
             </li>
             
         </ul>
     </nav>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="modal fade" id="faqModal">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content"style="background-color: #272727;text-align: center;">
-                            
-                                <h1 style="text-align: center;color:aliceblue;">F.A.Q</h1>
-                            
-                                    <div class="modal-body">
-                                        
-                                    </div>
-                            
-                                <button class="btn btn-success" data-dismiss="modal" style="max-width:150px;margin-left:328px;margin-bottom:20px;">Fechar</button>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -285,16 +334,15 @@
             </div>
         </div>
     </div>
+
     <div class="container" style="display: flex; margin-top: 10rem; padding-left: 0rem; padding-right: 5rem; justify-content: space-between; align-items: center;">
         <div class="left text-light font-weight-bold" style="max-width: 300px">
             <h1>Localizar</h1>
             <h1 style="color: #4fdb0d;">Prevenir</h1>
-            <h1>Ajudar</h1>
-            
-            
+            <h1>Ajudar</h1>            
         </div>
         <div>
-            <span class="text-secondary"style="font-size:17px;padding-left:px;">A Rootts é uma startup incubada pela CESAR School<br> que atualmente desenvolve soluções que<br>
+            <span class="text-white"style="font-size:17px;">A Rootts é uma startup incubada pela CESAR School<br> que atualmente desenvolve soluções que<br>
                 pretendem melhorar as experiências de: 
                 <br><br>
                 • captação e organização de dados referentes<br> ao cálculo de risco de deslizamentos de terra;<br><br>
@@ -306,20 +354,49 @@
                 <h1 class="text-light">O que você deseja fazer?</h1>
                 <div class="row" style="margin-top: 2rem">
                     <div class="col">
-                        <a href="#" data-toggle="modal" data-target="#myModal"class="btn btn-outline-danger text-light" style="width: 100%">Contatar Emergencia</a>
+                        <a href="#" data-toggle="modal" data-target="#myModal"class="btn btn-outline-danger" style="width: 100%;color: white;">Contatar Emergencia</a>
                     </div>
                     <div class="col">
                         <a href="{% url 'DenunciaForm' %}" class="btn btn-outline-danger text-light" style="width: 100%">Reportar um problema</a>
                     </div>
+                    <div class="col">
+                        <a href="{% url 'risco' %}" class="btn btn-outline-danger text-light" style="width: 100%">Visualizar Encostas</a>
+                    </div>
+                </div>
+                </div>
+                <div  class="ac-content">
+                    <button class="accordion">O que é o Rootts?</button>
+                    <div class="panel">
+                    <p>Um site que opera como notificador de risco de deslizamento<br>
+                        baseado num banco de dados que deve ser capaz de ser alimentado tanto por um <br>
+                        artefato pluviométrico como informações relevantes ao cálculo de risco de deslizamento de encostas.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        </div>
-    </div>
-    </div>
+        
 
 
-    {% bootstrap_javascript jquery='full'%}
-{% endif %}
+
+
+    </div>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+        
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+              panel.style.maxHeight = null;
+            } else {
+              panel.style.maxHeight = panel.scrollHeight + "px";
+            } 
+          });
+        }
+        </script>
+        {% endif %}
+        {% bootstrap_javascript jquery='full'%}
+
 </body>
 </html>
