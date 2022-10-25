@@ -7,6 +7,7 @@ from django.contrib.auth import logout, authenticate, login
 from django.core.exceptions import PermissionDenied
 from django.contrib.auth.decorators import user_passes_test
 
+
 from .forms import *
 from .models import *
 
