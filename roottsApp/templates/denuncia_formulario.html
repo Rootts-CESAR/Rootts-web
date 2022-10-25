@@ -30,10 +30,10 @@
         /* brightness: 1.3; */
       }
 
-      .content {
+      /* .content {
         padding-top: 3rem;
         max-width: 100vw;
-      }
+      } */
       .main-content {
         width: 100vw;
         height: 80vh;
@@ -134,6 +134,30 @@
         text-align: center;
         margin-bottom: 0;
       }
+      @media (max-width: 1400px) {
+        body {
+          overflow-x: hidden;
+        }
+        .main-content {
+          height: 85vh;
+        }
+        .form-box {
+          height: fit-content;
+        }
+        .descricao {
+          width: 380px;
+          height: 63px;
+        }
+        .form-control {
+          height: 30px;
+        }
+        .form-group {
+          height: fit-content;
+        }
+        .titulo {
+          height: 30px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -142,7 +166,8 @@
       style="padding: 1rem; background-color: #111113"
     >
       <a class="navbar-brand" href="{% url 'index' %}" id="logo">
-        <img src="{% static "roottsapp/images/roottst.png" %}" alt="rootts" id="image" style="width:120px;" />
+        <img src="{% static "roottsapp/images/roottst.png" %}" alt="rootts"
+        id="image" style="width:120px;" />
       </a>
       <ul class="nav" style="margin-right: 5rem">
         <h5 class="text-light">Olá, usuário</h5>
@@ -167,7 +192,7 @@
             <label for="{{field.id_for_label}}">{{field.label}} :</label>
             {{field}} {% if field.help_text %}
             <p class="help-text">{{field.help_text}}</p>
-            {% endif %} 
+            {% endif %}
           </div>
           {% endfor %} {% comment %} Only Submit if is commited {% endcomment %}
           <div class="button-box">

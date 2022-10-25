@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block content %}
+
+    <div class="text-light" style="margin-bottom: 1.5rem;display: flex; align-items: center;justify-content: space-between;">
+      <div style="margin-left: 20px;">
+      <h3>
+          {{ forms.nome }} - {{ forms.titulo }}
+        </h3>
+        <h4 style="color: white;">Endereço: <span class="text-success">{{forms.endereco}}</span></h4>
+      </div>
+        <a href="{% url 'EngenheiroForm' %}" class="btn btn-outline-success" style="margin-right: 20px;">Voltar</a>
+    </div>
+
+
+    <div class="table-responsive-xl table-dark">
+      <table class="table text-light">
+        <thead>
+          <tr>
+            <th scope="col">Descrição</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ forms.descricao }}</td>
+          </tr>
+
+      </table>
+    </div>
+
+    </div>
+{% endblock %}

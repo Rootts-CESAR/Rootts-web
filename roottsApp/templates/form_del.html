@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% load bootstrap4 %} {% block content %}
+<form method="post">
+  {% csrf_token %}
+  <h2 class="text-light" style="padding-bottom: 3rem">
+    Tem certeza que desejar remover o reporte de
+    <span class="text-success">{{ forms.nome }}</span>?
+  </h2>
+  {% buttons %}
+  <button type="submit" class="btn btn-danger">Confirmar</button>
+  <button type="button" class="btn btn-warning">
+    <a
+      href="{% url 'EngenheiroForm' %}"
+      style="color: white; text-decoration: none"
+      >Cancelar</a
+    >
+  </button>
+  {% endbuttons %}
+</form>
+{% endblock %}

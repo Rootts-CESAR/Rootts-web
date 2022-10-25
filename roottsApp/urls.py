@@ -19,6 +19,10 @@ urlpatterns = [
     path('engineer_register/', Engineer_register.as_view() ,name='engineer_register'),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', logout_view, name='logout'),
+    path('Engenheiro_formulario/',EngenheiroFormView, name='EngenheiroForm'),
+    path('descricao/<int:pk>/',DescricaoView, name='view_descricao'),
+    path('deleteForm/<int:pk>/',  DeleteformView, name='del_reporte'),
+    path('risco/', RiscoView, name='risco'),
 ]
 handler404 = "roottsApp.views.error_404_view"
 handler404 = "roottsApp.views.error_401_view"

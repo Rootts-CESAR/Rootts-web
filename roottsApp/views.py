@@ -70,7 +70,7 @@ def DenunciaFormView(request):
     form = denunciaForm(request.POST)
 
     if form.is_valid():
-      formulario = form.save()
+      form.save()
       form = denunciaForm()
       messages.success(request, 'Seu relatório foi feito com sucesso')
       
@@ -146,3 +146,23 @@ def logout_view(request):
     return redirect('index')
 
 
+def EngenheiroFormView(request):
+  forms = Formulario_denuncia.objects.all()
+  return render(request, 'engineerFormulario.html', {'forms':forms})
+
+def DescricaoView(request,pk):
+  forms = Formulario_denuncia.objects.get(id=pk)
+  return render(request, 'formulario_selecionado.html', {'forms':forms})
+
+
+def DeleteformView(request, pk):
+  forms = Formulario_denuncia.objects.get(id=pk)
+  if request.method == 'POST':
+    forms.delete()
+    return redirect('EngenheiroForm')
+  return render(request, 'form_del.html', {'forms': forms})
+
+
+def RiscoView(request):
+  encostas = Encosta.objects.all()
+  return render(request, 'risco_deslizamento.html', {'encostas': encostas})
