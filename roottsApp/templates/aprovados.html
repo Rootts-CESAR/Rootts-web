@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>teste</h1>
+    {% block content %}
+
+    {% for form in forms %} 
+      {% if form.aprovado %}
+        <div class="main-content">
+          <h2>Nome: <span>{{ form.nome }}</span></h2>
+        </div>
+        <div class="main-content">
+          <h2>Titulo: <span>{{ form.titulo }}</span></h2>
+        </div>
+        <div class="buttons">
+          <div>
+            <a
+              class="btn-sm visualizar"
+              style="text-decoration: none"
+              href="{% url 'view_descricao' form.pk %}"
+              >Visualizar</a
+            >
+
+          </div>
+      {% endif %}
+    {% endfor %}
+    {% endblock %}
+  </body>
+</html>

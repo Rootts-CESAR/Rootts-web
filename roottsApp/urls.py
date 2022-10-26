@@ -23,6 +23,7 @@ urlpatterns = [
     path('descricao/<int:pk>/',DescricaoView, name='view_descricao'),
     path('deleteForm/<int:pk>/',  DeleteformView, name='del_reporte'),
     path('risco/', RiscoView, name='risco'),
+    path('aprovado/', AprovadoView, name='aprovado'),
 ]
 handler404 = "roottsApp.views.error_404_view"
 handler404 = "roottsApp.views.error_401_view"

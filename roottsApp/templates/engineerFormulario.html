@@ -103,6 +103,10 @@
         font-size: 14px;
         margin-top: 10px;
       }
+      .check {
+        align-self: flex-end;
+        accent-color: #4fdb0d;
+      }
     </style>
   </head>
   {% block content %}
@@ -119,54 +123,73 @@
     </ul>
   </nav>
   <div class="tudo">
-    <div class="text-light" style="margin-bottom: 1.5rem">
-      <h3 style="font-size: 30px">Gerenciamento de Reportes</h3>
-    </div>
-
-    <div
-      class="conteudo"
-      style="
-        display: flex;
-        width: 85vw;
-        align-items: center;
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-      "
-    >
-      {% for form in forms %}
-      <div class="box-container table-dark">
-        <div class="main-content">
-          <h2>Nome: <span>{{ form.nome }}</span></h2>
-        </div>
-        <div class="main-content">
-          <h2>Titulo: <span>{{ form.titulo }}</span></h2>
-        </div>
-        <div class="buttons">
-          <div>
-            <a
-              class="btn-sm visualizar"
-              style="text-decoration: none"
-              href="{% url 'view_descricao' form.pk %}"
-              >Visualizar</a
-            >
-            {% comment %}
-            <a class="btn-sm aprovar" style="text-decoration: none" href="#"
-              >Aprovar</a
-            >
-            {% endcomment %}
-            <a
-              class="btn-sm excluir"
-              style="text-decoration: none"
-              href="{% url 'del_reporte' form.pk %}"
-              >Descartar</a
-            >
-          </div>
-          <h4>{{form.data}}</h4>
-        </div>
+    <form action="" method="POST">
+      {% csrf_token %}
+      <div class="text-light" style="margin-bottom: 1.5rem">
+        <h3 style="font-size: 30px">Gerenciamento de Reportes</h3>
+        <button type="submit">Atualizar e ver os reportes aprovados</button>
       </div>
-      {% endfor %}
-    </div>
+
+      <div
+        class="conteudo"
+        style="
+          display: flex;
+          width: 85vw;
+          align-items: center;
+          flex-direction: row;
+          justify-content: center;
+          flex-wrap: wrap;
+        "
+      >
+        {% for form in forms %}
+        <div class="box-container table-dark">
+          {% if form.aprovado %}
+          <div class="form-check check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              checked="checked"
+              value="{{form.id}}"
+              name="boxes"
+            />
+          </div>
+          {% else %}
+          <div class="form-check check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value="{{form.id}}"
+              name="boxes"
+            />
+          </div>
+          {% endif %}
+          <div class="main-content">
+            <h2>Nome: <span>{{ form.nome }}</span></h2>
+          </div>
+          <div class="main-content">
+            <h2>Titulo: <span>{{ form.titulo }}</span></h2>
+          </div>
+          <div class="buttons">
+            <div>
+              <a
+                class="btn-sm visualizar"
+                style="text-decoration: none"
+                href="{% url 'view_descricao' form.pk %}"
+                >Visualizar</a
+              >
+              <a
+                class="btn-sm excluir"
+                style="text-decoration: none"
+                href="{% url 'del_reporte' form.pk %}"
+                >Descartar</a
+              >
+            </div>
+            <h4>{{form.data}}</h4>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </form>
   </div>
   {% endblock %}
 </html>

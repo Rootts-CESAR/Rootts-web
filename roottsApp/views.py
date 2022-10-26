@@ -149,6 +149,21 @@ def logout_view(request):
 
 def EngenheiroFormView(request):
   forms = Formulario_denuncia.objects.all()
+  if request.method == "POST":
+    # Get list of checked box id's
+    id_list = request.POST.getlist('boxes')
+
+    # Uncheck all events
+    forms.update(aprovado=False)
+
+    # Update the database
+    for x in id_list:
+      Formulario_denuncia.objects.filter(pk=int(x)).update(aprovado=True)
+  
+    # Show Success Message and Redirect
+    return render(request, 'aprovados.html', {'forms':forms})
+  else:
+    return render(request, 'engineerFormulario.html', {'forms':forms})
   return render(request, 'engineerFormulario.html', {'forms':forms})
 
 def DescricaoView(request,pk):
@@ -167,3 +182,8 @@ def DeleteformView(request, pk):
 def RiscoView(request):
   encostas = Encosta.objects.all()
   return render(request, 'risco_deslizamento.html', {'encostas': encostas})
+
+def AprovadoView(request):
+  return render(request, 'aprovados.html', {'forms': forms})
+
+
