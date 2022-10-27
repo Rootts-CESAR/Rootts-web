@@ -80,7 +80,8 @@
       }
       .descricao {
         outline: none;
-        height: 150px;
+        max-height: 100px;
+        min-height: 100px;
         width: 450px;
         background-color: transparent;
         border: 1px solid white;
@@ -166,7 +167,7 @@
   <body>
     <nav
       class="navbar navbar-dark"
-      style="padding: 1rem; background-color: #111113"
+      style="padding: 1rem;"
     >
       <a class="navbar-brand" href="{% url 'index' %}" id="logo">
         <img src="{% static "roottsapp/images/roottst.png" %}" alt="rootts"
@@ -192,7 +193,7 @@
         <form action="." method="post">
           {% csrf_token %} {% for field in form %}
           <div class="form-group">
-            <label for="{{field.id_for_label}}">{{field.label}} :</label>
+            <label for="{{field.id_for_label}}">{{field.label}} </label>
             {{field}} {% if field.help_text %}
             <p class="help-text">{{field.help_text}}</p>
             {% endif %}
