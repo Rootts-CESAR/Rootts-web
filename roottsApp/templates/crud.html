@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %} {% load static %}
 {% load humanize %}
 {% block content %}
 
@@ -6,7 +7,14 @@
         <h3>
             Gerenciamento de Encostas
         </h3>
-        <a href="{% url 'add_encosta' %}" class="btn btn-outline-success">Adicionar encosta</a>
+        <div class="d-flex align-items-lg-baseline">
+            <form  action="{% url 'search_crud' %}" method="get" style="background-color: #15171b; display: flex; margin-right: 1rem;">
+                {% csrf_token %}
+                <input type="text" name="q" id="form12" class="form-control" style="margin-right: 0.5rem" placeholder="Pesquisar Encosta"/> 
+                <button type="submit" class="btn btn-success">Pesquisar</button>
+            </form>
+            <a href="{% url 'add_encosta' %}" class="btn btn-outline-success">Adicionar encosta</a>
+        </div>
     </div>
 
 
