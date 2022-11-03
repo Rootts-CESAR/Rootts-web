@@ -322,15 +322,26 @@
       </div>
     </form>
   </div>
-  <!-- <script>
+  <script>
+    {% comment %} function LabelCor(ckbx) {
+      if (ckbx.checked) {
+        ckbx.nextElementSibling.style.cssText =
+          'color:#4fdb0d; background-color:red;';
+      } else {
+        ckbx.nextElementSibling.style.cssText = '';
+      }
+    } {% endcomment %}
+
     function LabelCor(ckbx) {
       if (ckbx.checked) {
-        document.getElementById('label').style.cssText =
-          'color:#4fdb0d; background-color:black;';
+        var label = ckbx.parentNode;
+        label.style.cssText = ' background-color:#FFF; transition: all 700ms ease-in-out;';
       } else {
-        document.getElementById('label').style.cssText = '';
+        var label = ckbx.parentNode;
+        label.style.cssText = '';
       }
     }
-  </script> -->
+
+  </script>
   {% endblock %}
 </html>
