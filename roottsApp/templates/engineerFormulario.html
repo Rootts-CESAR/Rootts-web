@@ -140,9 +140,6 @@
         border-color: #4fdb0d;
         transition: all 300ms ease-in-out;
       }
-      .form-check-input:hover {
-        color: #4fdb0d;
-      }
       .clean {
         display: none;
       }
@@ -183,7 +180,8 @@
         background-color: #15171b;
       }
       .label:hover{
-        color: #4fdb0d;
+        background-color: #323232;
+        transition: all 300ms ease-in-out;
       }
       .checkbox-label {
         cursor: pointer;
@@ -323,25 +321,15 @@
     </form>
   </div>
   <script>
-    {% comment %} function LabelCor(ckbx) {
-      if (ckbx.checked) {
-        ckbx.nextElementSibling.style.cssText =
-          'color:#4fdb0d; background-color:red;';
-      } else {
-        ckbx.nextElementSibling.style.cssText = '';
-      }
-    } {% endcomment %}
-
     function LabelCor(ckbx) {
       if (ckbx.checked) {
         var label = ckbx.parentNode;
-        label.style.cssText = ' background-color:#FFF; transition: all 700ms ease-in-out;';
+        label.style.cssText = ' background-color:#FFF; transition: all 300ms ease-in-out;';
       } else {
         var label = ckbx.parentNode;
         label.style.cssText = '';
       }
     }
-
   </script>
   {% endblock %}
 </html>
