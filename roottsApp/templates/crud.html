@@ -2,23 +2,23 @@
 {% load humanize %}
 {% block content %}
 
-    <div class="row  text-light" style="margin-bottom: 1.5rem; background-color: #FFF display: flex; align-items: center; justify-content: space-between">
-        <h3>
+    <div class="text-light" style="margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between;width:100vw;">
+        <h3 style="margin-left: 15px;">
             Gerenciamento de Encostas
         </h3>
-        <a href="{% url 'add_encosta' %}" class="btn btn-outline-success">Adicionar encosta</a>
+        <a href="{% url 'add_encosta' %}" class="btn btn-outline-success" style="margin-right: 15px;">Adicionar encosta</a>
     </div>
 
 
-    <div class="row text-light" >
-        <table class="table table-striped table-dark">
+    <div class=" all text-light">
+        <table class="crud table-striped table-dark">
           <thead>
-            <tr>
+            <tr class="head">
                 <th scope="col">Numero</th>
-                <th scope="col">Nome</th>
+                <th scope="col"  class="margin-td">Nome</th>
                 <th scope="col">Local</th>
                 <th scope="col">Informações</th>
-                <th scope="col">Ação</th>
+                <th scope="col"  class="margin-td2">Ação</th>
             </tr>
           </thead>
                 {% for encosta in encostas %}
@@ -29,7 +29,7 @@
                         <td>
                             <a class="btn-sm btn-success" style="text-decoration:none;" href="{% url 'view_encosta' encosta.pk %}">Visualizar</a>
                         </td>
-                        <td>
+                        <td class="buttons">
                             <a class="btn-sm btn-warning" style="text-decoration:none;color:white;"; href="{% url 'upd_encosta' encosta.pk %}">Editar</a>
                             <a class="btn-sm btn-danger" style="text-decoration:none;" href="{% url 'del_encosta' encosta.pk %}">Excluir</a>
                         </td>

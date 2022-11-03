@@ -92,9 +92,11 @@
       }
       .buttons h4 {
         font-size: 14px;
-        margin-top: 10px;
-        align-self: flex-end;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
       }
+      
       .box {
         display: flex;
         justify-content: space-between;
@@ -138,6 +140,9 @@
         border-color: #4fdb0d;
         transition: all 300ms ease-in-out;
       }
+      .form-check-input:hover {
+        color: #4fdb0d;
+      }
       .clean {
         display: none;
       }
@@ -173,15 +178,19 @@
         padding-top: 5px;
         padding-bottom: 5px;
         text-align: center;
-        transition: all 300ms ease-in-out;
         margin-top: 7px;
+        color: white;
+        background-color: #15171b;
       }
-      .label:hover {
-        border-color: #4fdb0d;
+      .label:hover{
         color: #4fdb0d;
+      }
+      .checkbox-label {
+        cursor: pointer;
         transition: all 300ms ease-in-out;
       }
-      .form-check-input:hover {
+
+      input:checked + .checkbox-label{
         color: #4fdb0d;
         transition: all 300ms ease-in-out;
       }
@@ -206,7 +215,9 @@
       <img src="{% static "roottsapp/images/roottst.png" %}" alt="rootts"
       id="image" style="width:120px;" />
     </a>
-    <h5 class="text-light">Ola engenheiro(a)</h5>
+    {% if request.user.is_authenticated %}
+        <h5 class="text-light">Olá, {{request.user}}</h5>
+      {% endif %}
   </nav>
   <div class="tudo">
     <form action="" method="POST">
@@ -282,14 +293,14 @@
           </div>
           <div class="buttons">
             <div class="box">
-              <label id="label" class="label btn-sm btn-info margin">
+              <label id="label" class="label btn-sm margin">
                 <input
                   class="form-check-input"
                   type="checkbox"
                   value="{{form.id}}"
                   name="boxes"
                   onclick="LabelCor(this)"
-                />Aprovar
+                /><span class="checkbox-label">Aprovar</span>
               </label>
               <a
                 class="btn-sm btn-warning margin"
@@ -311,7 +322,7 @@
       </div>
     </form>
   </div>
-  <script>
+  <!-- <script>
     function LabelCor(ckbx) {
       if (ckbx.checked) {
         document.getElementById('label').style.cssText =
@@ -320,6 +331,6 @@
         document.getElementById('label').style.cssText = '';
       }
     }
-  </script>
+  </script> -->
   {% endblock %}
 </html>
