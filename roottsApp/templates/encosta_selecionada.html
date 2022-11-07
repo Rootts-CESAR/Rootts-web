@@ -2,12 +2,14 @@
 {% load humanize %}
 {% block content %}
 
-    <div class="row  text-light" style="margin-bottom: 1.5rem; background-color: #FFF display: flex; align-items: center; justify-content: space-between">
-        <h3>
-          {{ encosta.nome }} - {{ encosta.local }}
-        </h3>
-        <a href="{% url 'crud' %}" class="btn btn-outline-success">Voltar</a>
-    </div>
+<div class="text-light" style="margin-bottom: 1.5rem;display: flex; align-items: center;justify-content: space-between;">
+  <div style="margin-left: 20px;">
+  <h3>
+      {{ encosta.nome }} - {{ encosta.local }}
+    </h3>
+  </div>
+    <a href="{% url 'crud' %}" class="btn btn-outline-success" style="margin-right: 20px;">Voltar</a>
+</div>
 
 
     <div class="table-responsive-xl table-dark">

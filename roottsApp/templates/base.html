@@ -125,6 +125,21 @@
         flex-wrap:wrap;
         padding: 10px 0px;
       }
+      .add_content{
+        width: 100vw;
+        height: fit-content;  
+        margin-top: -50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .add_content form{
+        width: 50%;
+        padding: 15px;
+        box-shadow: 0 0 10px 0px #4fdb0d;
+        border: 1px solid #4fdb0d;
+        border-radius: 10px;
+      }
       @media (max-width: 900px) {
         #logo {
           margin-left: 0;
@@ -150,6 +165,10 @@
           justify-content: center;
           align-items: center;
         }
+        .add_content form{
+          width: 100%;
+          margin-top: 0;
+        }
       }
     </style>
   </head>
@@ -161,6 +180,8 @@
       </a>
       {% if request.user.is_authenticated %}
         <h5 class="text-light">Olá, {{request.user}}</h5>
+      {% else %}
+      <h5 class="text-light">Olá, usuário(a)</h5>
       {% endif %}
     </nav>
     <div class="content">{% block content %} {% endblock %}</div>
