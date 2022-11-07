@@ -6,6 +6,11 @@
         <h3>
             Encostas Disponiveis
         </h3>
+        <form  action="{% url 'search_risco' %}" method="get" style="background-color: #15171b; display: flex; margin-right: 1rem;">
+            {% csrf_token %}
+            <input type="text" name="q" id="form12" class="form-control" style="margin-right: 0.5rem" placeholder="Pesquisar Encosta"/> 
+            <button type="submit" class="btn btn-success">Pesquisar</button>
+        </form>
     </div>
 
 

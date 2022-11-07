@@ -1,13 +1,23 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %} {% load static %}
 {% load humanize %}
 {% block content %}
 
-    <div class="text-light" style="margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between;width:100vw;">
+    <div class="text-light center">
         <h3 style="margin-left: 15px;">
             Gerenciamento de Encostas
         </h3>
         <a href="{% url 'add_encosta' %}" class="btn btn-outline-success" style="margin-right: 15px;">Adicionar encosta</a>
     </div>
+        <div class="search">
+            <form  action="{% url 'search_crud' %}" method="get">
+                {% csrf_token %}
+                <div class="search-box">
+                    <input type="text" name="q" id="form12" placeholder="Pesquisar Encosta"/> 
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </form>
+        </div>
 
 
     <div class=" all text-light">

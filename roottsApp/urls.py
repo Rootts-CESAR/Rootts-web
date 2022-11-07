@@ -9,6 +9,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('', IndexView, name='index'),
     path('crud/', EncostaView, name='crud'),
+    path('crud/search/', EncostaSearchView.as_view(), name='search_crud'),
     path('create/', CreateEncostaView, name='add_encosta'),
     path('update/<int:pk>/', UpdateEncostaView, name='upd_encosta'),
     path('delete/<int:pk>/', DeleteEncostaView, name='del_encosta'),
@@ -23,7 +24,7 @@ urlpatterns = [
     path('descricao/<int:pk>/',DescricaoView, name='view_descricao'),
     path('deleteForm/<int:pk>/',  DeleteformView, name='del_reporte'),
     path('risco/', RiscoView, name='risco'),
-    path('aprovado/', AprovadoView, name='aprovado'),
+    path('risco/search/', RiscoSearchView.as_view(), name='search_risco'),
 ]
 handler404 = "roottsApp.views.error_404_view"
 handler404 = "roottsApp.views.error_401_view"

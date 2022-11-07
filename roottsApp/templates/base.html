@@ -7,6 +7,8 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/fontawesome.min.css" integrity="sha512-RvQxwf+3zJuNwl4e0sZjQeX7kUa3o82bDETpgVCH2RiwYSZVDdFJ7N/woNigN/ldyOOoKw8584jM4plQdt8bhA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     {% bootstrap_css %}
     <title>Rootts</title>
     <style>
@@ -59,7 +61,7 @@
         justify-content: center;
         align-items: center;
       }
-      form {
+      .form {
         width: fit-content;
         background-color: #111113;
         padding: 15px;
@@ -77,7 +79,52 @@
       td{
         padding: 10px 0px 10px 2px;
       }
-      
+      .search{
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .search-box{
+        display: flex;
+        background: none;
+        border: 1px solid white;
+        border-radius: 5px;
+        transition: all 300ms ease-in-out;
+      }
+      .search-box:focus-within{
+        color: #4fdb0d;
+        border-color: #4fdb0d;
+        transition: all 300ms ease-in-out;
+      }
+      .search-box:focus-within button{
+        color: #4fdb0d;
+        transition: all 300ms ease-in-out;
+      }
+      .search-box input{
+        background: none;
+        outline: none;
+        border: none;
+        color: white;
+        padding: 5px 8px;
+      }
+      .search-box button{
+        background: none;
+        outline: none;
+        border: none;
+        color: white;
+        padding: 5px 8px;
+        transition: all 300ms ease-in-out;
+      }
+      .center{
+        margin-bottom: 1rem;
+        display: flex; 
+        align-items: center; 
+        justify-content: space-between;
+        width:100vw; 
+        flex-wrap:wrap;
+        padding: 10px 0px;
+      }
       @media (max-width: 900px) {
         #logo {
           margin-left: 0;
@@ -97,6 +144,11 @@
         }
         th{
           padding: 5px;
+        }
+        .center{
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
       }
     </style>
