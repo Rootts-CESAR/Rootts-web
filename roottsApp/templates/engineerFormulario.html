@@ -321,15 +321,18 @@
     </form>
   </div>
   <script>
-    function LabelCor(ckbx) {
+    function LabelCor(ckbx){
       if (ckbx.checked) {
-        let label = ckbx.parentNode;
+        var label = ckbx.parentNode;
         label.style.cssText = ' background-color:#FFF; transition: all 300ms ease-in-out;';
-        document.querySelector(".checkbox-label").innerHTML="Aprovado"
+        // change the name to 'Aprovado'
+        var text = label.querySelector('.checkbox-label');
+        text.innerHTML = 'Aprovado';
       } else {
-        let label = ckbx.parentNode;
+        var label = ckbx.parentNode;
         label.style.cssText = '';
-        document.querySelector(".checkbox-label").innerHTML="Aprovar"
+        var text = label.querySelector('.checkbox-label');
+        text.innerHTML = 'Aprovar';
       }
     }
   </script>
