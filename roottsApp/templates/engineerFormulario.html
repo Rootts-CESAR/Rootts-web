@@ -323,11 +323,13 @@
   <script>
     function LabelCor(ckbx) {
       if (ckbx.checked) {
-        var label = ckbx.parentNode;
+        let label = ckbx.parentNode;
         label.style.cssText = ' background-color:#FFF; transition: all 300ms ease-in-out;';
+        document.querySelector(".checkbox-label").innerHTML="Aprovado"
       } else {
-        var label = ckbx.parentNode;
+        let label = ckbx.parentNode;
         label.style.cssText = '';
+        document.querySelector(".checkbox-label").innerHTML="Aprovar"
       }
     }
   </script>
