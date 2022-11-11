@@ -1,11 +1,14 @@
 from django.views.generic import CreateView
 from django.shortcuts import render, redirect
+from django.db.models import Q
+from django.views.generic import ListView
 
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth import logout, authenticate, login
 from django.core.exceptions import PermissionDenied
 from django.contrib.auth.decorators import user_passes_test
+
 
 from .forms import *
 from .models import *
@@ -20,6 +23,20 @@ def IndexView(request):
 def EncostaView(request):
   encostas = Encosta.objects.all()
   return render(request, 'crud.html', {'encostas': encostas})
+
+
+class EncostaSearchView(ListView):
+  model = Encosta
+  template_name = 'crud.html'
+  context_object_name = 'encostas'
+
+  def get_queryset(self):
+    query = self.request.GET.get('q')
+    object_list = Encosta.objects.filter(
+      Q(nome__icontains=query) | Q(local__icontains=query)
+    )
+
+    return object_list
 
 
 @login_required(login_url='/login/')
@@ -148,6 +165,21 @@ def logout_view(request):
 
 def EngenheiroFormView(request):
   forms = Formulario_denuncia.objects.all()
+  if request.method == "POST":
+    # Get list of checked box id's
+    id_list = request.POST.getlist('boxes')
+
+    # Uncheck all events
+    forms.update(aprovado=False)
+
+    # Update the database
+    for x in id_list:
+      Formulario_denuncia.objects.filter(pk=int(x)).update(aprovado=True)
+  
+    # Show Success Message and Redirect
+    return render(request, 'aprovados.html', {'forms':forms})
+  else:
+    return render(request, 'engineerFormulario.html', {'forms':forms})
   return render(request, 'engineerFormulario.html', {'forms':forms})
 
 def DescricaoView(request,pk):
@@ -166,3 +198,16 @@ def DeleteformView(request, pk):
 def RiscoView(request):
   encostas = Encosta.objects.all()
   return render(request, 'risco_deslizamento.html', {'encostas': encostas})
+
+class RiscoSearchView(ListView):
+  model = Encosta
+  template_name = 'risco_deslizamento.html'
+  context_object_name = 'encostas'
+
+  def get_queryset(self):
+    query = self.request.GET.get('q')
+    object_list = Encosta.objects.filter(
+      Q(nome__icontains=query) | Q(local__icontains=query) | Q(prioridadeEncosta__icontains=query)
+    )
+
+    return object_list

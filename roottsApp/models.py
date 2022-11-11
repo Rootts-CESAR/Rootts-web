@@ -1,3 +1,4 @@
+from email.policy import default
 from unittest.util import _MAX_LENGTH
 from django.db import models
 
@@ -33,6 +34,8 @@ class Formulario_denuncia(models.Model):
     data = models.DateField()
     titulo = models.CharField(max_length = 50)
     descricao = models.TextField(max_length=500)
+    aprovado = models.BooleanField('aprovado', default=False)
+
 
     def __str__(self):
         return self.nome

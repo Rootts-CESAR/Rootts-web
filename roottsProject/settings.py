@@ -32,6 +32,8 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
 ]
 
+CSRF_TRUSTED_ORIGINS = ['https://rootts.herokuapp.com','https://*.127.0.0.1']
+
 AUTH_USER_MODEL = 'roottsApp.User'
 
 # Application definition

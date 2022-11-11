@@ -17,7 +17,6 @@
         body {
           background-color: #15171b;
           overflow-x: hidden;
-          
         }
   
         #logo {
@@ -29,14 +28,8 @@
   
         #logo:hover {
           font-size: 1.5rem;
-          margin-left: 5.5rem;
+          margin-left: 6.5rem;
           transition: ease 0.5s;
-        }
-        #faq{
-            background-color: #1f2125;
-            padding-top: 50px;
-            height:500px;
-            width: 1490px;
         }
         .line{
             border-top: 2px solid grey;
@@ -45,64 +38,126 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            height: 50vh;
-            
+            height: fit-content;
+            padding: 20px;
         }
         .tudo{
             width: 100vw;
-            height: 100vh;         
+            height: 100vh;    
+            display: flex;    
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
         }
-/* Style the buttons that are used to open and close the accordion panel */
-.accordion {
-  background-color: #3e3f41;
-  color:white;
-  cursor: pointer;
-  padding: 18px;
-  width: 60vw;
-  text-align: left;
-  border: none;
-  outline: none;
-  transition: 0.4s;
-  
-  
-}
+        .nav{
+            position: absolute;
+            width: 100vw;
+            top: 0;
+            display: flex;
+            align-items: center; 
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            padding: 20px 10px 10px 10px;
+        }
+        .nav h5 {
+            margin-right: 5rem;
+          }
+        .nav a{
+            margin-right: 5rem;
+        } 
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+            flex-wrap: wrap;
+        }
+        /* Style the buttons that are used to open and close the accordion panel */
+        .accordion {
+            background-color: #3e3f41;
+            color:white;
+            cursor: pointer;
+            padding: 18px;
+            width: 60vw;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: 0.4s;
+        }
 
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.active, .accordion:hover {
-  color: #4fdb0d;
-}
+        /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+        .active, .accordion:hover {
+            color: #4fdb0d;
+        }
 
-/* Style the accordion panel. Note: hidden by default */
-.panel {
-  padding: 0 18px;
-  background-color: #798181;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-  color: white;
-  
-}
-.ac-content{
-    margin-bottom: 10px;
-}
-.accordion:after {
-  content: '\02795'; /* Unicode character for "plus" sign (+) */
-  font-size: 13px;
-  float: right;
-  margin-left: 5px;
-  
-}
+        /* Style the accordion panel. Note: hidden by default */
+        .panel {
+            padding: 0 18px;
+            background-color: #798181;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            color: white;
+        
+        }
+        .ac-content{
+            margin-bottom: 10px;
+        }
+        .accordion:after {
+            content: '\02795'; /* Unicode character for "plus" sign (+) */
+            font-size: 13px;
+            float: right;
+            margin-left: 5px;
+        }
 
-.active:after {
-  content: "\2796"; /* Unicode character for "minus" sign (-) */
-}
-.tudocolor{
-    width: 100vw;
-    height: 100vh;
-    
-    
-}
-
+        .active:after {
+            content: "\2796"; /* Unicode character for "minus" sign (-) */
+        }
+        .content{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .row{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .col{
+            margin-bottom: 7px;
+        }
+        .buttom-box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+        @media (max-width:900px) {
+            .container{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+            }
+            #logo{
+                margin-left: 0;
+            }
+            .nav a{
+                margin-right: 0;
+            }
+            .left{
+                margin-bottom: 10px;
+            }
+            .cont-text{
+                margin-bottom: 50px;
+            }
+            .accordion {
+            width: 100vw;
+            }
+        }
     </style>
 </head>
 <body>
@@ -154,61 +209,55 @@
                 </div>
             </div>
         </div>
-    </div> {% endcomment %}
-    
+    </div> {% endcomment %} 
 {% if user.is_authenticated %}
     {% if user.is_engineer %}
-        <nav class="navbar navbar-dark" style="padding: 1rem; background-color: #111113">
-            <a class="navbar-brand" href="{% url 'index' %}" id="logo">
+    <div class="tudo">
+        <nav class="nav">
+            <a href="{% url 'index' %}" id="logo">
                 <img src="{% static "roottsapp/images/roottst.png" %}" alt="rootts" id="image" style="width:120px;" />
             </a>
-            <ul class="nav" style="margin-right: 5rem">
-                <li class="nav-item">
-                    <a class="btn btn-outline-light" href="{% url 'logout' %}" style="margin-right: 1rem">Logout</a>
-                </li>
-            </ul>
+            <a class="btn btn-outline-light" href="{% url 'logout' %}">Logout</a>
         </nav>
-        <div class="container" style="display: flex; margin-top: 10rem; padding-left: 0rem; padding-right: 5rem; justify-content: space-between; align-items: center;">
+        <div class="container">
             <div class="left text-light font-weight-bold" style="max-width: 300px">
                 <h1>Localizar</h1>
                 <h1 style="color: #4fdb0d;">Prevenir</h1>
-                <h1>Ajudar</h1>                
+                <h1>Ajudar</h1>            
             </div>
-            <div>
-                <span class="text-secondary"style="font-size:17px;padding-left:px;">A Rootts é uma startup incubada pela CESAR School<br> que atualmente desenvolve soluções que<br>
+            <div class="cont-text">
+                <span class="text-white"style="font-size:17px;">A Rootts é uma startup incubada pela CESAR School<br> que atualmente desenvolve soluções que<br>
                     pretendem melhorar as experiências de: 
                     <br><br>
                     • captação e organização de dados referentes<br> ao cálculo de risco de deslizamentos de terra;<br><br>
                     • monitoramento em tempo real das encostas<br> através de artefatos pluviométricos; <br><br>
                     • notificação ágil para a população em risco.</span>
-                    
             </div>
             <div class="right">
-                <div class="content" style="display: flex; align-items:center;flex-direction:column;">
+                <div class="content">
                     <h1 class="text-light">O que você deseja fazer?</h1>
-                    
-                    <div class="row" style="margin-top: 2rem">
+                    <div class="row">
                         <div class="col">
-                            <a href="{% url 'crud' %}" class="btn btn-outline-danger text-light" style="width: 200px">Crud</a>
-                            <a href="{% url 'EngenheiroForm' %}" class="btn btn-outline-danger text-light" style="width: 200px">Reportes</a>
+                            <a href="{% url 'crud' %}" class="btn btn-outline-warning text-light" style="width: 200px">Crud</a>
+                        </div>
+                        <div class="col">
+                            <a href="{% url 'EngenheiroForm' %}" class="btn btn-outline-info text-light" style="width: 200px">Reportes</a>
                         </div>
                     </div>
                 </div>
             </div>
-            </div>
         </div>
-        </div>
+    </div>
+    </div>
+    </div>
     {% else %}
 
-        <nav class="navbar navbar-dark" style="padding: 1rem; background-color: #111113">
-            <a class="navbar-brand" href="{% url 'index' %}" id="logo">
+    <div class="tudo">
+        <nav class="nav">
+            <a href="{% url 'index' %}" id="logo">
                 <img src="{% static "roottsapp/images/roottst.png" %}" alt="rootts" id="image" style="width:120px;" />
             </a>
-            <ul class="nav" style="margin-right: 5rem">
-                <li class="nav-item">
-                    <a class="btn btn-outline-light" href="{% url 'logout' %}" style="margin-right: 1rem">Logout</a>
-                </li>
-            </ul>
+            <a class="btn btn-outline-light" href="{% url 'logout' %}">Logout</a>
         </nav>
         <div class="container">
             <div class="row">
@@ -239,25 +288,25 @@
                                             poderá haver novos deslizamentos;<br></p>
                                             
                                         </div>
-                                
-                                    <button class="btn btn-success" data-dismiss="modal" style="max-width:150px;margin-left:328px;margin-bottom:20px;">Fechar</button>
-                                
+                                        
+                                    <div class="buttom-box">
+                                        <button class="btn btn-success" data-dismiss="modal" style="max-width:150px">Fechar</button>
+                                    </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container" style="display: flex; margin-top: 10rem; padding-left: 0rem; padding-right: 5rem; justify-content: space-between; align-items: center;">
+    
+        <div class="container">
             <div class="left text-light font-weight-bold" style="max-width: 300px">
                 <h1>Localizar</h1>
                 <h1 style="color: #4fdb0d;">Prevenir</h1>
-                <h1>Ajudar</h1>
-                
-                
+                <h1>Ajudar</h1>            
             </div>
-            <div>
-                <span class="text-secondary"style="font-size:17px;padding-left:px;">A Rootts é uma startup incubada pela CESAR School<br> que atualmente desenvolve soluções que<br>
+            <div class="cont-text">
+                <span class="text-white"style="font-size:17px;">A Rootts é uma startup incubada pela CESAR School<br> que atualmente desenvolve soluções que<br>
                     pretendem melhorar as experiências de: 
                     <br><br>
                     • captação e organização de dados referentes<br> ao cálculo de risco de deslizamentos de terra;<br><br>
@@ -267,57 +316,33 @@
             <div class="right">
                 <div class="content">
                     <h1 class="text-light">O que você deseja fazer?</h1>
-                    <div class="row" style="margin-top: 2rem">
+                    <div class="row">
                         <div class="col">
-                            <a href="#" data-toggle="modal" data-target="#myModal"class="btn btn-outline-danger text-light" style="width: 100%">Contatar Emergencia</a>                        </div>
-                        <div class="col">
-                            <a href="{% url 'DenunciaForm' %}" class="btn btn-danger" style="width: 100%">Reportar um problema</a>
+                            <a href="#" data-toggle="modal" data-target="#myModal"class="btn btn-outline-danger" style="width: 100%;color: white;">Contatar Emergencia</a>
                         </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
-        </div>
-    {% endif %}
-
-{% else %}
-<div class="tudo">
-    <div class="tudocolor">
-    <nav class="navbar navbar-dark" style="padding: 1rem; background-color:transparent">
-        <a class="navbar-brand" href="{% url 'index' %}" id="logo">
-            <img src="{% static "roottsapp/images/roottst.png" %}" alt="rootts" id="image" style="width:120px;" />
-        </a>
-        <ul class="nav" style="margin-right: 5rem">
-            
-            <li class="nav-item">
-                <a href="{% url 'login' %}"><button class="btn btn-outline-light" type="button" data-toggle="modal" data-target="#modalLogin" style="margin-right: 1rem">Entrar</button></a>
-            </li>
-            
-        </ul>
-    </nav>
-    
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="modal fade" id="faqModal">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content"style="background-color: #272727;text-align: center;">
-                            
-                                <h1 style="text-align: center;color:aliceblue;">F.A.Q</h1>
-                            
-                                    <div class="modal-body">
-                                        
-                                    </div>
-                            
-                                <button class="btn btn-success" data-dismiss="modal" style="max-width:150px;margin-left:328px;margin-bottom:20px;">Fechar</button>
-                            
+                        <div class="col">
+                            <a href="{% url 'DenunciaForm' %}" class="btn btn-outline-info" style="width: 100%;color:white;">Reportar um problema</a>
+                        </div>
+                        <div class="col">
+                            <a href="{% url 'risco' %}" class="btn btn-outline-warning text-light" style="width: 100%">Visualizar Encostas</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    </div>
+    </div>
+    {% endif %}
+
+{% else %}
+<div class="tudo">
+    <nav class="nav">
+        <a href="{% url 'index' %}" id="logo">
+            <img src="{% static "roottsapp/images/roottst.png" %}" alt="rootts" id="image" style="width:120px;" />
+        </a>
+        <a href="{% url 'login' %}"><button class="btn btn-outline-light" type="button" data-toggle="modal" data-target="#modalLogin">Entrar</button></a>
+    </nav>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -347,9 +372,10 @@
                                         poderá haver novos deslizamentos;<br></p>
                                         
                                     </div>
-                            
-                                <button class="btn btn-success" data-dismiss="modal" style="max-width:150px;margin-left:328px;margin-bottom:20px;">Fechar</button>
-                            
+                                    
+                                <div class="buttom-box">
+                                    <button class="btn btn-success" data-dismiss="modal" style="max-width:150px">Fechar</button>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -357,13 +383,13 @@
         </div>
     </div>
 
-    <div class="container" style="display: flex; margin-top: 10rem; padding-left: 0rem; padding-right: 5rem; justify-content: space-between; align-items: center;">
+    <div class="container">
         <div class="left text-light font-weight-bold" style="max-width: 300px">
             <h1>Localizar</h1>
             <h1 style="color: #4fdb0d;">Prevenir</h1>
             <h1>Ajudar</h1>            
         </div>
-        <div>
+        <div class="cont-text">
             <span class="text-white"style="font-size:17px;">A Rootts é uma startup incubada pela CESAR School<br> que atualmente desenvolve soluções que<br>
                 pretendem melhorar as experiências de: 
                 <br><br>
@@ -374,22 +400,21 @@
         <div class="right">
             <div class="content">
                 <h1 class="text-light">O que você deseja fazer?</h1>
-                <div class="row" style="margin-top: 2rem">
+                <div class="row">
                     <div class="col">
                         <a href="#" data-toggle="modal" data-target="#myModal"class="btn btn-outline-danger" style="width: 100%;color: white;">Contatar Emergencia</a>
                     </div>
                     <div class="col">
-                        <a href="{% url 'DenunciaForm' %}" class="btn btn-outline-danger" style="width: 100%;color:white;">Reportar um problema</a>
+                        <a href="{% url 'DenunciaForm' %}" class="btn btn-outline-info" style="width: 100%;color:white;">Reportar um problema</a>
                     </div>
                     <div class="col">
-                        <a href="{% url 'risco' %}" class="btn btn-outline-danger text-light" style="width: 100%">Visualizar Encostas</a>
+                        <a href="{% url 'risco' %}" class="btn btn-outline-warning text-light" style="width: 100%">Visualizar Encostas</a>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
     </div>
-    </div>
+</div>
 </div>
 </div>
 
