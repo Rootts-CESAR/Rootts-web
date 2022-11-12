@@ -1,0 +1,168 @@
+{% load humanize %} {% load static %} {% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% bootstrap_css %}
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #15171b;
+        overflow-x: hidden;
+      }
+
+      #logo {
+        color: #4fdb0d;
+        font-size: 1.5rem;
+        margin-left: 5rem;
+        transition: ease 0.5s;
+      }
+
+      #logo:hover {
+        font-size: 1.5rem;
+        margin-left: 6.5rem;
+        transition: ease 0.5s;
+      }
+      .nav {
+        width: 100vw;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        padding: 20px 10px 10px 10px;
+      }
+      .nav h5 {
+        margin-right: 5rem;
+      }
+      .box-container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 480px;
+        padding: 10px 10px 0px 10px;
+        height: fit-content;
+        margin: 10px 10px 10px 0px;
+      }
+      .main-content {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+      }
+      .main-content h2 {
+        font-size: 20px;
+      }
+      .main-content span {
+        font-weight: 400;
+      }
+      .tudo {
+        width: 100vw;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .buttons {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+      .buttons h4 {
+        font-size: 14px;
+        margin-top: 10px;
+      }
+      .head {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+      }
+      .conteudo {
+        display: flex;
+        width: 85vw;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      @media (max-width: 900px) {
+        #logo {
+          margin-left: 0;
+        }
+        .nav h5 {
+          margin-right: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    {% block content %}
+    <nav class="nav">
+      <a href="{% url 'index' %}" id="logo">
+        <img src="{% static "roottsapp/images/roottst.png" %}" alt="rootts"
+        id="image" style="width:120px;" />
+      </a>
+      {% if request.user.is_authenticated %}
+        <h5 class="text-light">Olá, {{request.user}}</h5>
+      {% endif %}
+    </nav>
+    <div class="tudo">
+      <div class="text-light head">
+        <h3 style="font-size: 30px">Reportes Aprovados</h3>
+        <a
+          href="{% url 'EngenheiroForm' %}"
+          class="btn btn-outline-info"
+          style="margin: 10px 0px"
+          >Pendentes</a
+        >
+      </div>
+      <div class="conteudo">
+        {% for form in forms %} {% if form.aprovado %}
+        <div class="box-container table-dark">
+          <div class="main-content">
+            <h2>Nome: <span>{{ form.nome }}</span></h2>
+          </div>
+          <div class="main-content">
+            <h2>Titulo: <span>{{ form.titulo }}</span></h2>
+          </div>
+          <div class="buttons">
+            <div class="box">
+              <a
+                class="btn-sm btn-warning"
+                style="
+                  text-decoration: none;
+                  padding: 5px;
+                  color: white;
+                  margin-right: 5px;
+                "
+                href="{% url 'view_descricao' form.pk %}"
+                >Visualizar</a
+              >
+              <a
+                class="btn-sm btn-danger"
+                style="text-decoration: none; padding: 5px"
+                href="{% url 'del_reporte' form.pk %}"
+                >Descartar</a
+              >
+            </div>
+            <h4>{{form.data}}</h4>
+          </div>
+        </div>
+        {% endif %} {% endfor %}
+      </div>
+    </div>
+    {% endblock %}
+  </body>
+</html>

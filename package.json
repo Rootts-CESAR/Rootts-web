@@ -1,0 +1,17 @@
+{
+  "name": "cypress",
+  "devDependencies": {
+    "cypress": "^10.4.0",
+    "cypress-xpath": "^2.0.1"
+  },
+  "dependencies": {
+    "cypress-file-upload": "^5.0.8",
+    "cypress-localstorage-commands": "^2.2.1",
+    "start-server-and-test": "^1.14.0"
+  },
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cypress:test": "start-server-and-test 'make integrationserver' http-get://localhost:8000 cypress:run"
+  }
+}

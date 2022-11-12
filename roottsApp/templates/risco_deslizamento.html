@@ -1,15 +1,24 @@
-{% extends 'base2.html' %}
+{% extends 'base.html' %}
 {% load humanize %}
 {% block content %}
 
-    <div class="row  text-light" style="margin-bottom: 1.5rem; background-color: #FFF display: flex; align-items: center; justify-content: space-between">
-        <h3>
-            Encostas Disponiveis
-        </h3>
+<div class="text-light">
+    <h3 style="text-align:center;margin-bottom:25px">
+        Gerenciamento de Encostas
+    </h3>
+</div>
+    <div class="search">
+        <form  action="{% url 'search_risco' %}" method="get" autocomplete="off">
+            {% csrf_token %}
+            <div class="search-box">
+                <input type="text" name="q" id="form12" placeholder="Pesquisar Encosta"/> 
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </form>
     </div>
 
 
-    <div class="row text-light" >
+    <div class="text-light" >
         <table class="table table-striped table-dark">
           <thead>
             <tr>
