@@ -34,7 +34,7 @@ class EncostaFormTest(TestCase):
             'proximidadeCorposLiquidos': 1
         }
         form = EncostaForm(data=data)
-        self.assertTrue(form.is_valid())
+        self.assertFalse(form.is_valid())
 
 
 class EncostaFormUpdateTest(TestCase):
@@ -65,7 +65,7 @@ class EncostaFormUpdateTest(TestCase):
             'proximidadeCorposLiquidos': 1
         }
         form = EncostaFormUpdate(data=data)
-        self.assertTrue(form.is_valid())
+        self.assertFalse(form.is_valid())
 
 
 class DenunciaFormTest(TestCase):
@@ -92,7 +92,7 @@ class DenunciaFormTest(TestCase):
             'descricao': 'Descricao1'
         }
         form = denunciaForm(data=data)
-        self.assertTrue(form.is_valid())
+        self.assertFalse(form.is_valid())
 
 
 class EngiennerUseCreationFormTest(TestCase):
