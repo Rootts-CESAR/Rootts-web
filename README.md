@@ -2,13 +2,15 @@
 
 ## Equipe:
 
-* [Arthur Hendrich Alencar de Menezes](https://www.linkedin.com/in/arthur-hendrich-b30885153/) (Líder Frontend);
-* [Matheus Vilaverde Lazzarotto](https://www.linkedin.com/in/matheus-lazzarotto/) (Lider Backend);
-* [Luis Adolfo Alves De Araújo Neto](https://www.linkedin.com/in/luis-adolfo-araujo-703a721aa/) (Backend);
-* [Rafael Martins Falk](https://www.linkedin.com/in/rafael-falk/) (Frontend);
-* [Samuel Isaac de Melo Magalhães](https://www.linkedin.com/in/isaacmagl/) (Frontend);
-* [Davi Aleixo Carvalho](https://www.linkedin.com/in/davi-aleixo-548b55b8/) (Backend);
-* [Lucas Duarte Freitas Rocha](https://www.linkedin.com/in/lucas-rocha-603683246/) (Backend);
+* [Arthur Hendrich Alencar de Menezes](https://www.linkedin.com/in/arthur-hendrich-b30885153/) (Full Stack);
+* [Rafael Martins Falk](https://www.linkedin.com/in/rafael-falk/) (Líder Front-End);
+* [Lucas Duarte Freitas Rocha](https://www.linkedin.com/in/lucas-rocha-603683246/) (Líder Back-End);
+* [Davi Aleixo Carvalho](https://www.linkedin.com/in/davi-aleixo-548b55b8/) (Engenheiro DevOps);
+* [Matheus Vilaverde Lazzarotto](https://www.linkedin.com/in/matheus-lazzarotto/) (Engenheiro DevOps auxiliar);
+* [Luis Adolfo Alves De Araújo Neto](https://www.linkedin.com/in/luis-adolfo-araujo-703a721aa/) (Back-End);
+* [Samuel Isaac de Melo Magalhães](https://www.linkedin.com/in/isaacmagl/) (Front-End);
+
+
 
 ## O que é o projeto?
   
@@ -68,13 +70,14 @@ Frontend:
 
 ## Team:
 
-* [Arthur Hendrich Alencar de Menezes](https://www.linkedin.com/in/arthur-hendrich-b30885153/) (Lead Frontend);
-* [Matheus Vilaverde Lazzarotto](https://www.linkedin.com/in/matheus-lazzarotto/) (Lead Backend);
-* [Luis Adolfo Alves De Araújo Neto](https://www.linkedin.com/in/luis-adolfo-araujo-703a721aa/) (Backend);
-* [Rafael Martins Falk](https://www.linkedin.com/in/rafael-falk/) (Frontend);
-* [Samuel Isaac de Melo Magalhães](https://www.linkedin.com/in/isaacmagl/) (Frontend);
-* [Davi Aleixo Carvalho](https://www.linkedin.com/in/davi-aleixo-548b55b8/) (Backend);
-* [Lucas Duarte Freitas Rocha](https://www.linkedin.com/in/lucas-rocha-603683246/) (Backend);
+* [Arthur Hendrich Alencar de Menezes](https://www.linkedin.com/in/arthur-hendrich-b30885153/) (Full Stack);
+* [Rafael Martins Falk](https://www.linkedin.com/in/rafael-falk/) (Lead Front-End);
+* [Lucas Duarte Freitas Rocha](https://www.linkedin.com/in/lucas-rocha-603683246/) (Lead Back-End);
+* [Davi Aleixo Carvalho](https://www.linkedin.com/in/davi-aleixo-548b55b8/) (DevOps Engineer);
+* [Matheus Vilaverde Lazzarotto](https://www.linkedin.com/in/matheus-lazzarotto/) (Assistant DevOps Engineer);
+* [Luis Adolfo Alves De Araújo Neto](https://www.linkedin.com/in/luis-adolfo-araujo-703a721aa/) (Back-End);
+* [Samuel Isaac de Melo Magalhães](https://www.linkedin.com/in/isaacmagl/) (Front-End);
+
 ## What is the project?
   
 A website that operates as a landslide risk notifier, relying on a database that must be able to be feed by a pluviometric artefact and by information pertaining to the calculation of landslide risk. **In this first iteration and for the purposes of the Foundations of Software Engineering class, we will be utilizing a local database that works only with manual input of data, without the use of the pluviometric artefact.**
