@@ -6,17 +6,84 @@ from django.views.generic import ListView
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth import logout, authenticate, login
-from django.core.exceptions import PermissionDenied
 from django.contrib.auth.decorators import user_passes_test
 
 
 from .forms import *
 from .models import *
 
+from django.http import FileResponse
+import io
+from reportlab.pdfgen import canvas
+from reportlab.lib.units import inch
+from reportlab.lib.pagesizes import letter
+
+
+
+def EncostaGeneratePDf(request, pk):
+  buf = io.BytesIO()
+  c = canvas.Canvas(buf, pagesize=letter, bottomup=0)
+  textob = c.beginText()
+  textob.setTextOrigin(inch, 2.5 * inch)
+  textob.setFont("Helvetica", 14)
+  encostas = Encosta.objects.get(id=pk)
+
+  c.setFillColorRGB(0, 0, 0)
+  c.setFont("Helvetica-Bold", 16)
+  c.drawCentredString(300, 100, "Relatório de Risco de Deslizamento de Encosta")
+
+  c.setFont("Helvetica", 14)
+  c.drawCentredString(300, 125, "Dados do Relatório Encosta: " + encostas.nome)
+
+
+  c.setFillColorRGB(0, 0.75, 0)
+  c.setFont("Helvetica-Bold", 20)
+  c.drawCentredString(100, 50, "Rootts")
+
+  if encostas.prioridadeEncosta == 'Baixo':
+    c.setFillColorRGB(0, 0.75, 0)
+    c.drawCentredString(500, 50, "Baixa")
+  elif encostas.prioridadeEncosta == 'Médio':
+    c.setFillColorRGB(1, 0.75, 0)
+    c.drawCentredString(500, 50, "Média")
+  elif encostas.prioridadeEncosta == 'Alto':
+    c.setFillColorRGB(1, 0, 0)
+    c.drawCentredString(500, 50, "Alta")
+  elif encostas.prioridadeEncosta == 'Crítico':
+    c.setFillColorRGB(1, 0, 0)
+    c.drawCentredString(500, 50, "Crítica")
+  elif encostas.prioridadeEncosta == 'Muito Baixa':
+    c.setFillColorRGB(0, 0, 0)
+    c.drawCentredString(500, 50, "Muito Baixa")
+
+  c.setFillColorRGB(0, 0, 0)
+
+
+  lines = []
+
+  lines.append("Endereço: " + str(encostas.local))
+  lines.append("Latitude: " + str(encostas.latitude))
+  lines.append("Longitude: " + str(encostas.longitude))
+  lines.append("Declividade: " + str(encostas.declividade))
+  lines.append("Coeficiente de Umidade: " + str(encostas.coeficienteUmidade))
+  lines.append("Número de Construções por m²: " + str(encostas.numeroConstrucoes))
+  lines.append("Proximidade de Redes Viarias por m²: " + str(encostas.proximidadeRedeViarias))
+  lines.append("Proximidade de Corpos Liquidos por m²: " + str(encostas.proximidadeCorposLiquidos))
+
+  for i in lines:
+    textob.textLine(i)
+  
+  c.drawText(textob)
+  c.showPage()
+  c.save()
+  buf.seek(0)
+
+  return FileResponse(buf, as_attachment=True, filename='Encosta_' + str(encostas.id) + '.pdf')
+
+
 
 def IndexView(request):
   return render(request, 'index.html')
-
 
 @login_required(login_url='/login/')
 @user_passes_test(lambda u: u.is_engineer, login_url='/login/')

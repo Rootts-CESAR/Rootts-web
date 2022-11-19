@@ -245,6 +245,10 @@ describe(`Validate Rootts APP`, () => {
       cy.get('.btn-primary').should("be.visible").and("have.text", "Salvar").click()
     })
 
+    it("Validar Baixar Relatorio", () => {
+      cy.xpath(`(//a[contains(@class, 'Relatorio-Encosta')])[1]`).should("be.visible");
+    })
+
     it("Validar Adicionar Encosta", () => {
       cy.get('.btn').should("be.visible").and("have.text", "Adicionar encosta").click()
 

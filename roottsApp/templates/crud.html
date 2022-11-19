@@ -38,11 +38,12 @@
                         <td>{{ encosta.local }}</td>
                         <td>
                             <a class="btn-sm btn-success" style="text-decoration:none;" href="{% url 'view_encosta' encosta.pk %}">Visualizar</a>
-                        </td>
-                        <td class="buttons">
-                            <a class="btn-sm btn-warning" style="text-decoration:none;color:white;"; href="{% url 'upd_encosta' encosta.pk %}">Editar</a>
-                            <a class="btn-sm btn-danger" style="text-decoration:none;" href="{% url 'del_encosta' encosta.pk %}">Excluir</a>
-                        </td>
+                        </td>                            
+                            <td class="buttons">
+                                <a class="btn-sm btn-warning" style="text-decoration:none;color:white;"; href="{% url 'upd_encosta' encosta.pk %}">Editar</a>
+                                <a class="btn-sm btn-danger" style="text-decoration:none;" href="{% url 'del_encosta' encosta.pk %}">Excluir</a>
+                                <a class="btn-sm btn-info Relatorio-Encosta" style="text-decoration:none;" href="{% url 'encosta_pdf' encosta.pk %}">Baixar PDF</a>
+                            </td>
                     </tr>
                 {% endfor %}
         </table>

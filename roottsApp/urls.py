@@ -25,6 +25,7 @@ urlpatterns = [
     path('deleteForm/<int:pk>/',  DeleteformView, name='del_reporte'),
     path('risco/', RiscoView, name='risco'),
     path('risco/search/', RiscoSearchView.as_view(), name='search_risco'),
+    path('encosta/pdf/<int:pk>', EncostaGeneratePDf, name='encosta_pdf'),
 ]
 handler404 = "roottsApp.views.error_404_view"
 handler404 = "roottsApp.views.error_401_view"
