@@ -4,7 +4,7 @@
 
 * [Arthur Hendrich Alencar de Menezes](https://www.linkedin.com/in/arthur-hendrich-b30885153/) (Full Stack);
 * [Rafael Martins Falk](https://www.linkedin.com/in/rafael-falk/) (Líder Front-End);
-* [Letícia de Albuquerque S. Leitão](https://www.linkedin.com/in/leticialevleitao/);
+* [Letícia de Albuquerque S. Leitão](https://www.linkedin.com/in/leticialevleitao/) (Product Designer);
 * [Lucas Duarte Freitas Rocha](https://www.linkedin.com/in/lucas-rocha-603683246/) (Líder Back-End);
 * [Davi Aleixo Carvalho](https://www.linkedin.com/in/davi-aleixo-548b55b8/) (Engenheiro DevOps);
 * [Matheus Vilaverde Lazzarotto](https://www.linkedin.com/in/matheus-lazzarotto/) (Engenheiro DevOps auxiliar);
@@ -72,7 +72,7 @@ Frontend:
 ## Team:
 
 * [Arthur Hendrich Alencar de Menezes](https://www.linkedin.com/in/arthur-hendrich-b30885153/) (Full Stack);
-* [Letícia de Albuquerque S. Leitão](https://www.linkedin.com/in/leticialevleitao/);
+* [Letícia de Albuquerque S. Leitão](https://www.linkedin.com/in/leticialevleitao/) (Product Designer);
 * [Rafael Martins Falk](https://www.linkedin.com/in/rafael-falk/) (Lead Front-End);
 * [Lucas Duarte Freitas Rocha](https://www.linkedin.com/in/lucas-rocha-603683246/) (Lead Back-End);
 * [Davi Aleixo Carvalho](https://www.linkedin.com/in/davi-aleixo-548b55b8/) (DevOps Engineer);
