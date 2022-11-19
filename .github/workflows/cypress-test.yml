@@ -25,6 +25,9 @@ jobs:
         python manage.py runserver &
     - name: Checkout
       uses: actions/checkout@v2
+    - name: Download node_modules
+      run: |
+        yarn
     - name: Run Cypress Tests
       uses: cypress-io/github-action@v4
       with:
