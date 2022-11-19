@@ -1,52 +1,79 @@
-{% extends 'base.html' %}
-{% load bootstrap4 %} {% load static %}
-{% load humanize %}
-{% block content %}
+{% extends 'base.html' %} {% load bootstrap4 %} {% load static %} {% load
+humanize %} {% block content %}
 
-    <div class="text-light center">
-        <h3 style="margin-left: 15px;">
-            Gerenciamento de Encostas
-        </h3>
-        <a href="{% url 'add_encosta' %}" class="btn btn-outline-success" style="margin-right: 15px;">Adicionar encosta</a>
+<div class="text-light center">
+  <h3 style="margin-left: 15px">Gerenciamento de Encostas</h3>
+  <a
+    href="{% url 'add_encosta' %}"
+    class="btn btn-outline-success"
+    style="margin-right: 15px"
+    >Adicionar encosta</a
+  >
+</div>
+<div class="search">
+  <form action="{% url 'search_crud' %}" method="get">
+    {% csrf_token %}
+    <div class="search-box">
+      <input
+        type="search"
+        name="q"
+        id="form12"
+        placeholder="Pesquisar Encosta"
+      />
+      <button type="submit">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
     </div>
-        <div class="search">
-            <form  action="{% url 'search_crud' %}" method="get">
-                {% csrf_token %}
-                <div class="search-box">
-                    <input type="search" name="q" id="form12" placeholder="Pesquisar Encosta"/> 
-                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </div>
-            </form>
-        </div>
+  </form>
+</div>
 
-
-    <div class=" all text-light">
-        <table class="crud table-striped table-dark">
-          <thead>
-            <tr class="head">
-                <th scope="col">Numero</th>
-                <th scope="col"  class="margin-td">Nome</th>
-                <th scope="col">Local</th>
-                <th scope="col">Informações</th>
-                <th scope="col"  class="margin-td2">Ação</th>
-            </tr>
-          </thead>
-                {% for encosta in encostas %}
-                    <tr>
-                        <td>{{ encosta.id }}</td>
-                        <td>{{ encosta.nome }}</td>
-                        <td>{{ encosta.local }}</td>
-                        <td>
-                            <a class="btn-sm btn-success" style="text-decoration:none;" href="{% url 'view_encosta' encosta.pk %}">Visualizar</a>
-                        </td>                            
-                            <td class="buttons">
-                                <a class="btn-sm btn-warning" style="text-decoration:none;color:white;"; href="{% url 'upd_encosta' encosta.pk %}">Editar</a>
-                                <a class="btn-sm btn-danger" style="text-decoration:none;" href="{% url 'del_encosta' encosta.pk %}">Excluir</a>
-                                <a class="btn-sm btn-info Relatorio-Encosta" style="text-decoration:none;" href="{% url 'encosta_pdf' encosta.pk %}">Baixar PDF</a>
-                            </td>
-                    </tr>
-                {% endfor %}
-        </table>
-
-    </div>
+<div class="all text-light">
+  <table class="crud table-striped table-dark">
+    <thead>
+      <tr class="head">
+        <th scope="col">Id</th>
+        <th scope="col" class="margin-td">Nome</th>
+        <th scope="col">Local</th>
+        <th scope="col">Informações</th>
+        <th scope="col" class="margin-td2">Ação</th>
+      </tr>
+    </thead>
+    {% for encosta in encostas %}
+    <tr>
+      <td>{{ encosta.id }}</td>
+      <td>{{ encosta.nome }}</td>
+      <td>{{ encosta.local }}</td>
+      <td>
+        <a
+          class="btn-sm btn-success"
+          style="text-decoration: none"
+          href="{% url 'view_encosta' encosta.pk %}"
+          >Visualizar</a
+        >
+      </td>
+      <td class="buttons">
+        <a
+          class="btn-sm btn-warning"
+          style="text-decoration: none; color: white"
+          ;
+          href="{% url 'upd_encosta' encosta.pk %}"
+          ><i class="fa-solid fa-pencil"></i
+        ></a>
+        <a
+          class="btn-sm btn-danger"
+          style="text-decoration: none"
+          href="{% url 'del_encosta' encosta.pk %}"
+          ><i class="fa-solid fa-trash"></i
+        ></a>
+        <a
+          class="btn-sm btn-info Relatorio-Encosta"
+          style="text-decoration: none"
+          href="{% url 'encosta_pdf' encosta.pk %}"
+          ><i class="fa-solid fa-download"></i
+        ></a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
 {% endblock %}
