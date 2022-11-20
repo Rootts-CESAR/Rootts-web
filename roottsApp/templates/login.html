@@ -10,95 +10,95 @@
     
     <title>Rootts - Login</title>
 <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        background-color: #15171b;
-      }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    background-color: #15171b;
+  }
 
-      #logo {
-        color: #4fdb0d;
-        font-size: 1.5rem;
-        margin-left: 5rem;
-        transition: ease 0.5s;
-      }
-
-      #logo:hover {
-        font-size: 1.5rem;
-        margin-left: 5.5rem;
-        transition: ease 0.5s;
-      }
-/* #logintext{
-  color:white;
-  margin-top:-70px;
-  margin-left:770px;
-  position:absolute
-}
-/* #slogan{
-  display: flex;
-  margin-top: 10rem;
-  padding-left: 5rem;
-  padding-right: 5rem;
-} */
-#image{
-  width:300px;
-}
-#painel{
-  width: 18rem;
-  background-color: #272727;
-  border-radius: 15px;
-}
-#forgpass{
-  border: none;
-  background-color: inherit;
-  padding: 0px 2px;
-  font-size: 13px;
-  cursor: pointer;
-  display: inline-block;
-  color:green;
-}
-#textaccount{
-  color:white;
-  border: none;
-  background-color: inherit;
-  padding: 0px 2px;
-  font-size: 13px;
-}
-#btnregister{
-  border: none;
-  background-color: inherit;
-  padding: 0px 4px 3px;
-  font-size: 13px;
-  cursor: pointer;
-  display: inline-block;
-  color:green;
-}
-.container{
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  height: 85vh;
-}
-.text{
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
-.form-group {
+  #logo {
+    color: #4fdb0d;
+    font-size: 1.5rem;
+    margin-left: 5rem;
+    transition: ease 0.5s;
+  }
+  
+  #logo:hover {
+    font-size: 1.5rem;
+    margin-left: 6.5rem;
+    transition: ease 0.5s;
+  }
+  /* #logintext{
+    color:white;
+    margin-top:-70px;
+    margin-left:770px;
+    position:absolute
+  }
+  /* #slogan{
+    display: flex;
+    margin-top: 10rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+  } */
+  #image{
+    width:300px;
+  }
+  #painel{
+    width: 18rem;
+    background-color: #272727;
+    border-radius: 15px;
+  }
+  #forgpass{
+    border: none;
+    background-color: inherit;
+    padding: 0px 2px;
+    font-size: 13px;
+    cursor: pointer;
+    display: inline-block;
+    color:green;
+  }
+  #textaccount{
+    color:white;
+    border: none;
+    background-color: inherit;
+    padding: 0px 2px;
+    font-size: 13px;
+  }
+  #btnregister{
+    border: none;
+    background-color: inherit;
+    padding: 0px 4px 3px;
+    font-size: 13px;
+    cursor: pointer;
+    display: inline-block;
+    color:green;
+  }
+  .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    height: 100vh;
+  }
+  .text{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .form-group {
     position: relative;
     padding: 15px 0px 0px 0px;
     width: 300px;
     max-width: 100%;
     transition: all 300ms ease-in-out;
-}
+  }
 
-.form-group input {
+  .form-group input {
     border: none;
     border-bottom: 1px solid white;
     background-color: transparent;
@@ -108,9 +108,9 @@
     font-size: 16px;
     padding: 10px 0px;
     width: 100%;
-}
+  }
 
-.form-group label {
+  .form-group label {
     color: white;
     font-size: 16px;
     font-weight: 100;
@@ -120,50 +120,70 @@
     pointer-events: none;
     transform: translateY(30px);
     transition: all 300ms ease-in-out;
-}
-.form-group input:valid,
-.form-group input:focus {
+  }
+  .form-group input:valid,
+  .form-group input:focus {
     border-bottom-color: green;
     transition: all 300ms ease-in-out;
     outline: none;
-}
+  }
 
-.form-group input:valid + label,
-.form-group input:focus + label {
+  .form-group input:valid + label,
+  .form-group input:focus + label {
     color: green;
     font-size: 14px;
     transform: translateY(0);
     transition: all 300ms ease-in-out;
-}
-.register-text{
-  display: flex;
-  padding-top: 10px;
-  text-align: center;
-  flex-wrap: wrap;
-}
-.register-text a{
-  text-decoration: none; 
-  color: greenyellow;
-  transition: all 300ms ease-in-out;
-}
-.register-text a:hover{
-  color: green;
-}
+  }
+  .register-text{
+    display: flex;
+    padding-top: 10px;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+  .register-text a{
+    text-decoration: none; 
+    color: greenyellow;
+    transition: all 300ms ease-in-out;
+  }
+  .register-text a:hover{
+    color: green;
+  }
+  .nav{
+    position: absolute;
+    width: 100vw;
+    top: 0;
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    padding: 20px 10px 10px 10px;
+  }
+  .nav h5{
+    margin-right: 5rem;
+  } 
+  @media (max-width:900px) {
+    #logo{
+      margin-left: 0;
+    }
+    .nav h5{
+      margin-right: 0;
+    }
+    .left{
+      margin-top: 30px;
+      
+    }
+  }
 </style>
 </head>
 
 <body>
-    <nav
-        class="navbar navbar-dark"
-        style="padding: 1rem; background-color: #111113;"
-      >
-        <a class="navbar-brand" href="{% url 'index' %}" id="logo">
-          <img src="{% static "roottsapp/images/roottst.png" %}" alt="rootts" id="image" style="width:120px;" />
-        </a>
-        <ul class="nav" style="margin-right: 5rem">
-          <h5 class="text-light" style="margin-top: 10px;">Olá, usuário</h5>
-        </ul>
-      </nav>
+  <nav class="nav">
+    <a href="{% url 'index' %}" id="logo">
+        <img src="{% static "roottsapp/images/roottst.png" %}" alt="rootts" id="image" style="width:120px;" />
+    </a>
+    <h5 class="text-light">Olá, usuário</h5>
+</nav>
       <div class="main-content">  
         <div class="container" id="slogan">
             <div class="left text-light font-weight-bold text" style="max-width: 300px;" >

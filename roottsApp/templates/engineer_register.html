@@ -1,15 +1,94 @@
-{% extends 'base.html' %}
-{% load bootstrap4 %}
-{% load crispy_forms_tags %}
-{% block content %}
-<form action="" method="post" autocomplete="off" class="text-light">
-    {% csrf_token %}
-    {% bootstrap_form form %}
-    {% buttons %}
+{% load bootstrap4 %} {% load crispy_forms_tags %}{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rootts</title>
+    {% bootstrap_css %}
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #15171b;
+      }
+
+      #logo {
+        color: #4fdb0d;
+        font-size: 1.5rem;
+        margin-left: 5rem;
+        transition: ease 0.5s;
+      }
+
+      #logo:hover {
+        font-size: 1.5rem;
+        margin-left: 6.5rem;
+        transition: ease 0.5s;
+      }
+      .main-content {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      form {
+        width: fit-content;
+        padding: 15px;
+        box-shadow: 0 0 10px 0px #4fdb0d;
+        border: 1px solid #4fdb0d;
+        border-radius: 10px;
+      }
+      .nav {
+        position: absolute;
+        width: 100vw;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        padding: 20px 10px 10px 10px;
+      }
+      .nav h5 {
+        margin-right: 5rem;
+      }
+      @media (max-width: 900px) {
+        #logo {
+          margin-left: 0;
+        }
+        .nav h5 {
+          margin-right: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    {% block content %}
+    <nav class="nav">
+      <a href="{% url 'index' %}" id="logo">
+        <img src="{% static "roottsapp/images/roottst.png" %}" alt="rootts"
+        id="image" style="width:120px;" />
+      </a>
+      <h5 class="text-light">Olá, engenheiro</h5>
+    </nav>
+    <div class="main-content">
+      <form action="" method="post" autocomplete="off" class="text-light">
+        {% csrf_token %} {% bootstrap_form form %} {% buttons %}
         <button type="submit" class="btn btn-primary">Salvar</button>
         <button type="button" class="btn btn-warning">
-            <a style="color:white;text-decoration:none;"href="{% url 'crud' %}">Cancelar</a>
+          <a
+            style="color: white; text-decoration: none"
+            href="{% url 'login' %}"
+            >Cancelar</a
+          >
         </button>
-    {% endbuttons %}
-</form>
-{% endblock %}
+        {% endbuttons %}
+      </form>
+    </div>
+    {% endblock %}
+  </body>
+</html>

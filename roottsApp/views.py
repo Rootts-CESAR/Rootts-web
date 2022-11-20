@@ -1,26 +1,109 @@
 from django.views.generic import CreateView
 from django.shortcuts import render, redirect
+from django.db.models import Q
+from django.views.generic import ListView
 
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth import logout, authenticate, login
-from django.core.exceptions import PermissionDenied
 from django.contrib.auth.decorators import user_passes_test
 
 
 from .forms import *
 from .models import *
 
+from django.http import FileResponse
+import io
+from reportlab.pdfgen import canvas
+from reportlab.lib.units import inch
+from reportlab.lib.pagesizes import letter
+
+
+
+def EncostaGeneratePDf(request, pk):
+  buf = io.BytesIO()
+  c = canvas.Canvas(buf, pagesize=letter, bottomup=0)
+  textob = c.beginText()
+  textob.setTextOrigin(inch, 2.5 * inch)
+  textob.setFont("Helvetica", 14)
+  encostas = Encosta.objects.get(id=pk)
+
+  c.setFillColorRGB(0, 0, 0)
+  c.setFont("Helvetica-Bold", 16)
+  c.drawCentredString(300, 100, "Relatório de Risco de Deslizamento de Encosta")
+
+  c.setFont("Helvetica", 14)
+  c.drawCentredString(300, 125, "Dados do Relatório Encosta: " + encostas.nome)
+
+
+  c.setFillColorRGB(0, 0.75, 0)
+  c.setFont("Helvetica-Bold", 20)
+  c.drawCentredString(100, 50, "Rootts")
+
+  if encostas.prioridadeEncosta == 'Baixo':
+    c.setFillColorRGB(0, 0.75, 0)
+    c.drawCentredString(500, 50, "Baixa")
+  elif encostas.prioridadeEncosta == 'Médio':
+    c.setFillColorRGB(1, 0.75, 0)
+    c.drawCentredString(500, 50, "Média")
+  elif encostas.prioridadeEncosta == 'Alto':
+    c.setFillColorRGB(1, 0, 0)
+    c.drawCentredString(500, 50, "Alta")
+  elif encostas.prioridadeEncosta == 'Crítico':
+    c.setFillColorRGB(1, 0, 0)
+    c.drawCentredString(500, 50, "Crítica")
+  elif encostas.prioridadeEncosta == 'Muito Baixa':
+    c.setFillColorRGB(0, 0, 0)
+    c.drawCentredString(500, 50, "Muito Baixa")
+
+  c.setFillColorRGB(0, 0, 0)
+
+
+  lines = []
+
+  lines.append("Endereço: " + str(encostas.local))
+  lines.append("Latitude: " + str(encostas.latitude))
+  lines.append("Longitude: " + str(encostas.longitude))
+  lines.append("Declividade: " + str(encostas.declividade))
+  lines.append("Coeficiente de Umidade: " + str(encostas.coeficienteUmidade))
+  lines.append("Número de Construções por m²: " + str(encostas.numeroConstrucoes))
+  lines.append("Proximidade de Redes Viarias por m²: " + str(encostas.proximidadeRedeViarias))
+  lines.append("Proximidade de Corpos Liquidos por m²: " + str(encostas.proximidadeCorposLiquidos))
+
+  for i in lines:
+    textob.textLine(i)
+  
+  c.drawText(textob)
+  c.showPage()
+  c.save()
+  buf.seek(0)
+
+  return FileResponse(buf, as_attachment=True, filename='Encosta_' + str(encostas.id) + '.pdf')
+
+
 
 def IndexView(request):
   return render(request, 'index.html')
-
 
 @login_required(login_url='/login/')
 @user_passes_test(lambda u: u.is_engineer, login_url='/login/')
 def EncostaView(request):
   encostas = Encosta.objects.all()
   return render(request, 'crud.html', {'encostas': encostas})
+
+
+class EncostaSearchView(ListView):
+  model = Encosta
+  template_name = 'crud.html'
+  context_object_name = 'encostas'
+
+  def get_queryset(self):
+    query = self.request.GET.get('q')
+    object_list = Encosta.objects.filter(
+      Q(nome__icontains=query) | Q(local__icontains=query)
+    )
+
+    return object_list
 
 
 @login_required(login_url='/login/')
@@ -149,6 +232,21 @@ def logout_view(request):
 
 def EngenheiroFormView(request):
   forms = Formulario_denuncia.objects.all()
+  if request.method == "POST":
+    # Get list of checked box id's
+    id_list = request.POST.getlist('boxes')
+
+    # Uncheck all events
+    forms.update(aprovado=False)
+
+    # Update the database
+    for x in id_list:
+      Formulario_denuncia.objects.filter(pk=int(x)).update(aprovado=True)
+  
+    # Show Success Message and Redirect
+    return render(request, 'aprovados.html', {'forms':forms})
+  else:
+    return render(request, 'engineerFormulario.html', {'forms':forms})
   return render(request, 'engineerFormulario.html', {'forms':forms})
 
 def DescricaoView(request,pk):
@@ -167,3 +265,16 @@ def DeleteformView(request, pk):
 def RiscoView(request):
   encostas = Encosta.objects.all()
   return render(request, 'risco_deslizamento.html', {'encostas': encostas})
+
+class RiscoSearchView(ListView):
+  model = Encosta
+  template_name = 'risco_deslizamento.html'
+  context_object_name = 'encostas'
+
+  def get_queryset(self):
+    query = self.request.GET.get('q')
+    object_list = Encosta.objects.filter(
+      Q(nome__icontains=query) | Q(local__icontains=query) | Q(prioridadeEncosta__icontains=query)
+    )
+
+    return object_list
