@@ -183,7 +183,7 @@ describe(`Validate Rootts APP`, () => {
         .and('be.visible')
         .click();
 
-      cy.get('[style="margin-left: 15px;"]').should('be.visible');
+      cy.xpath(`//div[contains(@class, 'text-light center')]//h3`).should('be.visible');
       cy.get(':nth-child(1) > :nth-child(4) > .btn-sm')
         .should('exist')
         .and('be.visible');
