@@ -57,19 +57,19 @@ humanize %} {% block content %}
           style="text-decoration: none; color: white"
           ;
           href="{% url 'upd_encosta' encosta.pk %}"
-          ><i class="fa-solid fa-pencil"></i
+          >Editar <i class="fa-solid fa-pencil"></i
         ></a>
         <a
           class="btn-sm btn-danger"
           style="text-decoration: none"
           href="{% url 'del_encosta' encosta.pk %}"
-          ><i class="fa-solid fa-trash"></i
+          >Remover <i class="fa-solid fa-trash"></i
         ></a>
         <a
           class="btn-sm btn-info Relatorio-Encosta"
           style="text-decoration: none"
           href="{% url 'encosta_pdf' encosta.pk %}"
-          ><i class="fa-solid fa-download"></i
+          >PDF <i class="fa-solid fa-download"></i
         ></a>
       </td>
     </tr>
