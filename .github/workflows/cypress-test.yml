@@ -2,7 +2,7 @@ name: Cypress Tests
 on: [push]
 jobs:
   cypress-run:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python 3.9
@@ -32,5 +32,9 @@ jobs:
       uses: cypress-io/github-action@v4
       with:
         start: yarn run cypress run
+        wait-on: 'http://localhost:8000'
+        wait-on-timeout: 60
+
+
       
     
